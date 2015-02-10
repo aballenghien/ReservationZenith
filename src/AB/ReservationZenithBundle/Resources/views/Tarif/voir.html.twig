@@ -1,0 +1,30 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}ABReservationZenithBundle:Tarif:voir{% endblock %}
+
+{% block body %}
+<h1>Welcome to the Tarif:voir page</h1>
+	
+	{% for tarif in tarifs %}
+	<table>
+		<tr>
+			<td>Prix:</td>
+			<td>{{ tarif.prix }}</td>			
+		</tr>
+		<tr>
+			<td>Numéros des places concernés par le tarif: XXX-XXX</td>
+			<td>{{ tarif.numsPlacesConcernees }}</td>			
+		</tr>
+		<tr>
+			<td>Spectacle:</td>
+			<td>{{ tarif.spectacle }}</td>			
+		</tr>				
+		<tr>
+			<td><a href="{{path('modifier_tarif',{'id':tarif.id})}}">modifier</a></td>
+			<td><a href="{{path('tarif_tarif',{'id':tarif.id})}}">Détails</a></td>
+			<td><a href="{{path('tarif_tarif',{'id':tarif.id})}}">supprimer</a></td>
+		</tr>
+	</table>
+	{% endfor %}
+	
+{% endblock %}

@@ -1,0 +1,87 @@
+ab_reservation_zenith_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: ABReservationZenithBundle:Default:index }
+
+##spectacle
+index_spectacle:
+    path:     spectacle/index
+    defaults: { _controller: ABReservationZenithBundle:Spectacle:index }
+
+ajouter_spectacle:
+    path:     spectacle/ajouter
+    defaults: { _controller: ABReservationZenithBundle:Spectacle:ajouter }
+
+voir_spectacle:
+    path:     spectacle/voir/{id}
+    defaults: { _controller: ABReservationZenithBundle:Spectacle:voir,id:0 }
+
+modifier_spectacle:
+    path:     spectacle/modifier/{id}
+    defaults: { _controller: ABReservationZenithBundle:Spectacle:modifier }
+    
+supprimer_spectacle:
+    path:     /spectacle/supprimer/{id}
+    defaults: { _controller: ABReservationZenithBundle:Spectacle:supprimer }
+
+##seance
+index_seance:
+    path:     /seance/index
+    defaults: { _controller: ABReservationZenithBundle:Seance:index }
+
+ajouter_seance:
+    path:     /seance/ajouter
+    defaults: { _controller: ABReservationZenithBundle:Seance:ajouter }
+
+modifier_seance:
+    path:     /seance/modifier/{id}
+    defaults: { _controller: ABReservationZenithBundle:Seance:modifier }
+
+voir_seance:
+    path:     /seance/voir/{id}
+    defaults: { _controller: ABReservationZenithBundle:Seance:voir, id:0  }
+
+supprimer_seance:
+    path:     /seance/supprimer/{id}
+    defaults: { _controller: ABReservationZenithBundle:Seance:supprimer }
+
+#tarif
+index_tarif:
+    path:     /tarif/index
+    defaults: { _controller: ABReservationZenithBundle:Tarif:index }
+
+ajouter_tarif:
+    path:     /tarif/ajouter
+    defaults: { _controller: ABReservationZenithBundle:Tarif:ajouter }
+
+voir_tarif:
+    path:     /tarif/voir/{id}
+    defaults: { _controller: ABReservationZenithBundle:Tarif:voir,id:0  }
+
+modifier_tarif:
+    path:     /tarif/modifier/{id}
+    defaults: { _controller: ABReservationZenithBundle:Tarif:modifier }
+
+supprimer_tarif:
+    path:     /tarif/supprimer/{id}
+    defaults: { _controller: ABReservationZenithBundle:Tarif:supprimer }
+
+##reservation
+index_reservation:
+    path:     /reservation/index
+    defaults: { _controller: ABReservationZenithBundle:Reservation:index }
+
+ajouter_reservation:
+    path:     /reservation/ajouter
+    defaults: { _controller: ABReservationZenithBundle:Reservation:ajouter }
+
+voir_reservation:
+    path:     /reservation/voir/{id}
+    defaults: { _controller: ABReservationZenithBundle:Reservation:voir,id:0  }
+
+modifier_reservation:
+    path:     /reservation/modifier/{id}
+    defaults: { _controller: ABReservationZenithBundle:Reservation:modifier }
+
+supprimer_reservation:
+    path:     /reservation/supprimer/{id}
+    defaults: { _controller: ABReservationZenithBundle:Reservation:supprimer }

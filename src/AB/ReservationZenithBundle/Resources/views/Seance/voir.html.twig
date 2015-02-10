@@ -1,0 +1,38 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}ABReservationZenithBundle:Seance:voir{% endblock %}
+
+{% block body %}
+<h1>Welcome to the Spectacle:voir page</h1>
+	
+	{% for seance in seances %}
+	<table>
+		<tr>
+			<td>Heure:</td>
+			<td>{{ seance.heure}}</td>			
+		</tr>
+		<tr>
+			<td>Date:</td>
+			<td>{{ seance.date}}</td>			
+		</tr>
+		<tr>
+			<td>Nombre de places:</td>
+			<td>{{ seance.nombreDePlaces}}</td>			
+		</tr>
+		<tr>
+			<td>Nombre de Places Restantes:</td>
+			<td>{{ seance.nombrePlacesRestantes}}</td>			
+		</tr>
+		<tr>
+			<td>Spectacle:</td>
+			<td>{{ seance.spectacle}}</td>			
+		</tr>		
+		<tr>
+			<td><a href="{{path('modifier_seance',{'id':seance.id})}}">modifier</a></td>
+			<td><a href="{{path('voir_seance',{'id':seance.id})}}">Détails</a></td>
+			<td><a href="{{path('supprimer_seance',{'id':seance.id})}}">supprimer</a></td>
+		</tr>
+	</table>
+	{% endfor %}
+	
+{% endblock %}

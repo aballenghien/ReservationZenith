@@ -1,0 +1,18 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}ABReservationZenithBundle:Spectacle:voir{% endblock %}
+
+{% block body %}
+<h1>Welcome to the Spectacle:voir page</h1>
+	<table>
+	{% for spectacle in spectacles %}
+		<tr>
+			<td>titre :</td>
+			<td>{{ spectacle.titre }}</td>
+			<td><a href="{{path('modifier_spectacle',{'id':spectacle.id})}}">modifier</a></td>
+			<td><a href="{{path('voir_spectacle',{'id':spectacle.id})}}">Détails</a></td>
+			<td><a href="{{path('supprimer_spectacle',{'id':spectacle.id})}}">supprimer</a></td>
+			</tr>
+	{% endfor %}
+	</table>
+{% endblock %}

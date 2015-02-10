@@ -1,0 +1,192 @@
+<?php
+
+namespace AB\ReservationZenithBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Seance
+ *
+ * @ORM\Table()
+ * @ORM\Entity(repositoryClass="AB\ReservationZenithBundle\Entity\SeanceRepository")
+ */
+class Seance
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="heure", type="time")
+     */
+    private $heure;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="date", type="date")
+     */
+    private $date;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="nombreDePlaces", type="integer")
+     */
+    private $nombreDePlaces;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="nombrePlacesRestantes", type="integer")
+     */
+    private $nombrePlacesRestantes;
+	
+	/**
+     * @ORM\ManyToOne(targetEntity="Spectacle")
+     * @ORM\JoinColumn(name="spectacle_id", referencedColumnName="id")
+     **/
+	private $spectacle;
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set heure
+     *
+     * @param \DateTime $heure
+     * @return Seance
+     */
+    public function setHeure($heure)
+    {
+        $this->heure = $heure;
+
+        return $this;
+    }
+
+    /**
+     * Get heure
+     *
+     * @return \DateTime 
+     */
+    public function getHeure()
+    {
+        return $this->heure;
+    }
+
+    /**
+     * Set date
+     *
+     * @param \DateTime $date
+     * @return Seance
+     */
+    public function setDate($date)
+    {
+        $this->date = $date;
+
+        return $this;
+    }
+
+    /**
+     * Get date
+     *
+     * @return \DateTime 
+     */
+    public function getDate()
+    {
+        return $this->date;
+    }
+
+    /**
+     * Set nombreDePlaces
+     *
+     * @param integer $nombreDePlaces
+     * @return Seance
+     */
+    public function setNombreDePlaces($nombreDePlaces)
+    {
+        $this->nombreDePlaces = $nombreDePlaces;
+
+        return $this;
+    }
+
+    /**
+     * Get nombreDePlaces
+     *
+     * @return integer 
+     */
+    public function getNombreDePlaces()
+    {
+        return $this->nombreDePlaces;
+    }
+
+    /**
+     * Set nombrePlacesRestantes
+     *
+     * @param integer $nombrePlaceRestantes
+     * @return Seance
+     */
+    public function setNombrePlacesRestantes($nombrePlacesRestantes)
+    {
+        $this->nombrePlacesRestantes = $nombrePlacesRestantes;
+
+        return $this;
+    }
+
+    /**
+     * Get nombrePlacesRestantes
+     *
+     * @return integer 
+     */
+    public function getNombresPlaceRestantes()
+    {
+        return $this->nombresPlaceRestantes;
+    }
+
+    /**
+     * Get nombrePlacesRestantes
+     *
+     * @return integer 
+     */
+    public function getNombrePlacesRestantes()
+    {
+        return $this->nombrePlacesRestantes;
+    }
+
+    /**
+     * Set spectacle
+     *
+     * @param \AB\ReservationZenithBundle\Entity\Spectacle $spectacle
+     * @return Seance
+     */
+    public function setSpectacle(\AB\ReservationZenithBundle\Entity\Spectacle $spectacle = null)
+    {
+        $this->spectacle = $spectacle;
+
+        return $this;
+    }
+
+    /**
+     * Get spectacle
+     *
+     * @return \AB\ReservationZenithBundle\Entity\Spectacle 
+     */
+    public function getSpectacle()
+    {
+        return $this->spectacle;
+    }
+}
