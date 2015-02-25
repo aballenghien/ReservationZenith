@@ -59,7 +59,7 @@ class SpectacleController extends Controller
 			$em->persist($spectacle);
 			$em->flush($spectacle);
 			$id = $spectacle->getId();
-			return $this->redirect($this->get('router')->generate('voir',array('id'=>0)));
+			return $this->redirect($this->get('router')->generate('voir_spectacle',array('id'=>0)));
 		}
         return $this->render('ABReservationZenithBundle:Spectacle:modifier.html.twig', array(
         'form'=>$form->createView()

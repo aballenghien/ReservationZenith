@@ -9,23 +9,23 @@
 	<table>
 		<tr>
 			<td>Heure:</td>
-			<td>{{ seance.heure}}</td>			
+			<td>{{ seance.heure|date('H:i')}}</td>			
 		</tr>
 		<tr>
 			<td>Date:</td>
-			<td>{{ seance.date}}</td>			
+			<td>{{ seance.date|date('d/m/Y') }}</td>			
 		</tr>
 		<tr>
 			<td>Nombre de places:</td>
-			<td>{{ seance.nombreDePlaces}}</td>			
+			<td>{{ seance.nombreDePlaces }}</td>			
 		</tr>
 		<tr>
 			<td>Nombre de Places Restantes:</td>
-			<td>{{ seance.nombrePlacesRestantes}}</td>			
+			<td>{{ seance.nombrePlacesRestantes }}</td>			
 		</tr>
 		<tr>
 			<td>Spectacle:</td>
-			<td>{{ seance.spectacle}}</td>			
+			<td>{{ seance.spectacle }}</td>			
 		</tr>		
 		<tr>
 			<td><a href="{{path('modifier_seance',{'id':seance.id})}}">modifier</a></td>

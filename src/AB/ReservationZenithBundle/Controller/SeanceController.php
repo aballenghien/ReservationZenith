@@ -34,7 +34,7 @@ class SeanceController extends Controller
     public function modifierAction($id)
     {
         $em = $this->getDoctrine()->getManager();
-        $spectacle = $em->getRepository('ABReservationZenithBundle:Seance')->findOneById($id);
+        $seance = $em->getRepository('ABReservationZenithBundle:Seance')->findOneById($id);
 		$form = $this->createForm(new SeanceType(), $seance);
 		$form->handleRequest($this->getRequest());
 		if($form->isValid()){
@@ -42,7 +42,7 @@ class SeanceController extends Controller
 			$em->persist($seance);
 			$em->flush($seance);
 			$id = $seance->getId();
-			return $this->redirect($this->get('router')->generate('voir',array('id'=>0)));
+			return $this->redirect($this->get('router')->generate('voir_seance',array('id'=>0)));
 		}
         return $this->render('ABReservationZenithBundle:Seance:modifier.html.twig', array(
         'form'=>$form->createView()
@@ -66,7 +66,7 @@ class SeanceController extends Controller
     public function supprimerAction($id)
     {
         $em = $this->getDoctrine()->getManager();
-        $spectacle = $em->getRepository('ABReservationZenithBundle:Seance')->findOneById($id);
+        $seance = $em->getRepository('ABReservationZenithBundle:Seance')->findOneById($id);
         $em->remove($seance);
         $em->flush();
         $seances = $em->getRepository('ABReservationZenithBundle:Seance')->findAll();		

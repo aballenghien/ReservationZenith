@@ -35,7 +35,7 @@ class reservationController extends Controller
         $em = $this->getDoctrine()->getManager();
 		$reservations = array();
 		if($id != 0){
-			$tarif = $em->getRepository('ABReservationZenithBundle:Reservation')->findOneById($id);
+			$reservation = $em->getRepository('ABReservationZenithBundle:Reservation')->findOneById($id);
 			array_push($reservations,$reservation);
 		}else{
 			$reservations = $em->getRepository('ABReservationZenithBundle:Reservation')->findAll();
@@ -48,7 +48,7 @@ class reservationController extends Controller
     public function modifierAction($id)
     {
         $em = $this->getDoctrine()->getManager();
-        $tarif = $em->getRepository('ABReservationZenithBundle:Reservation')->findOneById($id);
+        $reservation = $em->getRepository('ABReservationZenithBundle:Reservation')->findOneById($id);
 		$form = $this->createForm(new ReservationType(), $reservation);
 		$form->handleRequest($this->getRequest());
 		if($form->isValid()){
@@ -65,13 +65,14 @@ class reservationController extends Controller
     public function supprimerAction($id)
     {
         $em = $this->getDoctrine()->getManager();
-        $reservation = $em->getRepository('ABReservationZenithBundle:Tarif')->findOneById($id);
+        $reservation = $em->getRepository('ABReservationZenithBundle:Reservation')->findOneById($id);
         $em->remove($reservation);
         $em->flush();
-        $tarifs = $em->getRepository('ABReservationZenithBundle:Reservation')->findAll();		
+        $reservations = $em->getRepository('ABReservationZenithBundle:Reservation')->findAll();		
 			
         return $this->render('ABReservationZenithBundle:Reservation:voir.html.twig', array(
         'reservations'=>$reservations
-            ));     }
+            ));     
+            }
 
 }

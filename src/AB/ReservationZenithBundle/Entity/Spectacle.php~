@@ -27,6 +27,21 @@ class Spectacle
      * @ORM\Column(name="titre", type="string", length=50)
      */
     private $titre;
+    
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="genre", type="string", length=50)
+     */
+    private $genre;
+    
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="duree", type="integer", length=3)
+     */
+    private $duree;
+    
 
 
     /**

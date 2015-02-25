@@ -119,4 +119,8 @@ class Tarif
     {
         return $this->spectacle;
     }
+    
+    public function __toString(){
+		return strval($this->prix);
+	}
 }

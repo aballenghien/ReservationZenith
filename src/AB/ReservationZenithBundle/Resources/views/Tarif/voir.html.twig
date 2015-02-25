@@ -12,7 +12,7 @@
 			<td>{{ tarif.prix }}</td>			
 		</tr>
 		<tr>
-			<td>Numéros des places concernés par le tarif: XXX-XXX</td>
+			<td>Numéros des places concernés par le tarif:</td>
 			<td>{{ tarif.numsPlacesConcernees }}</td>			
 		</tr>
 		<tr>
@@ -21,8 +21,8 @@
 		</tr>				
 		<tr>
 			<td><a href="{{path('modifier_tarif',{'id':tarif.id})}}">modifier</a></td>
-			<td><a href="{{path('tarif_tarif',{'id':tarif.id})}}">Détails</a></td>
-			<td><a href="{{path('tarif_tarif',{'id':tarif.id})}}">supprimer</a></td>
+			<td><a href="{{path('voir_tarif',{'id':tarif.id})}}">Détails</a></td>
+			<td><a href="{{path('supprimer_tarif',{'id':tarif.id})}}">supprimer</a></td>
 		</tr>
 	</table>
 	{% endfor %}

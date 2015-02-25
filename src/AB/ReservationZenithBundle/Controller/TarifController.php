@@ -49,14 +49,14 @@ class TarifController extends Controller
     {
 		$em = $this->getDoctrine()->getManager();
         $tarif = $em->getRepository('ABReservationZenithBundle:Tarif')->findOneById($id);
-		$form = $this->createForm(new SpectacleType(), $spectacle);
+		$form = $this->createForm(new TarifType(), $tarif);
 		$form->handleRequest($this->getRequest());
 		if($form->isValid()){
-			$spectacle = $form->getData();
+			$tarif = $form->getData();
 			$em->persist($tarif);
 			$em->flush();
 			$id = $tarif->getId();
-			return $this->redirect($this->get('router')->generate('voir',array('id'=>0)));
+			return $this->redirect($this->get('router')->generate('voir_tarif',array('id'=>0)));
 		}
         return $this->render('ABReservationZenithBundle:Tarif:modifier.html.twig', array(
         'form'=>$form->createView()
@@ -71,7 +71,7 @@ class TarifController extends Controller
         $tarifs = $em->getRepository('ABReservationZenithBundle:Tarif')->findAll();		
 			
         return $this->render('ABReservationZenithBundle:Tarif:voir.html.twig', array(
-        'starifs'=>$tarifs
+        'tarifs'=>$tarifs
             ));    }
 
 }

@@ -189,4 +189,8 @@ class Seance
     {
         return $this->spectacle;
     }
+    
+    public function __toString (){
+		return $this->spectacle->getTitre().": ".$this->getHeure()->format('H:i');
+	}
 }

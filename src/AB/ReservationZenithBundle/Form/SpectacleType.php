@@ -16,6 +16,8 @@ class SpectacleType extends AbstractType
     {
         $builder
             ->add('titre')
+            ->add('genre')
+            ->add('duree')
         ;
     }
     

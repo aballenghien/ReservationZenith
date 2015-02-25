@@ -27,6 +27,21 @@ class Spectacle
      * @ORM\Column(name="titre", type="string", length=50)
      */
     private $titre;
+    
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="genre", type="string", length=50)
+     */
+    private $genre;
+    
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="duree", type="integer", length=3)
+     */
+    private $duree;
+    
 
 
     /**
@@ -65,4 +80,50 @@ class Spectacle
     public function __toString(){
 		return $this->titre;
 	}
+
+    /**
+     * Set genre
+     *
+     * @param string $genre
+     * @return Spectacle
+     */
+    public function setGenre($genre)
+    {
+        $this->genre = $genre;
+
+        return $this;
+    }
+
+    /**
+     * Get genre
+     *
+     * @return string 
+     */
+    public function getGenre()
+    {
+        return $this->genre;
+    }
+
+    /**
+     * Set duree
+     *
+     * @param integer $duree
+     * @return Spectacle
+     */
+    public function setDuree($duree)
+    {
+        $this->duree = $duree;
+
+        return $this;
+    }
+
+    /**
+     * Get duree
+     *
+     * @return integer 
+     */
+    public function getDuree()
+    {
+        return $this->duree;
+    }
 }
