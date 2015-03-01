@@ -6,6 +6,10 @@
                 <source>Symfony2 is great</source>
                 <target>J'aime Symfony2</target>
             </trans-unit>
+            <trans-unit id="2">
+                <source>intervalle.place.tarif</source>
+                <target>Intervalle de places concernées par le tarif : </target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

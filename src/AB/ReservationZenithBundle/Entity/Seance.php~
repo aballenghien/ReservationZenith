@@ -35,12 +35,7 @@ class Seance
      */
     private $date;
 
-    /**
-     * @var integer
-     *
-     * @ORM\Column(name="nombreDePlaces", type="integer")
-     */
-    private $nombreDePlaces;
+    
 
     /**
      * @var integer
@@ -111,28 +106,7 @@ class Seance
         return $this->date;
     }
 
-    /**
-     * Set nombreDePlaces
-     *
-     * @param integer $nombreDePlaces
-     * @return Seance
-     */
-    public function setNombreDePlaces($nombreDePlaces)
-    {
-        $this->nombreDePlaces = $nombreDePlaces;
-
-        return $this;
-    }
-
-    /**
-     * Get nombreDePlaces
-     *
-     * @return integer 
-     */
-    public function getNombreDePlaces()
-    {
-        return $this->nombreDePlaces;
-    }
+    
 
     /**
      * Set nombrePlacesRestantes
@@ -189,4 +163,8 @@ class Seance
     {
         return $this->spectacle;
     }
+    
+    public function __toString (){
+		return $this->spectacle->getTitre().": ".$this->getHeure()->format('H:i');
+	}
 }

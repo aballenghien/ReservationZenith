@@ -37,8 +37,8 @@ modifier_seance:
     defaults: { _controller: ABReservationZenithBundle:Seance:modifier }
 
 voir_seance:
-    path:     /seance/voir/{id}
-    defaults: { _controller: ABReservationZenithBundle:Seance:voir, id:0  }
+    path:     /seance/voir/{id_spectacle}/{id}
+    defaults: { _controller: ABReservationZenithBundle:Seance:voir, id:0, id_spectacle:0 }
 
 supprimer_seance:
     path:     /seance/supprimer/{id}
@@ -54,8 +54,8 @@ ajouter_tarif:
     defaults: { _controller: ABReservationZenithBundle:Tarif:ajouter }
 
 voir_tarif:
-    path:     /tarif/voir/{id}
-    defaults: { _controller: ABReservationZenithBundle:Tarif:voir,id:0  }
+    path:     /tarif/voir/{id_spectacle}/{id}
+    defaults: { _controller: ABReservationZenithBundle:Tarif:voir,id:0, id_spectacle:0 }
 
 modifier_tarif:
     path:     /tarif/modifier/{id}

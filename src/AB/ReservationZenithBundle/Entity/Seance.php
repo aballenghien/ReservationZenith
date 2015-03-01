@@ -35,12 +35,7 @@ class Seance
      */
     private $date;
 
-    /**
-     * @var integer
-     *
-     * @ORM\Column(name="nombreDePlaces", type="integer")
-     */
-    private $nombreDePlaces;
+    
 
     /**
      * @var integer
@@ -50,7 +45,7 @@ class Seance
     private $nombrePlacesRestantes;
 	
 	/**
-     * @ORM\ManyToOne(targetEntity="Spectacle")
+     * @ORM\ManyToOne(targetEntity="Spectacle", inversedBy="seances")
      * @ORM\JoinColumn(name="spectacle_id", referencedColumnName="id")
      **/
 	private $spectacle;
@@ -111,33 +106,12 @@ class Seance
         return $this->date;
     }
 
-    /**
-     * Set nombreDePlaces
-     *
-     * @param integer $nombreDePlaces
-     * @return Seance
-     */
-    public function setNombreDePlaces($nombreDePlaces)
-    {
-        $this->nombreDePlaces = $nombreDePlaces;
-
-        return $this;
-    }
-
-    /**
-     * Get nombreDePlaces
-     *
-     * @return integer 
-     */
-    public function getNombreDePlaces()
-    {
-        return $this->nombreDePlaces;
-    }
+    
 
     /**
      * Set nombrePlacesRestantes
      *
-     * @param integer $nombrePlaceRestantes
+     * @param integer $nombrePlacesRestantes
      * @return Seance
      */
     public function setNombrePlacesRestantes($nombrePlacesRestantes)
@@ -147,15 +121,7 @@ class Seance
         return $this;
     }
 
-    /**
-     * Get nombrePlacesRestantes
-     *
-     * @return integer 
-     */
-    public function getNombresPlaceRestantes()
-    {
-        return $this->nombresPlaceRestantes;
-    }
+
 
     /**
      * Get nombrePlacesRestantes

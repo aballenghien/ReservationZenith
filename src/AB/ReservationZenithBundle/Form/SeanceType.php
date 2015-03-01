@@ -17,9 +17,7 @@ class SeanceType extends AbstractType
         $builder
             ->add('heure')
             ->add('date')
-            ->add('nombreDePlaces')
-            ->add('nombrePlacesRestantes')
-            ->add('spectacle')
+            ->add('nombrePlacesRestantes');
         ;
     }
     

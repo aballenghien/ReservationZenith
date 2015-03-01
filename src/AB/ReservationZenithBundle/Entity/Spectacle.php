@@ -3,6 +3,7 @@
 namespace AB\ReservationZenithBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * Spectacle
@@ -42,8 +43,30 @@ class Spectacle
      */
     private $duree;
     
+	/**
+     * @var integer
+     *
+     * @ORM\Column(name="nombreDePlaces", type="integer")
+     */
+    private $nombreDePlaces;
+    
+    /**
+     * @ORM\OneToMany(targetEntity="Seance",mappedBy="spectacle", cascade={"persist"})
+     **/
+     private $seances;
+     
+     /**
+     * @ORM\OneToMany(targetEntity="Tarif",mappedBy="spectacle", cascade={"persist"})
+     **/
+     private $tarifs;
 
 
+
+	public function __construct()
+	{
+		$this->tarifs = new ArrayCollection();
+		$this->seances = new ArrayCollection();
+	}
     /**
      * Get id
      *
@@ -125,5 +148,80 @@ class Spectacle
     public function getDuree()
     {
         return $this->duree;
+    }
+
+    /**
+     * Set nombreDePlaces
+     *
+     * @param integer $nombreDePlaces
+     * @return Spectacle
+     */
+    public function setNombreDePlaces($nombreDePlaces)
+    {
+        $this->nombreDePlaces = $nombreDePlaces;
+
+        return $this;
+    }
+
+    /**
+     * Get nombreDePlaces
+     *
+     * @return integer 
+     */
+    public function getNombreDePlaces()
+    {
+        return $this->nombreDePlaces;
+    }
+    
+    /**
+     * Set tarifs
+     *
+     * @param ArrayCollection $tarifs
+     * @return Spectacle
+     */
+    public function setTarifs(ArrayCollection $tarifs)
+    {
+        foreach($tarifs as $tarif){
+            $tarif->setSpectacle($this);
+        }
+        $this->tarifs = $tarifs;
+
+        return $this;
+    }
+
+    /**
+     * Get tarifs
+     *
+     * @return ArrayCollection 
+     */
+    public function getTarifs()
+    {
+        return $this->tarifs;
+    }
+    
+    /**
+     * Set seances
+     *
+     * @param ArrayCollection $seances
+     * @return Spectacle
+     */
+    public function setSeances(ArrayCollection $seances)
+    {
+        foreach($seances as $seance){
+            $seance->setSpectacle($this);
+        }
+        $this->seances = $seances;
+
+        return $this;
+    }
+
+    /**
+     * Get seances
+     *
+     * @return ArrayCollection 
+     */
+    public function getSeances()
+    {
+        return $this->seances;
     }
 }

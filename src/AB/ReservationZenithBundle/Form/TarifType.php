@@ -17,10 +17,8 @@ class TarifType extends AbstractType
         $builder
             ->add('prix',null,array(
 				'label'=> 'Prix : ' ))
-			->add('NumsPlacesConcernees','number')
-			->add('NumsPlacesConcernees','number')
-            ->add('spectacle',null,array(
-				'label'=> 'Titre du spectacle : ' ))
+			->add('numeroPlaceMin','integer')
+			->add('numeroPlaceMax','integer');
         ;
     }
     

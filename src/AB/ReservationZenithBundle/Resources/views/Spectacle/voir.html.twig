@@ -1,4 +1,4 @@
-{% extends "::base.html.twig" %}
+{% extends "ABReservationZenithBundle::layout.html.twig" %}
 
 {% block title %}ABReservationZenithBundle:Spectacle:voir{% endblock %}
 
@@ -12,6 +12,8 @@
 			<td><a href="{{path('modifier_spectacle',{'id':spectacle.id})}}">modifier</a></td>
 			<td><a href="{{path('voir_spectacle',{'id':spectacle.id})}}">Détails</a></td>
 			<td><a href="{{path('supprimer_spectacle',{'id':spectacle.id})}}">supprimer</a></td>
+			<td><a href="{{path('voir_tarif',{'id_spectacle':spectacle.id})}}">voir les tarifs associés</a></td>
+			<td><a href="{{path('voir_seance',{'id_spectacle':spectacle.id})}}">voir les Séances</a></td>
 			</tr>
 	{% endfor %}
 	</table>

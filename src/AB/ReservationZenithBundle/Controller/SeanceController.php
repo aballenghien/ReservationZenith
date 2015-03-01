@@ -5,6 +5,7 @@ namespace AB\ReservationZenithBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use AB\ReservationZenithBundle\Form\SeanceType;
 use AB\ReservationZenithBundle\Entity\Seance;
+use AB\ReservationZenithBundle\Entity\Spectacle;
 
 class SeanceController extends Controller
 {
@@ -48,20 +49,47 @@ class SeanceController extends Controller
         'form'=>$form->createView()
             ));    }
 
-    public function voirAction($id)
+    public function voirAction($id_spectacle,$id)
     {
         $em = $this->getDoctrine()->getManager();
 		$seances = array();
-		if($id != 0){
-			$seance = $em->getRepository('ABReservationZenithBundle:Seance')->findOneById($id);
-			array_push($seances,$seance);
-		}else{
-			$seances = $em->getRepository('ABReservationZenithBundle:Seance')->findAll();
-		}
+        if($id_spectacle != 0)
+        {
+           
+            $spectacle = $em->getRepository('ABReservationZenithBundle:Spectacle')->findOneById($id_spectacle);
+            if(!$spectacle){
+                throw $this->createNotFoundException('Spectacle inexistant avec l\' id :'.$id_spectacle.$spectacle);
+            }
+            $seances = $em->getRepository('ABReservationZenithBundle:Seance')->findBySpectacle($spectacle);
+            if($id != 0)
+            {
+                $text = 'une seance';
+                foreach($seances as $e)
+                {
+                    if($seance->id == $id)
+                    {
+                        $seance = $e;
+                    }
+
+                }
+                if($seance)
+                {
+                    $seances = array();
+                    array_push($seances,$seance);               }
+            }
+        }else{
+    		if($id != 0){
+    			$seance = $em->getRepository('ABReservationZenithBundle:Seance')->findOneById($id);
+    			array_push($seances,$seance);
+    		}else{
+    			$seances = $em->getRepository('ABReservationZenithBundle:Seance')->findAll();
+    		}
+        }
 			
         return $this->render('ABReservationZenithBundle:Seance:voir.html.twig', array(
         'seances'=>$seances
-            ));    }
+            ));    
+    }
 
     public function supprimerAction($id)
     {

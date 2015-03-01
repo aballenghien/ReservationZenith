@@ -18,7 +18,19 @@ class SpectacleType extends AbstractType
             ->add('titre')
             ->add('genre')
             ->add('duree')
-        ;
+            ->add('nombreDePlaces')
+            ->add('seances','collection', array(
+            'type'=>new SeanceType(),
+            'allow_add'=>true,
+            'allow_delete'=>true,
+            'by_reference'=>false))
+            ->add('tarifs','collection', array(
+            'type'=>new TarifType(),
+            'allow_add'=>true,
+            'allow_delete'=>true,
+            'by_reference'=>false))
+            ;
+        
     }
     
     /**

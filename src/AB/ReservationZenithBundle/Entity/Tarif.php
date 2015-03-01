@@ -3,6 +3,8 @@
 namespace AB\ReservationZenithBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Mapping\ClassMetadata;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Tarif
@@ -30,14 +32,21 @@ class Tarif
     private $prix;
 
     /**
-     * @var string
+     * @var integer
      *
-     * @ORM\Column(name="NumsPlacesConcernees", type="string", length=10)
+     * @ORM\Column(name="numeroPlaceMin", type="integer", length=4)
      */
-    private $numsPlacesConcernees;
+    private $numeroPlaceMin;
+    
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="numeroPlaceMax", type="integer", length=4)
+     */
+    private $numeroPlaceMax;
 
 	/**
-     * @ORM\ManyToOne(targetEntity="Spectacle")
+     * @ORM\ManyToOne(targetEntity="Spectacle", inversedBy="tarifs")
      * @ORM\JoinColumn(name="spectacle_id", referencedColumnName="id")
      **/
      private $spectacle;
@@ -75,27 +84,29 @@ class Tarif
     }
 
     /**
-     * Set numsPlacesConcernees
+     * Set numeroPlaceMin
      *
-     * @param string $numsPlacesConcernees
+     * @param string $numeroPlaceMin
      * @return Tarif
      */
-    public function setNumsPlacesConcernees($numsPlacesConcernees)
+    public function setNumeroPlaceMin($numeroPlaceMin)
     {
-        $this->numsPlacesConcernees = $numsPlacesConcernees;
+        $this->numeroPlaceMin = $numeroPlaceMin;
 
         return $this;
     }
 
     /**
-     * Get numsPlacesConcernees
+     * Get numeroPlaceMin
      *
      * @return string 
      */
-    public function getNumsPlacesConcernees()
+    public function getNumeroPlaceMin()
     {
-        return $this->numsPlacesConcernees;
+        return $this->numeroPlaceMin;
     }
+    
+    
 
     /**
      * Set spectacle
@@ -123,4 +134,52 @@ class Tarif
     public function __toString(){
 		return strval($this->prix);
 	}
+
+    /**
+     * Set numeroPlaceMax
+     *
+     * @param integer $numeroPlaceMax
+     * @return Tarif
+     */
+    public function setNumeroPlaceMax($numeroPlaceMax)
+    {
+        $this->numeroPlaceMax = $numeroPlaceMax;
+
+        return $this;
+    }
+    //fonction pour placer le champ minimal à la dernière place non attribué
+    //faire validator pour que le numéro de la dernière place ne dépasse pas le nombre de place du spectacle
+    private function retournerIntervallePlaceNonAttribuee()
+    {
+		$maxPlaces = 0;
+		$em = $this->getEntityManager();
+		$queryBuilder = $em->createQueryBuilder()
+				->select('t')
+				->from($this->_entityName,'t')
+				->where('t.spectacle_id = :id')
+				->setParameter('id',$this->getSpectacle()->getId());
+		$result = $queryBuilder->getQuery()->getResult();
+				
+		foreach ($result as $res){
+			if($res->getNumeroPlaceMax > $max){
+				$maxPlaces = $res->getNumeroPlaceMax;
+			}
+			
+		}
+		return ($maxPlaces+1);
+	}
+
+    /**
+     * Get numeroPlaceMax
+     *
+     * @return integer 
+     */
+    public function getNumeroPlaceMax()
+    {
+        return $this->numeroPlaceMax;
+    }
+
+    
+    
+     
 }

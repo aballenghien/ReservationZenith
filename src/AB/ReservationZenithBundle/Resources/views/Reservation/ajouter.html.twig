@@ -1,9 +1,10 @@
-{% extends "::base.html.twig" %}
+{% extends "::ABReservationZenithBundleABReservationZenithBundle:::layout.html.twig" %}
 
 {% block title %}ABReservationZenithBundle:Réservation:ajouter{% endblock %}
 
 {% block body %}
 <h1>Welcome to the Réservation:ajouter page</h1>
+formualire valide: {{valid}}
 <form action="{{path('ajouter_reservation')}}" method="post" {{form_enctype(form)}}>
 	{{form_widget(form)}}
 	<input type="submit" />

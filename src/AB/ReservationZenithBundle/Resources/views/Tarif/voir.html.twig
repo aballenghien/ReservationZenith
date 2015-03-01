@@ -1,4 +1,4 @@
-{% extends "::base.html.twig" %}
+{% extends "ABReservationZenithBundle::layout.html.twig" %}
 
 {% block title %}ABReservationZenithBundle:Tarif:voir{% endblock %}
 
@@ -13,7 +13,7 @@
 		</tr>
 		<tr>
 			<td>Numéros des places concernés par le tarif:</td>
-			<td>{{ tarif.numsPlacesConcernees }}</td>			
+			<td>{{ tarif.numeroPlaceMin }} -- {{ tarif.numeroPlaceMax }}</td>			
 		</tr>
 		<tr>
 			<td>Spectacle:</td>

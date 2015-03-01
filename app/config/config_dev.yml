@@ -26,6 +26,8 @@ monolog:
 
 assetic:
     use_controller: true
-
+fos_user:
+    firewall_name: main
+    user_class: AB\ReservationZenithBundle\Entity\User
 #swiftmailer:
 #    delivery_address: me@example.com

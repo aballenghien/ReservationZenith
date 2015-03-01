@@ -1,10 +1,9 @@
-{% extends "::base.html.twig" %}
+{% extends "ABReservationZenithBundle::layout.html.twig" %}
 
 {% block title %}ABReservationZenithBundle:Seance:voir{% endblock %}
 
 {% block body %}
 <h1>Welcome to the Spectacle:voir page</h1>
-	
 	{% for seance in seances %}
 	<table>
 		<tr>
@@ -14,10 +13,6 @@
 		<tr>
 			<td>Date:</td>
 			<td>{{ seance.date|date('d/m/Y') }}</td>			
-		</tr>
-		<tr>
-			<td>Nombre de places:</td>
-			<td>{{ seance.nombreDePlaces }}</td>			
 		</tr>
 		<tr>
 			<td>Nombre de Places Restantes:</td>
