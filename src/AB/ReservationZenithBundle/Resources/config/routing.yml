@@ -1,22 +1,26 @@
+##standard user
 ab_reservation_zenith_homepage:
-    path:     /hello/{name}
+    path:     /accueil-zenith
     defaults: { _controller: ABReservationZenithBundle:Default:index }
-
+##admin
+backoffice_homepage:
+    path:     /backoffice
+    defaults: {_controller:ABReservationZenithBundle:Default:backoffice }
 ##spectacle
 index_spectacle:
-    path:     spectacle/index
+    path:     /spectacle/index
     defaults: { _controller: ABReservationZenithBundle:Spectacle:index }
 
 ajouter_spectacle:
-    path:     spectacle/ajouter
+    path:     /spectacle/ajouter
     defaults: { _controller: ABReservationZenithBundle:Spectacle:ajouter }
 
 voir_spectacle:
-    path:     spectacle/voir/{id}
+    path:     /spectacle/voir/{id}
     defaults: { _controller: ABReservationZenithBundle:Spectacle:voir,id:0 }
 
 modifier_spectacle:
-    path:     spectacle/modifier/{id}
+    path:     /spectacle/modifier/{id}
     defaults: { _controller: ABReservationZenithBundle:Spectacle:modifier }
     
 supprimer_spectacle:

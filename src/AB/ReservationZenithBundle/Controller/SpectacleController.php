@@ -10,6 +10,7 @@ use AB\ReservationZenithBundle\Entity\Tarif;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 use Doctrine\Common\Collections\ArrayCollection;
+use JMS\SecurityExtraBundle\Annotation\Secure;
 
 class SpectacleController extends Controller
 {
@@ -19,6 +20,9 @@ class SpectacleController extends Controller
                 // ...
             ));    }
 
+/**
+* @Secure(roles="ROLE_ADMIN")
+*/
     public function ajouterAction(Request $request)
     {
 		$em = $this->getDoctrine()->getManager();
@@ -57,7 +61,9 @@ class SpectacleController extends Controller
         'spectacles'=>$spectacles
             ));    
 	}
-
+/**
+* @Secure(roles="ROLE_ADMIN")
+*/
     public function modifierAction(Request $request, $id)
     {
         $em = $this->getDoctrine()->getManager();
@@ -102,6 +108,10 @@ class SpectacleController extends Controller
         'form'=>$form->createView()
             ));
 	}
+
+/**
+* @Secure(roles="ROLE_ADMIN")
+*/
 	public function supprimerAction($id)
     {
 		$em = $this->getDoctrine()->getManager();

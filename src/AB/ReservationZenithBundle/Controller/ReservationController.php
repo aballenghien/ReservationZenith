@@ -5,6 +5,7 @@ namespace AB\ReservationZenithBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use AB\ReservationZenithBundle\Form\ReservationType;
 use AB\ReservationZenithBundle\Entity\Reservation;
+use JMS\SecurityExtraBundle\Annotation\Secure;
 
 class reservationController extends Controller
 {
@@ -62,6 +63,9 @@ class reservationController extends Controller
         'form'=>$form->createView()
             ));    }
 
+/**
+* @Secure(roles="ROLE_ADMIN")
+*/
     public function supprimerAction($id)
     {
         $em = $this->getDoctrine()->getManager();
