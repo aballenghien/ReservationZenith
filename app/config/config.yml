@@ -71,4 +71,7 @@ swiftmailer:
 fos_user:
     db_driver: orm 
     firewall_name: main
-    user_class: AB\ReservationZenithBundle\Entity\User
+    user_class: AB\ConnexionBundle\Entity\User
+    registration:
+        form: 
+            type: ab_connexion_registration

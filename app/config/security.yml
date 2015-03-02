@@ -41,7 +41,11 @@ security:
             form_login:
                 provider: fos_userbundle
                 csrf_provider: form.csrf_provider
-            logout:       true
+                success_handler: redirect.after.login
+            logout:
+                path:   /logout
+                target: /
+                success_handler: redirect.after.logout            
             anonymous:    true
     access_control:
         - { path: ^/demo/secured/hello/admin/, roles: ROLE_ADMIN }

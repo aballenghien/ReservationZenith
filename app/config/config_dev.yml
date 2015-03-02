@@ -28,6 +28,9 @@ assetic:
     use_controller: true
 fos_user:
     firewall_name: main
-    user_class: AB\ReservationZenithBundle\Entity\User
+    user_class: AB\ConnexionBundle\Entity\User
+    registration:
+        form: 
+            type: ab_connexion_registration
 #swiftmailer:
 #    delivery_address: me@example.com
