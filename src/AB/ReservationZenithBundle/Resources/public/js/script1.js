@@ -22,10 +22,10 @@ jQuery(document).ready(function() {
         e.preventDefault();
         addForm(collectionHolderTarifs, $newLinkDivTarif);
     });
-    collectionHolderSeances.find('<div>').each(function() {
+    $( "div[id='seance']" ).each(function() {
         addTagFormDeleteLink($(this));
     });
-    collectionHolderTarifs.find('<div>').each(function() {
+    $( "div[id='tarif']" ).each(function() {
         addTagFormDeleteLink($(this));
     });
 
@@ -38,9 +38,9 @@ function addForm(collectionHolder, $newLinkDiv) {
 
     // Remplace '__name__' dans le HTML du prototype par un nombre basé sur
     // la longueur de la collection courante
-    var newForm = prototype.replace(/__name__/g, collectionHolder.children().length);
+    var newForm = prototype.replace(/__name__/g,collectionHolder.children().length);
 
-    // Affiche le formulaire dans la page dans un li, avant le lien "ajouter un tag"
+    
     var $newFormDiv = $('<div></div>').append(newForm);
     $newLinkDiv.before($newFormDiv);
     addTagFormDeleteLink($newFormDiv);

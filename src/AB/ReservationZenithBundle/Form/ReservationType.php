@@ -38,6 +38,6 @@ class ReservationType extends AbstractType
      */
     public function getName()
     {
-        return 'ab_reservationzenithbundle_reservation';
+        return 'reservation';
     }
 }

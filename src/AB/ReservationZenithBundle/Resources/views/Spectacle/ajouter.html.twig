@@ -10,19 +10,25 @@
 		<p>{{ form_label(form.duree) }}:  {{ form_widget(form.duree) }}  {{form_errors(form.duree)}}</p>
 		<p>{{ form_label(form.genre) }}:  {{ form_widget(form.genre) }}  {{form_errors(form.genre)}}</p>
 		<p>{{ form_label(form.nombreDePlaces) }}:  {{ form_widget(form.nombreDePlaces) }}  {{form_errors(form.nombreDePlaces)}}</p>
+		<p>{{ form_label(form.commentaires) }}:  {{ form_widget(form.commentaires) }}  {{form_errors(form.commentaires)}}</p>
+		<p>{{ form_label(form.affiche) }}:  {{ form_widget(form.affiche) }}  {{form_errors(form.affiche)}}</p>
 	
 	</div>
-	<div id="seances" data-prototype="{{ form_widget(form.seances.vars.prototype)|e }}">
-	{% for seance in form.seances %}
-		<div>{{form_row(seance)}}</div>		
-	{% endfor %}
+	<div id="seances" data-prototype="
+	{% filter escape %}
+             {{ include('ABReservationZenithBundle:Seance:ajouter.html.twig', { 'form': form.seances.vars.prototype }) }}
+    {% endfilter %}">
+			
 	</div>
-	<div id="tarifs" data-prototype="{{ form_widget(form.tarifs.vars.prototype)|e }}">
-		{% for tarif in form.tarifs %}
-			<div>{{form_row(tarif)}}</div>			
-		{% endfor %}
+	<div id="tarifs" data-prototype="
+	{% filter escape %}
+             {{ include('ABReservationZenithBundle:Tarif:ajouter.html.twig', { 'form': form.tarifs.vars.prototype }) }}
+    {% endfilter %}">	
+		
 	</div>
-	<div hidden="true"/>{{form_rest(form)}}</div>
+	<div hidden="true"/>
+	{{form_rest(form)}}
+	</div>
 	<input type="submit" />
 </form>
 {% endblock %}

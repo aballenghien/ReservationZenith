@@ -1,11 +1,11 @@
-{% extends "ABReservationZenithBundle::layout.html.twig" %}
-
-{% block title %}ABReservationZenithBundle:Seance:ajouter{% endblock %}
-
-{% block body %}
-<h1>Welcome to the Seance:ajouter page</h1>
-<form action="{{path('ajouter_seance')}}" method="post" {{form_enctype(form)}}>
-	{{form_widget(form)}}
-	<input type="submit" />
-</form>
-{% endblock %}
+<div>
+	Séance n° __name__
+    <table>
+    	<tr><td>{{form_label(form.heure)}}</td><td>{{form_widget(form.heure)}}</td></tr>
+    	<tr><td>{{form_label(form.date)}}</td><td>{{form_widget(form.date)}}</td></tr>
+    	<tr><td>{{form_label(form.nombrePlacesRestantes)}}</td><td>{{form_widget(form.nombrePlacesRestantes)}}</td></tr>
+    </table>    
+	<div hidden="true"/>
+	{{form_rest(form)}}
+	</div>
+</div>

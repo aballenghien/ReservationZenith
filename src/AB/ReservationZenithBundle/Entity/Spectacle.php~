@@ -3,6 +3,7 @@
 namespace AB\ReservationZenithBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * Spectacle
@@ -48,6 +49,39 @@ class Spectacle
      * @ORM\Column(name="nombreDePlaces", type="integer")
      */
     private $nombreDePlaces;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="commentaires", type="string",length=500)
+     */
+    private $commentaires;
+
+        /**
+     * @var string
+     *
+     * @ORM\Column(name="affiche", type="string",length=250)
+     */
+    private $affiche;
+
+    /**
+     * @ORM\OneToMany(targetEntity="Seance",mappedBy="spectacle", cascade={"remove"})
+     **/
+     private $seances;
+     
+     /**
+     * @ORM\OneToMany(targetEntity="Tarif",mappedBy="spectacle", cascade={"remove"})
+     **/
+     private $tarifs;
+
+
+
+	public function __construct()
+	{
+		$this->tarifs = new ArrayCollection();
+		$this->seances = new ArrayCollection();
+	}
+
 
     /**
      * Get id
@@ -131,4 +165,80 @@ class Spectacle
     {
         return $this->duree;
     }
+
+    /**
+     * Set nombreDePlaces
+     *
+     * @param integer $nombreDePlaces
+     * @return Spectacle
+     */
+    public function setNombreDePlaces($nombreDePlaces)
+    {
+        $this->nombreDePlaces = $nombreDePlaces;
+
+        return $this;
+    }
+
+    /**
+     * Get nombreDePlaces
+     *
+     * @return integer 
+     */
+    public function getNombreDePlaces()
+    {
+        return $this->nombreDePlaces;
+    }
+    
+    /**
+     * Set tarifs
+     *
+     * @param ArrayCollection $tarifs
+     * @return Spectacle
+     */
+    public function setTarifs($tarifs)
+    {
+        foreach($tarifs as $tarif){
+            $tarif->setSpectacle($this);
+        }
+        $this->tarifs = $tarifs;
+
+        return $this;
+    }
+
+    /**
+     * Get tarifs
+     *
+     * @return ArrayCollection 
+     */
+    public function getTarifs()
+    {
+        return $this->tarifs;
+    }
+    
+    /**
+     * Set seances
+     *
+     * @param ArrayCollection $seances
+     * @return Spectacle
+     */
+    public function setSeances($seances)
+    {
+        foreach($seances as $seance){
+            $seance->setSpectacle($this);
+        }
+        $this->seances = $seances;
+
+        return $this;
+    }
+
+    /**
+     * Get seances
+     *
+     * @return ArrayCollection 
+     */
+    public function getSeances()
+    {
+        return $this->seances;
+    }
+
 }

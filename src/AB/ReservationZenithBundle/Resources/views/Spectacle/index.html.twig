@@ -3,5 +3,9 @@
 {% block title %}ABReservationZenithBundle:Spectacle:index{% endblock %}
 
 {% block body %}
-<h1>Welcome to the Spectacle:index page</h1>
+<h1>Gestion des spectacles</h1>
+<ul>
+	<li><a href="{{path('ajouter_spectacle')}}">Ajouter un nouveau spectacle</a></li>
+	<li><a href="{{path('voir_spectacle')}}">Voir les spectacles programmés</a>
+</ul>
 {% endblock %}

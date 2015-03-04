@@ -52,14 +52,17 @@ class SpectacleController extends Controller
 		$spectacles = array();
 		if($id != 0){
 			$spectacle = $em->getRepository('ABReservationZenithBundle:Spectacle')->findOneById($id);
-			array_push($spectacles,$spectacle);
+			return $this->render('ABReservationZenithBundle:Spectacle:details.html.twig', array(
+        'spectacle'=>$spectacle
+            ));   
 		}else{
 			$spectacles = $em->getRepository('ABReservationZenithBundle:Spectacle')->findAll();
+			 return $this->render('ABReservationZenithBundle:Spectacle:voir.html.twig', array(
+        'spectacles'=>$spectacles
+            ));
 		}
 			
-        return $this->render('ABReservationZenithBundle:Spectacle:voir.html.twig', array(
-        'spectacles'=>$spectacles
-            ));    
+           
 	}
 /**
 * @Secure(roles="ROLE_ADMIN")
@@ -67,7 +70,7 @@ class SpectacleController extends Controller
     public function modifierAction(Request $request, $id)
     {
         $em = $this->getDoctrine()->getManager();
-        $spectacle = $em->getRepository('ABReservationZenithBundle:Spectacle')->findOneById($id);
+        $spectacle = $em->getRepository('ABReservationZenithBundle:Spectacle')->find($id);
         if(!$spectacle){
         	throw $this->createNotFoundException('Aucun spectacle trouvé pour cet id');
         }
@@ -86,22 +89,25 @@ class SpectacleController extends Controller
 			$form->handleRequest($this->getRequest());
 			if($form->isValid()){
 				foreach ($originalsSeances as $seance ) {
-					if(!$spectacle->getSeances()->contains($seance))
-					{						
+					if(($spectacle->getSeances()->contains($seance)) == false)
+					{	
+																		
 						$em->remove($seance);
+						$em->flush();
+
 					}
 				}
 				foreach ($originalsTarifs as $tarif) {
-					if(!$spectacle->getTarifs()->contains($tarif))
+					if(($spectacle->getTarifs()->contains($tarif)) == false)
 					{
-						$tarif->getSpectacle()->removeElement($spectacle);
 						$em->remove($tarif);
+						$em->flush();
 					}
 				}
 				$em->persist($spectacle);
 				$em->flush($spectacle);
 				$id = $spectacle->getId();
-				return $this->redirect($this->get('router')->generate('voir_spectacle',array('id'=>0)));
+				return $this->redirect($this->get('router')->generate('voir_spectacle',array('id'=>$id)));
 			}
 		}
         return $this->render('ABReservationZenithBundle:Spectacle:modifier.html.twig', array(

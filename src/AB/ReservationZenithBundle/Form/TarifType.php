@@ -37,6 +37,6 @@ class TarifType extends AbstractType
      */
     public function getName()
     {
-        return 'ab_reservationzenithbundle_tarif';
+        return 'tarif';
     }
 }

@@ -45,7 +45,7 @@ class Seance
     private $nombrePlacesRestantes;
 	
 	/**
-     * @ORM\ManyToOne(targetEntity="Spectacle")
+     * @ORM\ManyToOne(targetEntity="Spectacle", inversedBy="seances")
      * @ORM\JoinColumn(name="spectacle_id", referencedColumnName="id")
      **/
 	private $spectacle;
@@ -111,7 +111,7 @@ class Seance
     /**
      * Set nombrePlacesRestantes
      *
-     * @param integer $nombrePlaceRestantes
+     * @param integer $nombrePlacesRestantes
      * @return Seance
      */
     public function setNombrePlacesRestantes($nombrePlacesRestantes)
@@ -121,15 +121,7 @@ class Seance
         return $this;
     }
 
-    /**
-     * Get nombrePlacesRestantes
-     *
-     * @return integer 
-     */
-    public function getNombresPlaceRestantes()
-    {
-        return $this->nombresPlaceRestantes;
-    }
+
 
     /**
      * Get nombrePlacesRestantes
