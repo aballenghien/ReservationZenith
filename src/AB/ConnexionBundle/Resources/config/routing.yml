@@ -1,0 +1,5 @@
+ab_connexion_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: ABConnexionBundle:Default:index }
+
+

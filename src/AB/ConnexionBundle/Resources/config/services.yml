@@ -1,0 +1,10 @@
+services:
+#    ab_connexion.example:
+#        class: AB\ConnexionBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]
+    redirect.after.login:
+        class: AB\ConnexionBundle\Redirection\AfterLoginRedirection
+        arguments: [@router]
+    redirect.after.logout:
+        class: AB\ConnexionBundle\Redirection\AfterLogoutRedirection
+        arguments: [@router, @security.context]
