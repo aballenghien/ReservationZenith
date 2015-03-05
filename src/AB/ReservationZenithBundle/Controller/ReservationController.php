@@ -15,6 +15,9 @@ class reservationController extends Controller
                 // ...
             ));    }
 
+/**
+* @Secure(roles="ROLE_ADMIN")
+*/
     public function ajouterAction()
     {
         $em = $this->getDoctrine()->getManager();
