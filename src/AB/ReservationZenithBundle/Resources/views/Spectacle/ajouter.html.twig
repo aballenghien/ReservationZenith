@@ -3,6 +3,7 @@
 {% block title %}{{ 'ajouter.spectacle'|trans }}{% endblock %}
 
 {% block body %}
+{{ parent () }}
 <h1>{{ 'ajouter.spectacle'|trans }}</h1>
 <form action="{{path('ajouter_spectacle')}}" method="post" {{form_enctype(form)}}>
 	<div id="spectacle">

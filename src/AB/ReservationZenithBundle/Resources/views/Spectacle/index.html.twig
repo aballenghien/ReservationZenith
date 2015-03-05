@@ -3,6 +3,7 @@
 {% block title %}{{ 'index.spectacle'|trans }}{% endblock %}
 
 {% block body %}
+{{ parent () }}
 <h1>{{ 'index.spectacle'|trans }}</h1>
 <ul>
 	<li><a href="{{path('ajouter_spectacle')}}">{{ 'ajouter.spectacle'|trans }}</a></li>

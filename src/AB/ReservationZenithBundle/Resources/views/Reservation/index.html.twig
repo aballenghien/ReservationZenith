@@ -3,6 +3,7 @@
 {% block title %}{{ 'pages.indexReservation'|trans }}{% endblock %}
 
 {% block body %}
+{{ parent () }}
 <h1>{{ 'index.reservation'|trans }}</h1>
 <ul>
 <li><a href="{{path('ajouter_reservation')}}">{{ 'ajouter.reservation'|trans }}</a>

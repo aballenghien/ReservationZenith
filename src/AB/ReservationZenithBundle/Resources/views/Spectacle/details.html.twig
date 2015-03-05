@@ -3,6 +3,7 @@
 {% block title %}{{ 'details.spectacle'|trans }}{% endblock %}
 
 {% block body %}
+{{ parent () }}
 <h1>{{ 'details.spectacle'|trans }}: {{spectacle.titre}}</h1>
 	<table>
 		<tr><td>{{ 'spectacleTrad.titre'|trans }} :</td><td>{{ spectacle.titre }}</td></tr>

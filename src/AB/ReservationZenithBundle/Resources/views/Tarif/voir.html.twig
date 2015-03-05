@@ -3,6 +3,7 @@
 {% block title %}{{ 'voir.tarif'|trans }}{% endblock %}
 
 {% block body %}
+{{ parent () }}
 <h1>{{ 'voir.tarifsSpectacle'|trans({'%spectacle%': tarifs[0].spectacle.titre}, "messages") }}</h1>
 	
 	{% for tarif in tarifs %}
@@ -20,9 +21,9 @@
 			<td>{{ tarif.spectacle }}</td>			
 		</tr>				
 		<tr>
-			<td><a href="{{path('modifier_tarif',{'id':tarif.id})}}">modifier</a></td>
-			<td><a href="{{path('voir_tarif',{'id':tarif.id})}}">Détails</a></td>
-			<td><a href="{{path('supprimer_tarif',{'id':tarif.id})}}">supprimer</a></td>
+			<td><a href="{{path('modifier_tarif',{'id':tarif.id})}}">{{ 'actionTrad.modifier'|trans }}</a></td>
+			<td><a href="{{path('voir_tarif',{'id':tarif.id})}}">{{ 'actionTrad.details'|trans }}</a></td>
+			<td><a href="{{path('supprimer_tarif',{'id':tarif.id})}}">{{ 'actionTrad.supprimer'|trans }}</a></td>
 		</tr>
 	</table>
 	{% endfor %}

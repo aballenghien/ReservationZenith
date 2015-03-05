@@ -3,6 +3,7 @@
 {% block title %}{{'modifier.reservation'|trans}}{% endblock %}
 
 {% block body %}
+{{ parent () }}
 <h1>{{'modifier.reservation'|trans}}</h1>
 <form action='' method="post" {{form_enctype(form)}}>
 	<table>

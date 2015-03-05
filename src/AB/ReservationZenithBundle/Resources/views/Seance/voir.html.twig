@@ -3,6 +3,7 @@
 {% block title %}{{ 'voir.seance'|trans }}{% endblock %}
 
 {% block body %}
+{{ parent () }}
 <h1>{{ 'voir.seancesSpectacle'|trans({'%spectacle%': seances[0].spectacle.titre}, "messages") }}</h1>
 	{% for seance in seances %}
 	<table>

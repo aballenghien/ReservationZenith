@@ -3,6 +3,7 @@
 {% block title %}{{ 'voir.reservation'|trans }}{% endblock %}
 
 {% block body %}
+{{ parent () }}
 <h1>{{ 'voir.reservation'|trans }}</h1>
 	<table>
 	{% for reservation in reservations %}

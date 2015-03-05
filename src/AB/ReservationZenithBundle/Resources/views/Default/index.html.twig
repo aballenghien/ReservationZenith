@@ -2,10 +2,7 @@
 {% block title %}{{'pages.accueilzenith'|trans}}{% endblock %}
 
 {% block body %}
+{{ parent () }}
 <h1>{{'pages.accueilzenith'|trans}}</h1>
-<div id="choixLangue">
-{% set currentPath = app.request.attributes.get('_route') %}
-	<a href="{{path('gestion_langue',{'locale':'en_US', 'vue':currentPath})}}" >{{'langue.anglais'|trans}}</a>
-	<a href="{{path('gestion_langue',{'locale':'fr_FR', 'vue':currentPath})}}" >{{'langue.francais'|trans}}</a>
-</div>
+
 {% endblock %}
