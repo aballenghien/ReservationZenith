@@ -1,11 +1,11 @@
 {% extends "ABReservationZenithBundle::layout.html.twig" %}
 
-{% block title %}ABReservationZenithBundle:Spectacle:index{% endblock %}
+{% block title %}{{ 'index.spectacle'|trans }}{% endblock %}
 
 {% block body %}
-<h1>Gestion des spectacles</h1>
+<h1>{{ 'index.spectacle'|trans }}</h1>
 <ul>
-	<li><a href="{{path('ajouter_spectacle')}}">Ajouter un nouveau spectacle</a></li>
-	<li><a href="{{path('voir_spectacle')}}">Voir les spectacles programmés</a>
+	<li><a href="{{path('ajouter_spectacle')}}">{{ 'ajouter.spectacle'|trans }}</a></li>
+	<li><a href="{{path('voir_spectacle')}}">{{ 'voir.listespectacles'|trans }}</a>
 </ul>
 {% endblock %}

@@ -1,11 +1,20 @@
 {% extends "ABReservationZenithBundle::layout.html.twig" %}
 
-{% block title %}ABReservationZenithBundle:Réservation:modifier{% endblock %}
+{% block title %}{{'modifier.reservation'|trans}}{% endblock %}
 
 {% block body %}
-<h1>Welcome to the Réservation:modifier page</h1>
+<h1>{{'modifier.reservation'|trans}}</h1>
 <form action='' method="post" {{form_enctype(form)}}>
-	{{form_widget(form)}}
+	<table>
+	<tr><td>{{form_label(form.nom)}}</td><td>{{form_widget(form.nom)}}</td></tr>
+	<tr><td>{{form_label(form.prenom)}}</td><td>{{form_widget(form.prenom)}}</td></tr>
+	<tr><td>{{form_label(form.place)}}</td><td>{{form_widget(form.place)}}</td></tr>
+	<tr><td>{{form_label(form.seance)}}</td><td>{{form_widget(form.seance)}}</td></tr>
+	<tr><td>{{form_label(form.tarif)}}</td><td>{{form_widget(form.tarif)}}</td></tr>
+	</table>
+	<div hidden="true">
+	{{form_rest(form)}}
+	</div>
 	<input type="submit" />
 </form>
 {% endblock %}

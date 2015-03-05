@@ -1,0 +1,10 @@
+{% extends "ABReservationZenithBundle::layout.html.twig" %}
+{% block title %}{{'pages.accueil'|trans}}{% endblock %}
+
+{% block body %}
+<h1>{{'pages.accueil'|trans}}</h1>
+<ul>
+	<li><a href="{{path('voir_spectacle')}}">{{'voir.listespectacle'|trans}}</a>
+	<li><a href="{{path('index_reservation')}}">{{'gestionTrad.clientreservation'|trans}}</a>
+</ul>
+{% endblock %}

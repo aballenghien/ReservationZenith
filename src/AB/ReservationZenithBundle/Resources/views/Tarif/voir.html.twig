@@ -1,9 +1,9 @@
 {% extends "ABReservationZenithBundle::layout.html.twig" %}
 
-{% block title %}ABReservationZenithBundle:Tarif:voir{% endblock %}
+{% block title %}{{ 'voir.tarif'|trans }}{% endblock %}
 
 {% block body %}
-<h1>Welcome to the Tarif:voir page</h1>
+<h1>{{ 'voir.tarifsSpectacle'|trans({'%spectacle%': tarifs[0].spectacle.titre}, "messages") }}</h1>
 	
 	{% for tarif in tarifs %}
 	<table>
@@ -12,8 +12,8 @@
 			<td>{{ tarif.prix }}</td>			
 		</tr>
 		<tr>
-			<td>Numéros des places concernés par le tarif:</td>
-			<td>{{ tarif.numeroPlaceMin }} -- {{ tarif.numeroPlaceMax }}</td>			
+			<td>{{tarif.places|trans}}</td>
+			<td>{{ tarif.numeroPlaceMin}} -- {{ tarif.numeroPlaceMax }}</td>			
 		</tr>
 		<tr>
 			<td>Spectacle:</td>

@@ -1,0 +1,74 @@
+tarifTrad:
+    places: Number of seats concerned by the price
+    prix: price
+    tarif: Entrance fee
+
+spectacleTrad:
+    titre: Title
+    genre: Kind of show
+    duree: Duration
+    nbPlaces: Number of seats
+    commentaires: Comments
+    affiche: Poster
+    seances: Meeting scheduled
+    tarifs: Fee proposed 
+
+seanceTrad:
+    date: Date
+    heure: Hour
+    seance: Session
+    nbPlacesRestantes: Number of remaining seats
+
+reservationTrad:
+    nom: Name
+    prenom: First Name
+    place: Number of seat 
+    spectacle: Show
+
+actionTrad:
+    modifier: Change
+    supprimer: Delete
+    voir: See
+    ajouter: Add
+    details: Description
+
+gestionTrad:
+    spectacle: Access management shows
+    adminreservation: Access management reservations
+    utilisateur: Access management users
+    clientreservation: Manage my reservations
+
+pages:
+    backoffice: Site management
+    accueil: Welcome to your client area
+    accueilzenith: Home Page
+
+voir:
+    listespectacles: See scheduled shows
+    listereservationclient: See the list of my reservations
+    listereservation: See the list of reservation
+    reservation: List of reservations
+    seance: List of sessions
+    seancesSpectacle: List of sessions for the show %spectacle%
+    spectacle: List of shows
+    tarif: List of fees
+    tarifsSpectacle: List of fees for the show %spectacle%
+ajouter:
+    spectacle: Add a new show
+    reservation: Register a new reservation
+
+modifier:
+    reservation: Change the reservation
+    spectacle: Modify the show    
+
+details:
+    spectacle: Description of the show
+    reservation: Description of the reservation
+
+index:    
+    reservation: Management of reservations
+    spectacle: Management of shows
+
+langue:
+    francais: French
+    anglais: English

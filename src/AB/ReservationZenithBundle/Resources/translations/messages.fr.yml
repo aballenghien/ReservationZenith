@@ -1,0 +1,74 @@
+tarifTrad:
+    places: Numéros des places concernés par le tarif 
+    prix: prix
+    tarif: Tarif
+
+spectacleTrad:
+    titre: Titre
+    genre: Genre
+    duree: Durée
+    nbPlaces: Nombre de places
+    commentaires: Commentaires
+    affiche: Affiche
+    seances: Séances Programmées
+    tarifs: Tarifs Proposés 
+
+seanceTrad:
+    date: Date
+    heure: Heure
+    seance: Séance
+    nbPlacesRestantes: Nombre de places restantes
+
+reservationTrad:
+    nom: Nom
+    prenom: Prénom
+    place: Numéro de place 
+    spectacle: Spectacle
+
+actionTrad:
+    modifier: Modifier
+    supprimer: Supprimer
+    voir: Voir
+    ajouter: Ajouter
+    details: Details
+
+gestionTrad:
+    spectacle: Accéder à la gestion des spectacles
+    adminreservation: Accéder à la gestion des réservations
+    utilisateur: Accéder à la gestion des utilisateurs
+    clientreservation: Gérer mes réservations
+
+pages:
+    backoffice: Gestion du site
+    accueil: Bienvenue sur votre espace client
+    accueilzenith: Accueil 
+
+voir:
+    listespectacles: Voir les spectacles programmés
+    listereservationclient: Voir la liste de mes réservations
+    listereservation: Voir la liste des réservations
+    reservation: Liste des réservations
+    seance: Liste des séances
+    seancesSpectacle: Liste des séances pour le spectacle %spectacle%
+    spectacle: Liste des spectacles
+    tarif: Liste des tarifs
+    tarifsSpectacle: Liste des tarifs pour le spectacle %spectacle%
+ajouter:
+    spectacle: Ajouter un nouveau spectacle
+    reservation: Enregistrer une nouvelle réservation
+
+modifier:
+    reservation: Modifier la réservation
+    spectacle: Modifier le spectacle    
+
+details:
+    spectacle: Détails du spectacle
+    reservation: Détails de la réservation
+
+index:    
+    reservation: Gestion des réservations
+    spectacle: Gestion des spectacles
+
+langue:
+    francais: Français
+    anglais: Anglais

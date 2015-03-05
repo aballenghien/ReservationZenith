@@ -70,10 +70,10 @@ class SeanceController extends Controller
             $seances = $em->getRepository('ABReservationZenithBundle:Seance')->findBySpectacle($spectacle);
             if($id != 0)
             {
-                $text = 'une seance';
+                
                 foreach($seances as $e)
                 {
-                    if($seance->id == $id)
+                    if($e->id == $id)
                     {
                         $seance = $e;
                     }

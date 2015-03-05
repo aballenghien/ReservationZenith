@@ -1,33 +1,33 @@
 {% extends "ABReservationZenithBundle::layout.html.twig" %}
 
-{% block title %}Détails du spectacle{% endblock %}
+{% block title %}{{ 'details.spectacle'|trans }}{% endblock %}
 
 {% block body %}
-<h1>Détail du spectacle : {{spectacle.titre}}</h1>
+<h1>{{ 'details.spectacle'|trans }}: {{spectacle.titre}}</h1>
 	<table>
-		<tr><td>Titre :</td><td>{{ spectacle.titre }}</td></tr>
-		<tr><td>Durée : </td><td>{{spectacle.duree}}</td></tr>
-		<tr><td>Genre : </td><td>{{spectacle.genre}}</td></tr>
-		<tr><td>Nombre de places : </td><td>{{spectacle.nombreDePlaces}}</td></tr>
-		<tr><td>Commentaires : </td><td>{{spectacle.commentaires}}</td></tr>
-		<tr><td>Affiche : </td><td>{{spectacle.affiche}}</td></tr>
-		<tr><td>Séances programmées:</td><td>
+		<tr><td>{{ 'spectacleTrad.titre'|trans }} :</td><td>{{ spectacle.titre }}</td></tr>
+		<tr><td>{{ 'spectacleTrad.duree'|trans }} :</td><td>{{spectacle.duree}}</td></tr>
+		<tr><td>{{ 'spectacleTrad.genre'|trans }} :</td><td>{{spectacle.genre}}</td></tr>
+		<tr><td>{{ 'spectacleTrad.nbPlaces'|trans }} :</td><td>{{spectacle.nombreDePlaces}}</td></tr>
+		<tr><td>{{ 'spectacleTrad.commentaires'|trans }} :</td><td>{{spectacle.commentaires}}</td></tr>
+		<tr><td>{{ 'spectacleTrad.affiche'|trans }} :</td><td>{{spectacle.affiche}}</td></tr>
+		<tr><td>{{ 'spectacleTrad.seances'|trans }} :</td><td>
 			{% for seance in spectacle.seances %}
 			<table>
-			<tr><td>Date :</td><td>{{ seance.date|date('d/m/Y') }}</td></tr>
-			<tr><td>Heure:</td><td>{{ seance.heure|date('H:i')}}</td></tr>
+			<tr><td>{{ 'seanceTrad.date'|trans }} :</td><td>{{ seance.date|date('d/m/Y') }}</td></tr>
+			<tr><td>{{ 'seanceTrad.heure'|trans }} :</td><td>{{ seance.heure|date('H:i')}}</td></tr>
 			</table>
 			{% endfor %}
 		</td></tr>
-		<tr><td>Tarifs proposés:</td><td>
+		<tr><td>{{ 'spectacleTrad.tarifs'|trans }} :</td><td>
 			{% for tarif in spectacle.tarifs %}
 			<table>
-			<tr><td>Prix :</td><td>{{tarif.prix}}</td></tr>
-			<tr><td>Places Concernées:</td><td>{{tarif.numeroPlaceMin}} -- {{tarif.numeroPlaceMax}}</td></tr>
+			<tr><td>{{ 'tarifTrad.prix'|trans }} :</td><td>{{tarif.prix}}</td></tr>
+			<tr><td>{{ 'tarifTrad.places'|trans }} :</td><td>{{tarif.numeroPlaceMin}} -- {{tarif.numeroPlaceMax}}</td></tr>
 			</table>
 			{% endfor %}
 		</td></tr>
 	</table>
-	<a href="{{path('modifier_spectacle',{'id':spectacle.id})}}">modifier</a>
-	<a href="{{path('supprimer_spectacle',{'id':spectacle.id})}}">supprimer</a>
+	<a href="{{path('modifier_spectacle',{'id':spectacle.id})}}">{{'actionTrad.modifier'|trans}}</a>
+	<a href="{{path('supprimer_spectacle',{'id':spectacle.id})}}">{{'actionTrad.supprimer'|trans}}</a>
 {% endblock %}

@@ -80,3 +80,23 @@ var champPrix = $('#ab_reservationzenithbundle_reservation_tarif');
                });
     });
 });*/
+
+/*suppression*/
+var supprLinkResa = $('#supprResa');
+jQuery(document).ready(function(){
+    supprLinkResa.on('click', function(e) {
+        e.preventDefault();
+        res = confirmerSuppression("cette réservation");
+        if(res){
+            window.location.href = $(this).attr("href");
+        }else{
+            window.location.href = document.URL;
+        }
+    });
+});
+
+function confirmerSuppression($objet){
+    res = false;
+    res = confirm("Voulez vous vraiment supprimer ?");
+    return res;
+}

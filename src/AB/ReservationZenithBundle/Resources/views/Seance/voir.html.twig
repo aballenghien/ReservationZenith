@@ -1,31 +1,31 @@
 {% extends "ABReservationZenithBundle::layout.html.twig" %}
 
-{% block title %}ABReservationZenithBundle:Seance:voir{% endblock %}
+{% block title %}{{ 'voir.seance'|trans }}{% endblock %}
 
 {% block body %}
-<h1>Welcome to the Spectacle:voir page</h1>
+<h1>{{ 'voir.seancesSpectacle'|trans({'%spectacle%': seances[0].spectacle.titre}, "messages") }}</h1>
 	{% for seance in seances %}
 	<table>
 		<tr>
-			<td>Heure:</td>
+			<td>{{ 'seanceTrad.heure'|trans }}</td>
 			<td>{{ seance.heure|date('H:i')}}</td>			
 		</tr>
 		<tr>
-			<td>Date:</td>
+			<td>{{ 'seanceTrad.date'|trans }}</td>
 			<td>{{ seance.date|date('d/m/Y') }}</td>			
 		</tr>
 		<tr>
-			<td>Nombre de Places Restantes:</td>
+			<td>{{ 'seanceTrad.nbPlacesRestantes'|trans }}</td>
 			<td>{{ seance.nombrePlacesRestantes }}</td>			
 		</tr>
 		<tr>
-			<td>Spectacle:</td>
+			<td>{{ 'seanceTrad.spectacle'|trans }}</td>
 			<td>{{ seance.spectacle }}</td>			
 		</tr>		
 		<tr>
-			<td><a href="{{path('modifier_seance',{'id':seance.id})}}">modifier</a></td>
-			<td><a href="{{path('voir_seance',{'id':seance.id})}}">Détails</a></td>
-			<td><a href="{{path('supprimer_seance',{'id':seance.id})}}">supprimer</a></td>
+			<td><a href="{{path('modifier_seance',{'id':seance.id})}}">{{ 'actionTrad.modifier'|trans }}</a></td>
+			<td><a href="{{path('voir_seance',{'id':seance.id})}}">{{ 'actionTrad.details'|trans }}</a></td>
+			<td><a href="{{path('supprimer_seance',{'id':seance.id})}}">{{ 'actionTrad.supprimer'|trans }}</a></td>
 		</tr>
 	</table>
 	{% endfor %}

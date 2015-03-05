@@ -161,7 +161,7 @@ class Tarif
 		$result = $queryBuilder->getQuery()->getResult();
 				
 		foreach ($result as $res){
-			if($res->getNumeroPlaceMax > $max){
+			if($res->getNumeroPlaceMax > $maxPlaces){
 				$maxPlaces = $res->getNumeroPlaceMax;
 			}
 			

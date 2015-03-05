@@ -1,9 +1,9 @@
 {% extends "ABReservationZenithBundle::layout.html.twig" %}
 
-{% block title %}ABReservationZenithBundle:Spectacle:ajouter{% endblock %}
+{% block title %}{{ 'ajouter.spectacle'|trans }}{% endblock %}
 
 {% block body %}
-<h1>Welcome to the Spectacle:ajouter page</h1>
+<h1>{{ 'ajouter.spectacle'|trans }}</h1>
 <form action="{{path('ajouter_spectacle')}}" method="post" {{form_enctype(form)}}>
 	<div id="spectacle">
 		<p>{{ form_label(form.titre) }}:  {{ form_widget(form.titre) }}  {{form_errors(form.titre)}}</p>

@@ -46,7 +46,7 @@ class AfterLoginRedirection implements AuthenticationSuccessHandlerInterface
             $redirection = new RedirectResponse($this->router->generate('backoffice_homepage'));
         // sinon, s'il s'agit d'un commercial on le redirige vers le CRM
         elseif (in_array('ROLE_USER', $rolesTab, true))
-            $redirection = new RedirectResponse($this->router->generate('ab_reservation_zenith_homepage'));       
+            $redirection = new RedirectResponse($this->router->generate('espaceclient_homepage'));       
  
         return $redirection;
     }

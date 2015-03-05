@@ -3,7 +3,7 @@
 namespace AB\ReservationZenithBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-
+use AB\ConnexionBundle\Entity;
 /**
  * Reservation
  *
@@ -53,6 +53,11 @@ class Reservation
      * @ORM\JoinColumn(name="tarif_id", referencedColumnName="id")
      **/
      private $tarif;
+    /**
+     * @ORM\ManyToOne(targetEntity="AB\ConnexionBundle\Entity\User")
+     * @ORM\JoinColumn(name="client_id", referencedColumnName="id")
+     **/
+     private $idClientConcerne;
 
     /**
      * Get id
@@ -177,5 +182,28 @@ class Reservation
     public function getTarif()
     {
         return $this->tarif;
+    }
+
+    /**
+     * Set idClientConcerne
+     *
+     * @param \AB\ReservationZenithBundle\Entity\User $idClientConcerne
+     * @return Reservation
+     */
+    public function setIdClientConcerne(\AB\ConnexionBundle\Entity\User $idClientConcerne = null)
+    {
+        $this->idClientConcerne = $idClientConcerne;
+
+        return $this;
+    }
+
+    /**
+     * Get idClientConcerne
+     *
+     * @return \AB\ReservationZenithBundle\Entity\User 
+     */
+    public function getIdClientConcerne()
+    {
+        return $this->idClientConcerne;
     }
 }

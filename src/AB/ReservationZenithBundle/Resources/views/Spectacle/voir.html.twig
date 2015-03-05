@@ -1,9 +1,9 @@
 {% extends "ABReservationZenithBundle::layout.html.twig" %}
 
-{% block title %}ABReservationZenithBundle:Spectacle:voir{% endblock %}
+{% block title %}{{ 'voir.spectacle'|trans }}{% endblock %}
 
 {% block body %}
-<h1>Welcome to the Spectacle:voir page</h1>
+<h1>{{ 'voir.spectacle'|trans }}</h1>
 	<table>
 	{% for spectacle in spectacles %}
 		<tr>
