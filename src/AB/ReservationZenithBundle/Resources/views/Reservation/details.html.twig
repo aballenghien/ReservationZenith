@@ -5,7 +5,7 @@
 {% block body %}
 {{ parent () }}
 <h1>{{'details.reservation'|trans }}</h1>
-	
+	{% if is_granted('ROLE_USER') %}
 	<table>
 		<tr>
 			<td>{{'reservationTrad.nom'|trans }} : </td>
@@ -36,7 +36,10 @@
 		</tr>		
 		<tr>
 			<td><a href="{{path('modifier_reservation',{'id':reservation.id})}}">{{'actionTrad.modifier'|trans }}</a></td>
+			<td><a href="{{path('voir_reservation',{'idClient':user.id})}}">{{ 'voir.listereservationclient'|trans }}</a></td>
 		</tr>
 	</table>
-	
+	{% else %}
+	{{'privilege.reservation'|trans}}
+	{% endif %}
 {% endblock %}

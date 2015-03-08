@@ -2,9 +2,14 @@
 {% block title %}{{'pages.accueil'|trans}}{% endblock %}
 
 {% block body %}
+{{ parent() }}
 <h1>{{'pages.accueil'|trans}}</h1>
+{% if is_granted('ROLE_USER') %}
 <ul>
 	<li><a href="{{path('voir_spectacle')}}">{{'voir.listespectacle'|trans}}</a>
 	<li><a href="{{path('index_reservation')}}">{{'gestionTrad.clientreservation'|trans}}</a>
 </ul>
+{% else %}
+<h1>{{'privilege.espaceclient'|trans}}</h1>
+{% endif %}
 {% endblock %}

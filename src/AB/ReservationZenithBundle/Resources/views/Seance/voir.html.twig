@@ -4,7 +4,7 @@
 
 {% block body %}
 {{ parent () }}
-<h1>{{ 'voir.seancesSpectacle'|trans({'%spectacle%': seances[0].spectacle.titre}, "messages") }}</h1>
+<h1>{{ 'voir.seancesSpectacle'|trans({'%spectacle%': ""}, "messages") }}</h1>
 	{% for seance in seances %}
 	<table>
 		<tr>
@@ -24,9 +24,11 @@
 			<td>{{ seance.spectacle }}</td>			
 		</tr>		
 		<tr>
-			<td><a href="{{path('modifier_seance',{'id':seance.id})}}">{{ 'actionTrad.modifier'|trans }}</a></td>
-			<td><a href="{{path('voir_seance',{'id':seance.id})}}">{{ 'actionTrad.details'|trans }}</a></td>
+			{% if is_granted('ROLE_ADMIN') %}
+			<td><a href="{{path('modifier_seance',{'id':seance.id})}}">{{ 'actionTrad.modifier'|trans }}</a></td>			
 			<td><a href="{{path('supprimer_seance',{'id':seance.id})}}">{{ 'actionTrad.supprimer'|trans }}</a></td>
+			{% endif %}
+			<td><a href="{{path('voir_seance',{'id':seance.id})}}">{{ 'actionTrad.details'|trans }}</a></td>
 		</tr>
 	</table>
 	{% endfor %}

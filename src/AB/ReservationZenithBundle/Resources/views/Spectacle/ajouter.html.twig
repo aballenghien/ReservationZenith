@@ -4,6 +4,7 @@
 
 {% block body %}
 {{ parent () }}
+{% if is_granted('ROLE_ADMIN') %}
 <h1>{{ 'ajouter.spectacle'|trans }}</h1>
 <form action="{{path('ajouter_spectacle')}}" method="post" {{form_enctype(form)}}>
 	<div id="spectacle">
@@ -32,5 +33,8 @@
 	</div>
 	<input type="submit" />
 </form>
+{% else %}
+<h1> {{'privilege.addsppectacle'|trans }}</h1>
+{% endif %}
 {% endblock %}
 

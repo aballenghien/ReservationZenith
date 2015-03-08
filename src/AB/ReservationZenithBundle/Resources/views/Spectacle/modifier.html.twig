@@ -4,6 +4,7 @@
 
 {% block body %}
 {{ parent () }}
+{% if is_granted('ROLE_ADMIN') %}
 <h1>{{ 'modifier.spectacle'|trans }}</h1>
 <form action="" method="post">
 {{ form_start(form) }}
@@ -61,5 +62,8 @@
 	<input type="submit" />
 	{{ form_end(form) }}
 </form>
+{% else %}
+<h1> {{'privilege.addsppectacle'|trans }}</h1>
+{% endif %}
 {% endblock %}
 

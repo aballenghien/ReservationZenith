@@ -51,6 +51,7 @@ voir:
     seance: List of sessions
     seancesSpectacle: List of sessions for the show %spectacle%
     spectacle: List of shows
+    retourspectacles: Return to the list
     tarif: List of fees
     tarifsSpectacle: List of fees for the show %spectacle%
 ajouter:
@@ -59,7 +60,9 @@ ajouter:
 
 modifier:
     reservation: Change the reservation
-    spectacle: Modify the show    
+    spectacle: Modify the show     
+    seance: Change the programmation
+    tarif: Change the fee   
 
 details:
     spectacle: Description of the show
@@ -72,3 +75,8 @@ index:
 langue:
     francais: French
     anglais: English
+
+privilege:
+    espaceclient: You have to log in to access to your client area
+    addsppectacle: Acces unauthorized
+    reservation: You can reserv only if you are logged in

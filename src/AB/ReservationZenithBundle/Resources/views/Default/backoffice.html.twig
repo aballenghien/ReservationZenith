@@ -2,6 +2,7 @@
 {% block title %}{{ 'pages.backoffice'|trans }}{% endblock %}
 
 {% block body %}
+{{ parent() }}
 <h1>{{ 'pages.backoffice'|trans }}</h1>
 {% if is_granted('ROLE_ADMIN') %}
 <ul>

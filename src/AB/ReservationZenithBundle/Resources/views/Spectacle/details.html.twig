@@ -29,6 +29,9 @@
 			{% endfor %}
 		</td></tr>
 	</table>
+	{% if is_granted('ROLE_ADMIN') %}
 	<a href="{{path('modifier_spectacle',{'id':spectacle.id})}}">{{'actionTrad.modifier'|trans}}</a>
 	<a href="{{path('supprimer_spectacle',{'id':spectacle.id})}}">{{'actionTrad.supprimer'|trans}}</a>
+	{% endif %}
+	<a href="{{path('voir_spectacle')}}">{{'voir.retourspectacles'|trans}}</a>
 {% endblock %}

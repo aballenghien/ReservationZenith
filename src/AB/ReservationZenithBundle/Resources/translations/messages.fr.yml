@@ -51,15 +51,19 @@ voir:
     seance: Liste des séances
     seancesSpectacle: Liste des séances pour le spectacle %spectacle%
     spectacle: Liste des spectacles
+    retourspectacles: Retour à la liste des spectacles
     tarif: Liste des tarifs
     tarifsSpectacle: Liste des tarifs pour le spectacle %spectacle%
+
 ajouter:
     spectacle: Ajouter un nouveau spectacle
     reservation: Enregistrer une nouvelle réservation
 
 modifier:
     reservation: Modifier la réservation
-    spectacle: Modifier le spectacle    
+    spectacle: Modifier le spectacle
+    seance: Modifier la séance 
+    tarif: Modifier le tarif   
 
 details:
     spectacle: Détails du spectacle
@@ -72,3 +76,8 @@ index:
 langue:
     francais: Français
     anglais: Anglais
+
+privilege:
+    espaceclient: Veuillez vous connecter pour accéder à votre espace client
+    addsppectacle: L'accès à cette page ne vous est pas autorisé
+    reservation: Vous pouver réserver une fois connecté

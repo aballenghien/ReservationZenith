@@ -10,8 +10,11 @@ class DefaultController extends Controller
 
     public function indexAction()
     {
+        $xml = simplexml_load_file('fluxrss.rss');
+        $channel = $xml->channel;
+        $items = $channel->item;
         
-        return $this->render('ABReservationZenithBundle:Default:index.html.twig');
+        return $this->render('ABReservationZenithBundle:Default:index.html.twig',array('items'=>$items,'channel'=>$channel));
     }
 
     public function gestionLangueAction($locale, $vue){
@@ -34,5 +37,7 @@ class DefaultController extends Controller
 	public function espaceclientAction(){
     	return $this->render('ABReservationZenithBundle:Default:espaceclient.html.twig');
     }
+
+
 
 }

@@ -14,12 +14,13 @@ class ReservationType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
+        $t = $this->getContainer->get('translator');
         $builder
-            ->add('nom')
-            ->add('prenom')
-            ->add('place')
-            ->add('seance')
-            ->add('tarif')
+            ->add('nom', array('label'=>$t->trans('reservationTrad.nom')))
+            ->add('prenom', array('label'=>$t->trans('reservationTrad.prenom')))
+            ->add('place', array('label'=>$t->trans('reservationTrad.place')))
+            ->add('seance', array('label'=>$t->trans('seanceTrad.seance')))
+            ->add('tarif', array('label'=>$t->trans('tarifTrad.tarif')))
         ;
     }
     

@@ -10,9 +10,11 @@
 		<tr>
 			<td>titre :</td>
 			<td>{{ spectacle.titre }}</td>
-			<td><a href="{{path('modifier_spectacle',{'id':spectacle.id})}}">modifier</a></td>
-			<td><a href="{{path('voir_spectacle',{'id':spectacle.id})}}">Détails</a></td>
+			{% if is_granted('ROLE_ADMIN') %}
+			<td><a href="{{path('modifier_spectacle',{'id':spectacle.id})}}">modifier</a></td>			
 			<td><a href="{{path('supprimer_spectacle',{'id':spectacle.id})}}">supprimer</a></td>
+			{% endif %}
+			<td><a href="{{path('voir_spectacle',{'id':spectacle.id})}}">Détails</a></td>
 			<td><a href="{{path('voir_tarif',{'id_spectacle':spectacle.id})}}">voir les tarifs associés</a></td>
 			<td><a href="{{path('voir_seance',{'id_spectacle':spectacle.id})}}">voir les Séances</a></td>
 			</tr>
