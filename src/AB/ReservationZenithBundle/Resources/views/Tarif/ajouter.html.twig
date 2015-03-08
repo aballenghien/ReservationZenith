@@ -3,13 +3,15 @@
 {% block title %}ABReservationZenithBundle:Seance:ajouter{% endblock %}
 
 {% block body %}
-<h1>Welcome to the Tarif:ajouter page</h1>
-<form action="{{path('ajouter_tarif')}}" method="post" {{form_enctype(form)}}>
-	{{ form_errors(form) }}
-	<table>
-		<tr><td>{{form_label(form.prix) }}</td><td>{{form_widget(form.prix)}}</td></tr>
-		<tr><td>{% trans %}intervalle.place.tarif{% endtrans %}</td><td>{{form_widget(form.numeroPlaceMin)}} à {{form_widget(form.numeroPlaceMax)}}</td></tr>
-	</table>
-	<input type="submit" />
-</form>
+<div class='container'>
+	<h3>Welcome to the Tarif:ajouter page</h3>
+	<form action="{{path('ajouter_tarif')}}" method="post" {{form_enctype(form)}}>
+		{{ form_errors(form) }}
+		<table>
+			<tr><td>{{form_label(form.prix) }}</td><td>{{form_widget(form.prix)}}</td></tr>
+			<tr><td>{% trans %}intervalle.place.tarif{% endtrans %}</td><td>{{form_widget(form.numeroPlaceMin)}} à {{form_widget(form.numeroPlaceMax)}}</td></tr>
+		</table>
+		<input type="submit" />
+	</form>
+</div>
 {% endblock %}
