@@ -1,92 +1,157 @@
+##standard user
 ab_reservation_zenith_homepage:
-    path:     /hello/{name}
-    defaults: { _controller: ABReservationZenithBundle:Default:index }
+    path:     /{_locale}/accueil-zenith
+    defaults: { _controller: ABReservationZenithBundle:Default:index , _locale: fr }
+    requirements:
+        _locale: en|fr
 
+gestion_langue:
+    path:     /locale/{locale}/{vue}
+    defaults: { _controller: ABReservationZenithBundle:Default:gestionLangue , _locale: fr } 
+    requirements:
+        _locale: en|fr  
+##admin
+backoffice_homepage:
+    path:     /{_locale}/backoffice
+    defaults: {_controller:ABReservationZenithBundle:Default:backoffice , _locale: fr }
+    requirements:
+        _locale: en|fr
+
+##client
+espaceclient_homepage:
+    path:     /{_locale}/espaceclient
+    defaults: { _controller: ABReservationZenithBundle:Default:espaceclient , _locale: fr }
+    requirements:
+     _locale: en|fr
 ##spectacle
 index_spectacle:
-    path:     spectacle/index
-    defaults: { _controller: ABReservationZenithBundle:Spectacle:index }
+    path:     /spectacle/{_locale}/index
+    defaults: { _controller: ABReservationZenithBundle:Spectacle:index , _locale: fr }
+    requirements:
+        _locale: en|fr
 
 ajouter_spectacle:
-    path:     spectacle/ajouter
-    defaults: { _controller: ABReservationZenithBundle:Spectacle:ajouter }
+    path:     /spectacle/{_locale}/ajouter
+    defaults: { _controller: ABReservationZenithBundle:Spectacle:ajouter , _locale: fr }
+    requirements:
+        _locale: en|fr
 
 voir_spectacle:
-    path:     spectacle/voir/{id}
-    defaults: { _controller: ABReservationZenithBundle:Spectacle:voir,id:0 }
+    path:     /spectacle/{_locale}/voir/{id}
+    defaults: { _controller: ABReservationZenithBundle:Spectacle:voir,id:0 , _locale: fr }
+    requirements:
+        _locale: en|fr
 
 modifier_spectacle:
-    path:     spectacle/modifier/{id}
-    defaults: { _controller: ABReservationZenithBundle:Spectacle:modifier }
+    path:     /spectacle/{_locale}/modifier/{id}
+    defaults: { _controller: ABReservationZenithBundle:Spectacle:modifier , _locale: fr }
+    requirements:
+        _locale: en|fr
     
 supprimer_spectacle:
-    path:     /spectacle/supprimer/{id}
-    defaults: { _controller: ABReservationZenithBundle:Spectacle:supprimer }
+    path:     /spectacle/{_locale}/supprimer/{id}
+    defaults: { _controller: ABReservationZenithBundle:Spectacle:supprimer , _locale: fr }
+    requirements:
+        _locale: en|fr
 
 ##seance
 index_seance:
     path:     /seance/index
     defaults: { _controller: ABReservationZenithBundle:Seance:index }
+    path:     /seance/{_locale}/index
+    defaults: { _controller: ABReservationZenithBundle:Seance:index , _locale: fr }
+    requirements:
+        _locale: en|fr
 
 ajouter_seance:
     path:     /seance/ajouter
     defaults: { _controller: ABReservationZenithBundle:Seance:ajouter }
+    path:     /seance/{_locale}/ajouter
+    defaults: { _controller: ABReservationZenithBundle:Seance:ajouter , _locale: fr }
+    requirements:
+        _locale: en|fr
 
 modifier_seance:
     path:     /seance/modifier/{id}
     defaults: { _controller: ABReservationZenithBundle:Seance:modifier }
+    path:     /seance/{_locale}/modifier/{id}
+    defaults: { _controller: ABReservationZenithBundle:Seance:modifier , _locale: fr }
+    requirements:
+        _locale: en|fr
 
 voir_seance:
     path:     /seance/voir/{id_spectacle}/{id}
     defaults: { _controller: ABReservationZenithBundle:Seance:voir, id:0, id_spectacle:0 }
+    path:     /seance/{_locale}/voir/{id_spectacle}/{id}
+    defaults: { _controller: ABReservationZenithBundle:Seance:voir, id:0, id_spectacle:0 , _locale: fr }
+    requirements:
+        _locale: en|fr
 
 supprimer_seance:
-    path:     /seance/supprimer/{id}
-    defaults: { _controller: ABReservationZenithBundle:Seance:supprimer }
+    path:     /seance/{_locale}/supprimer/{id}
+    defaults: { _controller: ABReservationZenithBundle:Seance:supprimer  , _locale: fr }
+    requirements:
+        _locale: en|fr
 
 #tarif
 index_tarif:
-    path:     /tarif/index
-    defaults: { _controller: ABReservationZenithBundle:Tarif:index }
+    path:     /tarif/{_locale}/index
+    defaults: { _controller: ABReservationZenithBundle:Tarif:index , _locale: fr }
+    requirements:
+        _locale: en|fr
 
 ajouter_tarif:
-    path:     /tarif/ajouter
-    defaults: { _controller: ABReservationZenithBundle:Tarif:ajouter }
+    path:     /tarif/{_locale}/ajouter
+    defaults: { _controller: ABReservationZenithBundle:Tarif:ajouter , _locale: fr }
+    requirements:
+        _locale: en|fr
 
 voir_tarif:
-    path:     /tarif/voir/{id_spectacle}/{id}
-    defaults: { _controller: ABReservationZenithBundle:Tarif:voir,id:0, id_spectacle:0 }
+    path:     /tarif/{_locale}/voir/{id_spectacle}/{id}
+    defaults: { _controller: ABReservationZenithBundle:Tarif:voir,id:0, id_spectacle:0 , _locale: fr }
+    requirements:
+        _locale: en|fr
 
 modifier_tarif:
-    path:     /tarif/modifier/{id}
-    defaults: { _controller: ABReservationZenithBundle:Tarif:modifier }
+    path:     /tarif/{_locale}/modifier/{id}
+    defaults: { _controller: ABReservationZenithBundle:Tarif:modifier , _locale: fr }
+    requirements:
+        _locale: en|fr
 
 supprimer_tarif:
-    path:     /tarif/supprimer/{id}
-    defaults: { _controller: ABReservationZenithBundle:Tarif:supprimer }
+    path:     /tarif/{_locale}/supprimer/{id}
+    defaults: { _controller: ABReservationZenithBundle:Tarif:supprimer , _locale: fr }
+    requirements:
+        _locale: en|fr
 
 ##reservation
 index_reservation:
-    path:     /reservation/index
-    defaults: { _controller: ABReservationZenithBundle:Reservation:index }
+    path:     /reservation/{_locale}/index
+    defaults: { _controller: ABReservationZenithBundle:Reservation:index  , _locale: fr }
+    requirements:
+        _locale: en|fr
 
 ajouter_reservation:
-    path:     /reservation/ajouter
-    defaults: { _controller: ABReservationZenithBundle:Reservation:ajouter }
+    path:     /reservation/{_locale}/ajouter
+    defaults: { _controller: ABReservationZenithBundle:Reservation:ajouter  , _locale: fr }
+    requirements:
+        _locale: en|fr
 
 voir_reservation:
-    path:     /reservation/voir/{id}
-    defaults: { _controller: ABReservationZenithBundle:Reservation:voir,id:0  }
+    path:     /reservation/{_locale}/voir/{idClient}/{id}
+    defaults: { _controller: ABReservationZenithBundle:Reservation:voir,id:0, idClient:0 , _locale: fr }
+    requirements:
+        _locale: en|fr
 
 modifier_reservation:
-    path:     /reservation/modifier/{id}
-    defaults: { _controller: ABReservationZenithBundle:Reservation:modifier }
+    path:     /reservation/{_locale}/modifier/{id}
+    defaults: { _controller: ABReservationZenithBundle:Reservation:modifier , _locale: fr }
+    requirements:
+        _locale: en|fr
 
 supprimer_reservation:
-    path:     /reservation/supprimer/{id}
-    defaults: { _controller: ABReservationZenithBundle:Reservation:supprimer }
+    path:     /reservation/{_locale}/supprimer/{id}
+    defaults: { _controller: ABReservationZenithBundle:Reservation:supprimer , _locale: fr }
+    requirements:
+        _locale: en|fr
 
-##ajouter_reservation
-about:
-    path:   /Default/about
-    defaults: { _controller: ABReservationZenithBundle:Default:about }
