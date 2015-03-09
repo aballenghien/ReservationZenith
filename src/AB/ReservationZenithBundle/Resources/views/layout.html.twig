@@ -17,8 +17,8 @@
 	<div id="choixLangue">
 	{% set currentPath = app.request.attributes.get('_route') %}
 
-		<a href="{{path('gestion_langue',{'locale':'en_US', 'vue':currentPath})}}" >{{'langue.anglais'|trans}}</a>
-		<a href="{{path('gestion_langue',{'locale':'fr_FR', 'vue':currentPath})}}" >{{'langue.francais'|trans}}</a>
+		<a href="{{path('gestion_langue',{'locale':'en', 'vue':currentPath})}}" >{{'langue.anglais'|trans}}</a>
+		<a href="{{path('gestion_langue',{'locale':'fr', 'vue':currentPath})}}" >{{'langue.francais'|trans}}</a>
 	</div>
 {% endblock %}
 {% block javascripts %} 

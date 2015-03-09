@@ -12,4 +12,27 @@ use Doctrine\ORM\EntityRepository;
  */
 class SpectacleRepository extends EntityRepository
 {
+	public function getSpectacleByDates($datemin, $datemax){
+
+        $query = $this->getQueryBuilderSpectacleByDates($datemin,$datemax)->getQuery();
+
+        try {
+            return $query->execute();
+        } catch (\Doctrine\ORM\NoResultException $e) {
+            return null;
+        }
+    }
+
+    public function getQueryBuilderSpectacleByDates($datemin, $datemax){
+        $em= $this->getEntityManager();
+        $qb = $em->createQueryBuilder();
+       
+        $qb->createQuery('
+            SELECT DISTINCT sp.id, sp.titre, sp.genre, sp.duree, sp.affiche, sp.commentaires FROM ABReservationZenithBundle:Seance se
+            LEFT JOIN se.spectacle sp
+            WHERE se.date >= :datemin AND se.date<= :datemax'
+        )->setParameter('datemin', $datemin)
+        ->setParameter('datemax',$datemax);
+        return $qb;
+    }
 }

@@ -28,22 +28,22 @@ class SeanceType extends AbstractType
         }
         $builder
             ->add('heure','time',array(
-                'label'=>'Heure de la séance',
+                'label'=>'seanceTrad.heure',
                 'widget'=>'choice',
                 'empty_value'=>array(
                                     'hour'=>'heure',
                                     'minute'=>'minute'),
                 'hours'=>$tabHeures))
             ->add('date','date',array(
-                'label'=>'Date de la Séance',
+                'label'=>'seanceTrad.date',
                 'widget'=>'choice',
                 'empty_value'=>array(
                                     'year'=>'Année',
                                     'month'=>'Mois',
                                     'day'=>'Jour'),
                 'years'=>$tabAnnees))
-            ->add('nombrePlacesRestantes');
-        ;
+            ->add('nombrePlacesRestantes',null,array('label'=>'seanceTrad.nbPlacesRestantes'));
+        
     }
     
     /**

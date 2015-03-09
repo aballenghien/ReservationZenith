@@ -21,13 +21,13 @@ class SpectacleType extends AbstractType
             $tabDurees[] = $i;
         }
         $builder
-            ->add('titre')
-            ->add('genre')
+            ->add('titre',null,array('label'=>'spectacleTrad.titre'))
+            ->add('genre',null,array('label'=>'spectacleTrad.genre'))
             ->add('duree','integer', array(
-                'label'=>'Durée du spectacle'))
-            ->add('nombreDePlaces')
-            ->add('commentaires')
-            ->add('affiche')
+                'label'=>'spectacleTrad.duree'))
+            ->add('nombreDePlaces',null,array('label'=>'spectacleTrad.nbPlaces'))
+            ->add('commentaires',null,array('label'=>'spectacleTrad.commentaires'))
+            ->add('affiche',null,array('label'=>'spectacleTrad.affiche'))
             ->add('seances','collection', array(
             'type'=>new SeanceType(),
             'allow_add'=>true,

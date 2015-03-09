@@ -60,26 +60,7 @@ function addTagFormDeleteLink($formDiv) {
     });
 }
 
-/*selection du tarif en fonction de la place*/
-var champPlace = $('#ab_reservationzenithbundle_reservation_place');
-var champPrix = $('#ab_reservationzenithbundle_reservation_tarif');
 
-/*jQuery(document).ready(function() {
-    champPlace.change(function(){
-        var value='';
-        value = champPlace.val();
-        $.ajax({
-                   type:"POST"
-                   url:"../pageAjax/afficherTarif.php",
-                   data:"value="+value,
-                   
-                   success: function(retour){
-           chamPrix.val(retour);
-                   }
-                   
-               });
-    });
-});*/
 
 /*suppression*/
 var supprLinkResa = $('#supprResa');

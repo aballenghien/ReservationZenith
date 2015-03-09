@@ -65,12 +65,12 @@ class Spectacle
     private $affiche;
 
     /**
-     * @ORM\OneToMany(targetEntity="Seance",mappedBy="spectacle", cascade={"remove"})
+     * @ORM\OneToMany(targetEntity="Seance",mappedBy="spectacle", cascade={"persist"})
      **/
      private $seances;
      
      /**
-     * @ORM\OneToMany(targetEntity="Tarif",mappedBy="spectacle", cascade={"remove"})
+     * @ORM\OneToMany(targetEntity="Tarif",mappedBy="spectacle", cascade={"persist"})
      **/
      private $tarifs;
 
@@ -241,4 +241,98 @@ class Spectacle
         return $this->seances;
     }
 
+
+    /**
+     * Set commentaires
+     *
+     * @param string $commentaires
+     * @return Spectacle
+     */
+    public function setCommentaires($commentaires)
+    {
+        $this->commentaires = $commentaires;
+
+        return $this;
+    }
+
+    /**
+     * Get commentaires
+     *
+     * @return string 
+     */
+    public function getCommentaires()
+    {
+        return $this->commentaires;
+    }
+
+    /**
+     * Set affiche
+     *
+     * @param string $affiche
+     * @return Spectacle
+     */
+    public function setAffiche($affiche)
+    {
+        $this->affiche = $affiche;
+
+        return $this;
+    }
+
+    /**
+     * Get affiche
+     *
+     * @return string 
+     */
+    public function getAffiche()
+    {
+        return $this->affiche;
+    }
+
+    /**
+     * Add seances
+     *
+     * @param \AB\ReservationZenithBundle\Entity\Seance $seances
+     * @return Spectacle
+     */
+    public function addSeance(\AB\ReservationZenithBundle\Entity\Seance $seances)
+    {
+        $this->seances[] = $seances;
+
+        return $this;
+    }
+
+    /**
+     * Remove seances
+     *
+     * @param \AB\ReservationZenithBundle\Entity\Seance $seances
+     */
+    public function removeSeance(\AB\ReservationZenithBundle\Entity\Seance $seances)
+    {
+        $this->seances->removeElement($seances);
+    }
+
+    /**
+     * Add tarifs
+     *
+     * @param \AB\ReservationZenithBundle\Entity\Tarif $tarifs
+     * @return Spectacle
+     */
+    public function addTarif(\AB\ReservationZenithBundle\Entity\Tarif $tarifs)
+    {
+        $this->tarifs[] = $tarifs;
+
+        return $this;
+    }
+
+    /**
+     * Remove tarifs
+     *
+     * @param \AB\ReservationZenithBundle\Entity\Tarif $tarifs
+     */
+    public function removeTarif(\AB\ReservationZenithBundle\Entity\Tarif $tarifs)
+    {
+        $this->tarifs->removeElement($tarifs);
+    }
+
+    
 }

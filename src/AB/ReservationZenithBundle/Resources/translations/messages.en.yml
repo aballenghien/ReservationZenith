@@ -1,7 +1,9 @@
 tarifTrad:
     places: Number of seats concerned by the price
     prix: price
-    tarif: Entrance fee
+    tarif: Entrance fee    
+    numPlaceMin: Minimal number of seat concerned
+    numPlaceMax: Maximal number of seat concerned
 
 spectacleTrad:
     titre: Title

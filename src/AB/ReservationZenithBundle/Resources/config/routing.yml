@@ -7,9 +7,9 @@ ab_reservation_zenith_homepage:
 
 gestion_langue:
     path:     /locale/{locale}/{vue}
-    defaults: { _controller: ABReservationZenithBundle:Default:gestionLangue , _locale: fr } 
+    defaults: { _controller: ABReservationZenithBundle:Default:gestionLangue } 
     requirements:
-        _locale: en|fr  
+        locale: en|fr  
 ##admin
 backoffice_homepage:
     path:     /{_locale}/backoffice

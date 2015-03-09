@@ -57,7 +57,7 @@ class Spectacle
      */
     private $commentaires;
 
-        /**
+    /**
      * @var string
      *
      * @ORM\Column(name="affiche", type="string",length=250)
@@ -65,12 +65,12 @@ class Spectacle
     private $affiche;
 
     /**
-     * @ORM\OneToMany(targetEntity="Seance",mappedBy="spectacle", cascade={"remove"})
+     * @ORM\OneToMany(targetEntity="Seance",mappedBy="spectacle", cascade={"persist"})
      **/
      private $seances;
      
      /**
-     * @ORM\OneToMany(targetEntity="Tarif",mappedBy="spectacle", cascade={"remove"})
+     * @ORM\OneToMany(targetEntity="Tarif",mappedBy="spectacle", cascade={"persist"})
      **/
      private $tarifs;
 
@@ -294,10 +294,11 @@ class Spectacle
      * @param \AB\ReservationZenithBundle\Entity\Seance $seances
      * @return Spectacle
      */
-    public function addSeance(\AB\ReservationZenithBundle\Entity\Seance $seances)
+    public function addSeance(\AB\ReservationZenithBundle\Entity\Seance $seance)
     {
-        $this->seances[] = $seances;
-
+        
+        $seance->setSpectacle($this);
+        $this->seances[] = $seance;
         return $this;
     }
 
@@ -317,10 +318,10 @@ class Spectacle
      * @param \AB\ReservationZenithBundle\Entity\Tarif $tarifs
      * @return Spectacle
      */
-    public function addTarif(\AB\ReservationZenithBundle\Entity\Tarif $tarifs)
+    public function addTarif(\AB\ReservationZenithBundle\Entity\Tarif $tarif)
     {
-        $this->tarifs[] = $tarifs;
-
+        $tarif->setSpectacle($this);
+        $this->tarifs[] = $tarif;
         return $this;
     }
 
@@ -333,4 +334,6 @@ class Spectacle
     {
         $this->tarifs->removeElement($tarifs);
     }
+
+    
 }

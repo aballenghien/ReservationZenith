@@ -56,6 +56,7 @@ class SeanceController extends Controller
         'form'=>$form->createView()
             ));    }
 
+
     public function voirAction($id_spectacle,$id)
     {
         $em = $this->getDoctrine()->getManager();
