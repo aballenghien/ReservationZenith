@@ -3,11 +3,102 @@
     <head>
         <meta charset="UTF-8" />
         <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
+        {% block stylesheets %}
+            <link href="{{ asset('bootstrap/css/bootstrap.css') }}" type="text/css" rel="stylesheet" />
+        {% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
     <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
+
+        <div class='navbar navbar-inverse'>
+            <div class='container'>
+                <a href='/' class='navbar-brand'>
+                    <font color='white'>Zénith Nantes Métropole</font>
+                </a>
+                <ul class='nav navbar-right'><img src='http://www.infoconcert.com/media/details/zenith_nantes_120x150.jpg' width=40 /></ul>
+            </div>
+        </div>
+
+        <div class='container'>
+            {% block body %}{% endblock %}
+            {% block javascripts %}{% endblock %}
+        </div>
+
+        <br>
+        <br>
+
+        <div class='container'>
+
+            <div class='footer'>
+
+                    <div class='col-md-2'>
+                        <img src='http://www.zenith-nantesmetropole.com/images/stories/photo-zenith/exterieur-zenith-nantes2.jpg'/>
+                        
+                    </div>
+
+                    <div class='col-md-6'>
+                        <h4>Présentation</h4>
+                        <div clas='lead text-justifiy'>
+                            <p>Le Zénith de Nantes Métropole est la 13ème salle construite sous l’enseigne «Zénith», qui compte aujourd’hui 16 réalisations en France Métropolitaine, ainsi qu’un projet en cours de réalisation au Port (Ile de la Réunion).</p>
+                            <p>Ces salles sont conçues et réalisées pour permettre la présentation des spectacles de variétés (chanson, rock, rap, musiques du monde, comédies musicales, one man shows, etc..) à un public nombreux, dans des conditions techniques optimales.</p>
+                        </div>  
+                    </div>
+                    
+                    <div class='col-md-offset-1'></div>
+
+                    <div class='col-md-3'>
+                        <h4>Nous contacter</h4>
+                        <p>Zénith de Nantes</p>
+                        <p>Boulevard du Zénith</p>
+                        <p>44800 Saint-Herblain</p>
+                        <p><a href="mailto:contact@zenith-nm.com">contact@zenith-nm.com</a></p>
+                    </div
+
+            </div>
+
+        </div>
+
+        <div class='container'>
+            <div class='navbar navbar-inverse navbar-fixed-bottom'>
+                <div class='row'>
+                  <div class='col-md-offset-1 col-md-3'>
+                    <font color='grey'>
+                        <h4>Qui sommes-nous</h4>
+                        <p><i>Zénith Nantes Métropole</i> est une salle de spectacle.<a href='tickets.html'> Réservez dès maintenant </a>!</p>
+                      </div>
+
+                      <div class='col-md-2'>
+                        <h4>Liens</h4>
+                        <ul class='list-unstyled'>
+                          <li><a href='/'>Accueil</a></li>
+                          <li><a href='tickets.html'>Réservations</a></li>
+                          <li><a href='stations.html'>Spectacles</a></li>
+                        </ul>
+                      </div>
+
+                      <div class='col-md-offset-1 col-md-2'>
+                        <h4>Restez connecté</h4>
+                        <ul class='list-unstyled'>
+                          <li><a href='about.html'>A propos</a></li>
+                          <li><a href='contact.html'>Nous contacter</a></li>
+                          <li><a href='https://twitter.com/zenithnantes' target=_blank>Twitter</a></li>
+                          <li><a href='https://www.facebook.com/nantespectacles' target=_blank>Facebook</a></li>
+                        </ul>
+                      </div>
+
+                      <div class='col-md-3'>
+                        <h4>Nous contacter</h4>
+                        <ul class='list-unstyled'>
+                          <li><i class='glyphicon glyphicon-globe'></i> Saint-Herblain</li>
+                          <li><i class='glyphicon glyphicon-phone'></i> 02 40 92 99 50</li>
+                          <li><i class='glyphicon glyphicon-envelope'></i> <a href='mailto:contact@zenith-nm.com'> contact@zenith-nm.com</a></li>
+                        </ul>
+                        <p style='text-color:white'>Le Zénith Nantes Métropole &copy;2012.</p>
+                      </div>
+                    </font>
+                </div>
+            </div>
+        </div>
+
     </body>
 </html>

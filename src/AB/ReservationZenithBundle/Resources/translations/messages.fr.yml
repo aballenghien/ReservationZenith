@@ -2,8 +2,6 @@ tarifTrad:
     places: Numéros des places concernés par le tarif 
     prix: prix
     tarif: Tarif
-    numPlaceMin: Numéro de place minimal concerné
-    numPlaceMax: Numéro de place maximal concerné
 
 spectacleTrad:
     titre: Titre
@@ -83,7 +81,3 @@ privilege:
     espaceclient: Veuillez vous connecter pour accéder à votre espace client
     addsppectacle: L'accès à cette page ne vous est pas autorisé
     reservation: Vous pouver réserver une fois connecté
-
-erreur:
-    seance:
-        nombrePlacesRestantes: Les nombre de place restantes ne peut pas être supérieur au nombre de place disponbibles
