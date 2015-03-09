@@ -3,9 +3,11 @@
 {% block title %}ABReservationZenithBundle:Seance:modifier{% endblock %}
 
 {% block body %}
-<h1>Welcome to the Seance:modifier page</h1>
-<form action='' method="post" {{form_enctype(form)}}>
-	{{form_widget(form)}}
-	<input type="submit" />
-</form>
+<div class='well'>
+	<h3>Modifier une séance</h3>
+	<form action='' method="post" {{form_enctype(form)}}>
+		{{form_widget(form)}}
+		<input type="submit" />
+	</form>
+</div>
 {% endblock %}

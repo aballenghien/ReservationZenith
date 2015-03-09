@@ -3,9 +3,11 @@
 {% block title %}ABReservationZenithBundle:Tarif:modifier{% endblock %}
 
 {% block body %}
-<h1>Welcome to the Tarif:modifier page</h1>
-<form action='' method="post" {{form_enctype(form)}}>
-	{{form_widget(form)}}
-	<input type="submit" />
-</form>
+<div class='well'>
+	<h3>Modifier un tarif</h3>
+	<form action='' method="post" {{form_enctype(form)}}>
+		{{form_widget(form)}}
+		<input type="submit" />
+	</form>
+</div>
 {% endblock %}

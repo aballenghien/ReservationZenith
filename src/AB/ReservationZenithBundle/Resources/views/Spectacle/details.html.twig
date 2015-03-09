@@ -1,0 +1,39 @@
+{% extends "ABReservationZenithBundle::layout.html.twig" %}
+
+{% block title %}{{ 'details.spectacle'|trans }}{% endblock %}
+
+{% block body %}
+{{ parent () }}
+<div class='well'>
+	<h3>{{ 'details.spectacle'|trans }}: {{spectacle.titre}}</h3>
+		<table>
+			<tr><td>{{ 'spectacleTrad.titre'|trans }} :</td><td>{{ spectacle.titre }}</td></tr>
+			<tr><td>{{ 'spectacleTrad.duree'|trans }} :</td><td>{{spectacle.duree}}</td></tr>
+			<tr><td>{{ 'spectacleTrad.genre'|trans }} :</td><td>{{spectacle.genre}}</td></tr>
+			<tr><td>{{ 'spectacleTrad.nbPlaces'|trans }} :</td><td>{{spectacle.nombreDePlaces}}</td></tr>
+			<tr><td>{{ 'spectacleTrad.commentaires'|trans }} :</td><td>{{spectacle.commentaires}}</td></tr>
+			<tr><td>{{ 'spectacleTrad.affiche'|trans }} :</td><td>{{spectacle.affiche}}</td></tr>
+			<tr><td>{{ 'spectacleTrad.seances'|trans }} :</td><td>
+				{% for seance in spectacle.seances %}
+				<table>
+				<tr><td>{{ 'seanceTrad.date'|trans }} :</td><td>{{ seance.date|date('d/m/Y') }}</td></tr>
+				<tr><td>{{ 'seanceTrad.heure'|trans }} :</td><td>{{ seance.heure|date('H:i')}}</td></tr>
+				</table>
+				{% endfor %}
+			</td></tr>
+			<tr><td>{{ 'spectacleTrad.tarifs'|trans }} :</td><td>
+				{% for tarif in spectacle.tarifs %}
+				<table>
+				<tr><td>{{ 'tarifTrad.prix'|trans }} :</td><td>{{tarif.prix}}</td></tr>
+				<tr><td>{{ 'tarifTrad.places'|trans }} :</td><td>{{tarif.numeroPlaceMin}} -- {{tarif.numeroPlaceMax}}</td></tr>
+				</table>
+				{% endfor %}
+			</td></tr>
+		</table>
+		{% if is_granted('ROLE_ADMIN') %}
+		<a href="{{path('modifier_spectacle',{'id':spectacle.id})}}">{{'actionTrad.modifier'|trans}}</a>
+		<a href="{{path('supprimer_spectacle',{'id':spectacle.id})}}">{{'actionTrad.supprimer'|trans}}</a>
+		{% endif %}
+		<a href="{{path('voir_spectacle')}}">{{'voir.retourspectacles'|trans}}</a>
+</div>
+{% endblock %}

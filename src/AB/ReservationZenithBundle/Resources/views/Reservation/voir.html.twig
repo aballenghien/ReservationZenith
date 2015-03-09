@@ -3,36 +3,38 @@
 {% block title %}ABReservationZenithBundle:Reservation:voir{% endblock %}
 
 {% block body %}
-<h1>Welcome to the Rservation:voir page</h1>
-	
-	{% for reservation in reservations %}
-	<table>
-		<tr>
-			<td>Nom</td>
-			<td>{{ reservation.nom }}</td>			
-		</tr>
-		<tr>
-			<td>Prénom:</td>
-			<td>{{ reservation.prenom }}</td>			
-		</tr>
-		<tr>
-			<td>Numéro de place:</td>
-			<td>{{ reservation.place }}</td>			
-		</tr>
-		<tr>
-			<td>Spectacle:</td>
-			<td>{{ reservation.seance }}</td>			
-		</tr>
-		<tr>
-			<td>Prix:</td>
-			<td>{{ reservation.tarif }}</td>			
-		</tr>		
-		<tr>
-			<td><a href="{{path('modifier_reservation',{'id':reservation.id})}}">modifier</a></td>
-			<td><a href="{{path('voir_reservation',{'id':reservation.id})}}">Détails</a></td>
-			<td><a href="{{path('supprimer_reservation',{'id':reservation.id})}}">supprimer</a></td>
-		</tr>
-	</table>
-	{% endfor %}
+<div class='well'>
+	<h3>Voir une réservation</h3>
+		
+		{% for reservation in reservations %}
+		<table>
+			<tr>
+				<td>Nom</td>
+				<td>{{ reservation.nom }}</td>			
+			</tr>
+			<tr>
+				<td>Prénom:</td>
+				<td>{{ reservation.prenom }}</td>			
+			</tr>
+			<tr>
+				<td>Numéro de place:</td>
+				<td>{{ reservation.place }}</td>			
+			</tr>
+			<tr>
+				<td>Spectacle:</td>
+				<td>{{ reservation.seance }}</td>			
+			</tr>
+			<tr>
+				<td>Prix:</td>
+				<td>{{ reservation.tarif }}</td>			
+			</tr>		
+			<tr>
+				<td><a href="{{path('modifier_reservation',{'id':reservation.id})}}">modifier</a></td>
+				<td><a href="{{path('voir_reservation',{'id':reservation.id})}}">Détails</a></td>
+				<td><a href="{{path('supprimer_reservation',{'id':reservation.id})}}">supprimer</a></td>
+			</tr>
+		</table>
+		{% endfor %}
+</div>
 	
 {% endblock %}

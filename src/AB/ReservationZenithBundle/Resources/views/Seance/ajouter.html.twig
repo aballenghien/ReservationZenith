@@ -3,9 +3,11 @@
 {% block title %}ABReservationZenithBundle:Seance:ajouter{% endblock %}
 
 {% block body %}
-<h1>Welcome to the Seance:ajouter page</h1>
-<form action="{{path('ajouter_seance')}}" method="post" {{form_enctype(form)}}>
-	{{form_widget(form)}}
-	<input type="submit" />
-</form>
+<div class='well'>
+	<h3>Ajouter une séance</h3>
+	<form action="{{path('ajouter_seance')}}" method="post" {{form_enctype(form)}}>
+		{{form_widget(form)}}
+		<input type="submit" />
+	</form>
+</div>
 {% endblock %}

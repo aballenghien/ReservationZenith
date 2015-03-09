@@ -3,27 +3,48 @@
 {% block title %}ABReservationZenithBundle:Spectacle:ajouter{% endblock %}
 
 {% block body %}
-<h1>Welcome to the Spectacle:ajouter page</h1>
-<form action="{{path('ajouter_spectacle')}}" method="post" {{form_enctype(form)}}>
-	<div id="spectacle">
-		<p>{{ form_label(form.titre) }}:  {{ form_widget(form.titre) }}  {{form_errors(form.titre)}}</p>
-		<p>{{ form_label(form.duree) }}:  {{ form_widget(form.duree) }}  {{form_errors(form.duree)}}</p>
-		<p>{{ form_label(form.genre) }}:  {{ form_widget(form.genre) }}  {{form_errors(form.genre)}}</p>
-		<p>{{ form_label(form.nombreDePlaces) }}:  {{ form_widget(form.nombreDePlaces) }}  {{form_errors(form.nombreDePlaces)}}</p>
-	
-	</div>
-	<div id="seances" data-prototype="{{ form_widget(form.seances.vars.prototype)|e }}">
-	{% for seance in form.seances %}
-		<div>{{form_row(seance)}}</div>		
-	{% endfor %}
-	</div>
-	<div id="tarifs" data-prototype="{{ form_widget(form.tarifs.vars.prototype)|e }}">
-		{% for tarif in form.tarifs %}
-			<div>{{form_row(tarif)}}</div>			
-		{% endfor %}
-	</div>
-	<div hidden="true"/>{{form_rest(form)}}</div>
-	<input type="submit" />
-</form>
+<div class='well well-lg'>
+	<h3>Ajouter un spectacle</h3>
+	<br>
+		<form action="{{path('ajouter_spectacle')}}" method="post" {{form_enctype(form)}}>
+
+			<div id="spectacle">
+
+				<div>
+
+					<div>
+						<p>{{ form_label(form.titre) }} :  {{ form_widget(form.titre) }}  {{form_errors(form.titre)}}</p>
+					</div>
+
+					<div>
+						<p>{{ form_label(form.duree) }} :  {{ form_widget(form.duree) }}  {{form_errors(form.duree)}}</p>
+					</div>
+
+					<div>
+						<p>{{ form_label(form.genre) }} :  {{ form_widget(form.genre) }}  {{form_errors(form.genre)}}</p>
+					</div>
+
+					<div>
+						<p>{{ form_label(form.nombreDePlaces) }}:  {{ form_widget(form.nombreDePlaces) }}  {{form_errors(form.nombreDePlaces)}}</p>
+					</div>
+				</div>
+
+			</div>
+
+			<div id="seances" data-prototype="{{ form_widget(form.seances.vars.prototype)|e }}">
+				{% for seance in form.seances %}
+				<div>{{form_row(seance)}}</div>		
+				{% endfor %}
+			</div>
+			<div id="tarifs" data-prototype="{{ form_widget(form.tarifs.vars.prototype)|e }}">
+				{% for tarif in form.tarifs %}
+				<div>{{form_row(tarif)}}</div>			
+				{% endfor %}
+			</div>
+			<div hidden="true"/>{{form_rest(form)}}</div>
+			<br>
+			<input type="submit" class='btn btn-primary'/>
+		</form>
+</div>
 {% endblock %}
 
