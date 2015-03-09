@@ -3,6 +3,7 @@
 namespace AB\ReservationZenithBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\ExecutionContextInterface;
 
 /**
  * Seance
@@ -139,7 +140,7 @@ class Seance
      * @param \AB\ReservationZenithBundle\Entity\Spectacle $spectacle
      * @return Seance
      */
-    public function setSpectacle(\AB\ReservationZenithBundle\Entity\Spectacle $spectacle = null)
+    public function setSpectacle(\AB\ReservationZenithBundle\Entity\Spectacle $spectacle)
     {
         $this->spectacle = $spectacle;
 
@@ -157,6 +158,23 @@ class Seance
     }
     
     public function __toString (){
-		return $this->spectacle->getTitre().": ".$this->getHeure()->format('H:i');
+        $titre = "";
+        if($this->getSpectacle()!=null){
+		  $titre = $this->getSpectacle()->getTitre();
+        }
+        return $titre.": ".$this->getHeure()->format('H:i');;
 	}
+
+    public function isNbPlacesRestValid(ExecutionContextInterface $context)
+    {
+
+        if ($this->getNombrePlacesRestantes()> $this->getSpectacle()->getNombreDePlaces()) {
+            $context->addViolationAt(
+                'nombrePlacesRestantes',
+                'erreur.seance.nombrePlacesRestantes',
+                array(),
+                null
+            );
+        }
+    }
 }

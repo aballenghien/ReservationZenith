@@ -1,22 +1,24 @@
 {% extends "ABReservationZenithBundle::layout.html.twig" %}
 
-{% block title %}ABReservationZenithBundle:Spectacle:voir{% endblock %}
+{% block title %}{{ 'voir.spectacle'|trans }}{% endblock %}
 
 {% block body %}
-<div class='well'>
-	<h3>Voir un spectacle</h3>
-		<table>
-		{% for spectacle in spectacles %}
-			<tr>
-				<td>titre :</td>
-				<td>{{ spectacle.titre }}</td>
-				<td><a href="{{path('modifier_spectacle',{'id':spectacle.id})}}">modifier</a></td>
-				<td><a href="{{path('voir_spectacle',{'id':spectacle.id})}}">Détails</a></td>
-				<td><a href="{{path('supprimer_spectacle',{'id':spectacle.id})}}">supprimer</a></td>
-				<td><a href="{{path('voir_tarif',{'id_spectacle':spectacle.id})}}">voir les tarifs associés</a></td>
-				<td><a href="{{path('voir_seance',{'id_spectacle':spectacle.id})}}">voir les Séances</a></td>
-				</tr>
-		{% endfor %}
-		</table>
-</div>
+{{ parent () }}
+<h1>{{ 'voir.spectacle'|trans }}</h1>
+	<table>
+	{% for spectacle in spectacles %}
+		<tr>
+			<td>titre :</td>
+			<td>{{ spectacle.titre }}</td>
+			{% if is_granted('ROLE_ADMIN') %}
+			<td><a href="{{path('modifier_spectacle',{'id':spectacle.id})}}">modifier</a></td>			
+			<td><a href="{{path('supprimer_spectacle',{'id':spectacle.id})}}">supprimer</a></td>
+			{% endif %}
+			<td><a href="{{path('voir_spectacle',{'id':spectacle.id})}}">Détails</a></td>
+			<td><a href="{{path('voir_tarif',{'id_spectacle':spectacle.id})}}">voir les tarifs associés</a></td>
+			<td><a href="{{path('voir_seance',{'id_spectacle':spectacle.id})}}">voir les Séances</a></td>
+			</tr>
+	{% endfor %}
+	</table>
 {% endblock %}
+

@@ -3,11 +3,19 @@
 {% block title %}ABReservationZenithBundle:Tarif:modifier{% endblock %}
 
 {% block body %}
-<div class='well'>
-	<h3>Modifier un tarif</h3>
-	<form action='' method="post" {{form_enctype(form)}}>
-		{{form_widget(form)}}
-		<input type="submit" class='btn btn-primary'/>
-	</form>
-</div>
+<h1>{{'modifier.tarif'|trans}}</h1>
+{% if is_granted('ROLE_ADMIN') %}
+<form action='' method="post" {{form_enctype(form)}}>
+	 <table>
+    	<tr><td>{{form_label(form.prix)}}</td><td>{{form_widget(form.prix)}}</td></tr>
+    	<tr><td>{{form_label(form.numeroPlaceMin)}}</td><td>{{form_widget(form.numeroPlaceMin)}}</td></tr>
+    	<tr><td>{{form_label(form.numeroPlaceMax)}}</td><td>{{form_widget(form.numeroPlaceMax)}}</td></tr>
+    </table>    
+	<div hidden="true"/>
+	{{form_rest(form)}}
+	<input type="submit" />
+</form>
+{% else %}
+<h1> {{'privilege.addsppectacle'|trans }}</h1>
+{% endif %}
 {% endblock %}

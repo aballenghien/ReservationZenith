@@ -14,11 +14,20 @@ class SpectacleType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
+        $dureeMin = 30;
+        $dureeMax = 240;
+        $tabDurees = array();
+        for($i = $dureeMin;$i <= $dureeMax; $i++){
+            $tabDurees[] = $i;
+        }
         $builder
-            ->add('titre')
-            ->add('genre')
-            ->add('duree')
-            ->add('nombreDePlaces')
+            ->add('titre',null,array('label'=>'spectacleTrad.titre'))
+            ->add('genre',null,array('label'=>'spectacleTrad.genre'))
+            ->add('duree','integer', array(
+                'label'=>'spectacleTrad.duree'))
+            ->add('nombreDePlaces',null,array('label'=>'spectacleTrad.nbPlaces'))
+            ->add('commentaires',null,array('label'=>'spectacleTrad.commentaires'))
+            ->add('affiche',null,array('label'=>'spectacleTrad.affiche'))
             ->add('seances','collection', array(
             'type'=>new SeanceType(),
             'allow_add'=>true,
@@ -43,11 +52,13 @@ class SpectacleType extends AbstractType
         ));
     }
 
+    
+
     /**
      * @return string
      */
     public function getName()
     {
-        return 'ab_reservationzenithbundle_spectacle';
+        return 'spectacle';
     }
 }

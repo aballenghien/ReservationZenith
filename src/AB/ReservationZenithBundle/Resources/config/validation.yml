@@ -1,0 +1,4 @@
+AB\ReservationZenithBundle\Entity\Seance:
+    constraints:
+        - Callback:
+            methods:   [isNbPlacesRestValid]

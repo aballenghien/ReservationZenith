@@ -49,7 +49,21 @@ class Spectacle
      * @ORM\Column(name="nombreDePlaces", type="integer")
      */
     private $nombreDePlaces;
-    
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="commentaires", type="string",length=500)
+     */
+    private $commentaires;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="affiche", type="string",length=250)
+     */
+    private $affiche;
+
     /**
      * @ORM\OneToMany(targetEntity="Seance",mappedBy="spectacle", cascade={"persist"})
      **/
@@ -67,6 +81,8 @@ class Spectacle
 		$this->tarifs = new ArrayCollection();
 		$this->seances = new ArrayCollection();
 	}
+
+
     /**
      * Get id
      *
@@ -179,7 +195,7 @@ class Spectacle
      * @param ArrayCollection $tarifs
      * @return Spectacle
      */
-    public function setTarifs(ArrayCollection $tarifs)
+    public function setTarifs($tarifs)
     {
         foreach($tarifs as $tarif){
             $tarif->setSpectacle($this);
@@ -205,7 +221,7 @@ class Spectacle
      * @param ArrayCollection $seances
      * @return Spectacle
      */
-    public function setSeances(ArrayCollection $seances)
+    public function setSeances($seances)
     {
         foreach($seances as $seance){
             $seance->setSpectacle($this);
@@ -224,4 +240,100 @@ class Spectacle
     {
         return $this->seances;
     }
+
+
+    /**
+     * Set commentaires
+     *
+     * @param string $commentaires
+     * @return Spectacle
+     */
+    public function setCommentaires($commentaires)
+    {
+        $this->commentaires = $commentaires;
+
+        return $this;
+    }
+
+    /**
+     * Get commentaires
+     *
+     * @return string 
+     */
+    public function getCommentaires()
+    {
+        return $this->commentaires;
+    }
+
+    /**
+     * Set affiche
+     *
+     * @param string $affiche
+     * @return Spectacle
+     */
+    public function setAffiche($affiche)
+    {
+        $this->affiche = $affiche;
+
+        return $this;
+    }
+
+    /**
+     * Get affiche
+     *
+     * @return string 
+     */
+    public function getAffiche()
+    {
+        return $this->affiche;
+    }
+
+    /**
+     * Add seances
+     *
+     * @param \AB\ReservationZenithBundle\Entity\Seance $seances
+     * @return Spectacle
+     */
+    public function addSeance(\AB\ReservationZenithBundle\Entity\Seance $seance)
+    {
+        
+        $seance->setSpectacle($this);
+        $this->seances[] = $seance;
+        return $this;
+    }
+
+    /**
+     * Remove seances
+     *
+     * @param \AB\ReservationZenithBundle\Entity\Seance $seances
+     */
+    public function removeSeance(\AB\ReservationZenithBundle\Entity\Seance $seances)
+    {
+        $this->seances->removeElement($seances);
+    }
+
+    /**
+     * Add tarifs
+     *
+     * @param \AB\ReservationZenithBundle\Entity\Tarif $tarifs
+     * @return Spectacle
+     */
+    public function addTarif(\AB\ReservationZenithBundle\Entity\Tarif $tarif)
+    {
+        $tarif->setSpectacle($this);
+        $this->tarifs[] = $tarif;
+        return $this;
+    }
+
+    /**
+     * Remove tarifs
+     *
+     * @param \AB\ReservationZenithBundle\Entity\Tarif $tarifs
+     */
+    public function removeTarif(\AB\ReservationZenithBundle\Entity\Tarif $tarifs)
+    {
+        $this->tarifs->removeElement($tarifs);
+    }
+
+    
 }

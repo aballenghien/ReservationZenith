@@ -51,7 +51,7 @@ class AfterLogoutRedirection implements LogoutSuccessHandlerInterface
             $response = new RedirectResponse($this->router->generate('fos_user_security_login'));
         // Sinon on redirige vers la homepage
         else
-            $response = new RedirectResponse($this->router->generate('homepage'));
+            $response = new RedirectResponse($this->router->generate('ab_reservation_zenith_homepage'));
  
         return $response;
     }

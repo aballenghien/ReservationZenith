@@ -6,6 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use AB\ReservationZenithBundle\Form\TarifType;
 use AB\ReservationZenithBundle\Entity\Tarif;
 use AB\ReservationZenithBundle\Entity\Spectacle;
+use JMS\SecurityExtraBundle\Annotation\Secure;
 
 class TarifController extends Controller
 {
@@ -14,7 +15,9 @@ class TarifController extends Controller
         return $this->render('ABReservationZenithBundle:Tarif:index.html.twig', array(
                 // ...
             ));    }
-
+/**
+* @Secure(roles="ROLE_ADMIN")
+*/
     public function ajouterAction()
     {
         $em = $this->getDoctrine()->getManager();
@@ -30,6 +33,7 @@ class TarifController extends Controller
         return $this->render('ABReservationZenithBundle:Tarif:ajouter.html.twig', array(
         'form'=>$form->createView()
             ));   }
+
 
     public function voirAction($id,$id_spectacle)
     {
@@ -70,6 +74,9 @@ class TarifController extends Controller
         'tarifs'=>$tarifs
             ));     }
 
+/**
+* @Secure(roles="ROLE_ADMIN")
+*/
     public function modifierAction($id)
     {
 		$em = $this->getDoctrine()->getManager();
@@ -86,7 +93,10 @@ class TarifController extends Controller
         return $this->render('ABReservationZenithBundle:Tarif:modifier.html.twig', array(
         'form'=>$form->createView()
             ));    }
-
+        
+/**
+* @Secure(roles="ROLE_ADMIN")
+*/
     public function supprimerAction($id)
     {
         $em = $this->getDoctrine()->getManager();

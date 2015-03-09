@@ -1,9 +1,18 @@
-{% extends "::ABReservationZenithBundleABReservationZenithBundle::layout.html.twig" %}
+{% extends "ABReservationZenithBundle::layout.html.twig" %}
 
-{% block title %}ABReservationZenithBundle:Réservation:index{% endblock %}
+{% block title %}{{ 'pages.indexReservation'|trans }}{% endblock %}
 
 {% block body %}
-<div class='well'>
-	<h3>Index des réservations</h3>
-</div>
+{{ parent () }}
+<h1>{{ 'index.reservation'|trans }}</h1>
+{% if is_granted('ROLE_USER') %}
+<ul>
+<li><a href="{{path('ajouter_reservation')}}">{{ 'ajouter.reservation'|trans }}</a>
+
+<li><a href="{{path('voir_reservation',{'idClient':user.id})}}">{{ 'voir.listereservationclient'|trans }}</a>
+{% if is_granted('ROLE_ADMIN') %}
+<li><a href="{{path('voir_reservation')}}">{{ 'voir.listereservation'|trans }}</a>
+{% endif %}
+</ul>
+{% endif %}
 {% endblock %}

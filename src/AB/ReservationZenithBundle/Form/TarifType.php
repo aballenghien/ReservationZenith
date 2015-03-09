@@ -16,9 +16,9 @@ class TarifType extends AbstractType
     {
         $builder
             ->add('prix',null,array(
-				'label'=> 'Prix : ' ))
-			->add('numeroPlaceMin','integer')
-			->add('numeroPlaceMax','integer');
+				'label'=> 'tarifTrad.prix' ))
+			->add('numeroPlaceMin','integer',array('label'=>'tarifTrad.numPlaceMin'))
+			->add('numeroPlaceMax','integer',array('label'=>'tarifTrad.numPlaceMax'));
         ;
     }
     
@@ -37,6 +37,6 @@ class TarifType extends AbstractType
      */
     public function getName()
     {
-        return 'ab_reservationzenithbundle_tarif';
+        return 'tarif';
     }
 }

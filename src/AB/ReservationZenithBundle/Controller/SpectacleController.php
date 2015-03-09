@@ -10,6 +10,8 @@ use AB\ReservationZenithBundle\Entity\Tarif;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 use Doctrine\Common\Collections\ArrayCollection;
+use JMS\SecurityExtraBundle\Annotation\Secure;
+use AB\ReservationZenithBundle\Command\ExecuterLesCommandes;
 
 class SpectacleController extends Controller
 {
@@ -19,6 +21,9 @@ class SpectacleController extends Controller
                 // ...
             ));    }
 
+/**
+* @Secure(roles="ROLE_ADMIN")
+*/
     public function ajouterAction(Request $request)
     {
 		$em = $this->getDoctrine()->getManager();
@@ -30,8 +35,9 @@ class SpectacleController extends Controller
 			if($form->isValid()){
 				$spectacle = $form->getData();
 				$em->persist($spectacle);
-				$em->flush($spectacle);
+				$em->flush();
 				$id = $spectacle->getId();
+				ExecuterLesCommandes::runCommand('reservationzenith:genererRSS',$this);
 				return $this->redirect($this->get('router')->generate('voir_spectacle',array('id'=>$id)));
 			}
 		}
@@ -48,20 +54,25 @@ class SpectacleController extends Controller
 		$spectacles = array();
 		if($id != 0){
 			$spectacle = $em->getRepository('ABReservationZenithBundle:Spectacle')->findOneById($id);
-			array_push($spectacles,$spectacle);
+			return $this->render('ABReservationZenithBundle:Spectacle:details.html.twig', array(
+        'spectacle'=>$spectacle
+            ));   
 		}else{
 			$spectacles = $em->getRepository('ABReservationZenithBundle:Spectacle')->findAll();
+			 return $this->render('ABReservationZenithBundle:Spectacle:voir.html.twig', array(
+        'spectacles'=>$spectacles
+            ));
 		}
 			
-        return $this->render('ABReservationZenithBundle:Spectacle:voir.html.twig', array(
-        'spectacles'=>$spectacles
-            ));    
+           
 	}
-
+/**
+* @Secure(roles="ROLE_ADMIN")
+*/
     public function modifierAction(Request $request, $id)
     {
         $em = $this->getDoctrine()->getManager();
-        $spectacle = $em->getRepository('ABReservationZenithBundle:Spectacle')->findOneById($id);
+        $spectacle = $em->getRepository('ABReservationZenithBundle:Spectacle')->find($id);
         if(!$spectacle){
         	throw $this->createNotFoundException('Aucun spectacle trouvé pour cet id');
         }
@@ -80,28 +91,36 @@ class SpectacleController extends Controller
 			$form->handleRequest($this->getRequest());
 			if($form->isValid()){
 				foreach ($originalsSeances as $seance ) {
-					if(!$spectacle->getSeances()->contains($seance))
-					{						
+					if(($spectacle->getSeances()->contains($seance)) == false)
+					{	
+																		
 						$em->remove($seance);
+						$em->flush();
+
 					}
 				}
 				foreach ($originalsTarifs as $tarif) {
-					if(!$spectacle->getTarifs()->contains($tarif))
+					if(($spectacle->getTarifs()->contains($tarif)) == false)
 					{
-						$tarif->getSpectacle()->removeElement($spectacle);
 						$em->remove($tarif);
+						$em->flush();
 					}
 				}
 				$em->persist($spectacle);
 				$em->flush($spectacle);
+				ExecuterLesCommandes::runCommand('reservationzenith:genererRSS',$this);
 				$id = $spectacle->getId();
-				return $this->redirect($this->get('router')->generate('voir_spectacle',array('id'=>0)));
+				return $this->redirect($this->get('router')->generate('voir_spectacle',array('id'=>$id)));
 			}
 		}
         return $this->render('ABReservationZenithBundle:Spectacle:modifier.html.twig', array(
         'form'=>$form->createView()
             ));
 	}
+
+/**
+* @Secure(roles="ROLE_ADMIN")
+*/
 	public function supprimerAction($id)
     {
 		$em = $this->getDoctrine()->getManager();

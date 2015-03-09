@@ -22,10 +22,10 @@ jQuery(document).ready(function() {
         e.preventDefault();
         addForm(collectionHolderTarifs, $newLinkDivTarif);
     });
-    collectionHolderSeances.find('<div>').each(function() {
+    $( "div[id='seance']" ).each(function() {
         addTagFormDeleteLink($(this));
     });
-    collectionHolderTarifs.find('<div>').each(function() {
+    $( "div[id='tarif']" ).each(function() {
         addTagFormDeleteLink($(this));
     });
 
@@ -38,9 +38,9 @@ function addForm(collectionHolder, $newLinkDiv) {
 
     // Remplace '__name__' dans le HTML du prototype par un nombre basé sur
     // la longueur de la collection courante
-    var newForm = prototype.replace(/__name__/g, collectionHolder.children().length);
+    var newForm = prototype.replace(/__name__/g,collectionHolder.children().length);
 
-    // Affiche le formulaire dans la page dans un li, avant le lien "ajouter un tag"
+    
     var $newFormDiv = $('<div></div>').append(newForm);
     $newLinkDiv.before($newFormDiv);
     addTagFormDeleteLink($newFormDiv);
@@ -60,23 +60,24 @@ function addTagFormDeleteLink($formDiv) {
     });
 }
 
-/*selection du tarif en fonction de la place*/
-var champPlace = $('#ab_reservationzenithbundle_reservation_place');
-var champPrix = $('#ab_reservationzenithbundle_reservation_tarif');
 
-/*jQuery(document).ready(function() {
-    champPlace.change(function(){
-        var value='';
-        value = champPlace.val();
-        $.ajax({
-                   type:"POST"
-                   url:"../pageAjax/afficherTarif.php",
-                   data:"value="+value,
-                   
-                   success: function(retour){
-           chamPrix.val(retour);
-                   }
-                   
-               });
+
+/*suppression*/
+var supprLinkResa = $('#supprResa');
+jQuery(document).ready(function(){
+    supprLinkResa.on('click', function(e) {
+        e.preventDefault();
+        res = confirmerSuppression("cette réservation");
+        if(res){
+            window.location.href = $(this).attr("href");
+        }else{
+            window.location.href = document.URL;
+        }
     });
-});*/
+});
+
+function confirmerSuppression($objet){
+    res = false;
+    res = confirm("Voulez vous vraiment supprimer ?");
+    return res;
+}

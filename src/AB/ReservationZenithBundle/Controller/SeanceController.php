@@ -6,6 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use AB\ReservationZenithBundle\Form\SeanceType;
 use AB\ReservationZenithBundle\Entity\Seance;
 use AB\ReservationZenithBundle\Entity\Spectacle;
+use JMS\SecurityExtraBundle\Annotation\Secure;
 
 class SeanceController extends Controller
 {
@@ -16,6 +17,9 @@ class SeanceController extends Controller
                 // ...
             ));    }
 
+/**
+* @Secure(roles="ROLE_ADMIN")
+*/
     public function ajouterAction()
     {
 		$em = $this->getDoctrine()->getManager();
@@ -32,6 +36,9 @@ class SeanceController extends Controller
                 'form'=>$form->createView()
             ));    }
 
+/**
+* @Secure(roles="ROLE_ADMIN")
+*/
     public function modifierAction($id)
     {
         $em = $this->getDoctrine()->getManager();
@@ -49,6 +56,7 @@ class SeanceController extends Controller
         'form'=>$form->createView()
             ));    }
 
+
     public function voirAction($id_spectacle,$id)
     {
         $em = $this->getDoctrine()->getManager();
@@ -63,10 +71,10 @@ class SeanceController extends Controller
             $seances = $em->getRepository('ABReservationZenithBundle:Seance')->findBySpectacle($spectacle);
             if($id != 0)
             {
-                $text = 'une seance';
+                
                 foreach($seances as $e)
                 {
-                    if($seance->id == $id)
+                    if($e->id == $id)
                     {
                         $seance = $e;
                     }
@@ -91,6 +99,9 @@ class SeanceController extends Controller
             ));    
     }
 
+/**
+* @Secure(roles="ROLE_ADMIN")
+*/
     public function supprimerAction($id)
     {
         $em = $this->getDoctrine()->getManager();

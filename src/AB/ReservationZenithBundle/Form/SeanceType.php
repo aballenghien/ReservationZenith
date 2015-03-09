@@ -14,11 +14,36 @@ class SeanceType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
+        $tabAnnees = array();
+        $annee = date("Y");
+        for($i = $annee; $i <= $annee+5; $i++){
+            $tabAnnees[] = $i;
+        }
+        $heureOuverture = 15;
+        $heureFermeture = 24;
+
+        $tabHeures =  array();
+        for($i = $heureOuverture; $i<=$heureFermeture; $i++){
+            $tabHeures[] = $i;
+        }
         $builder
-            ->add('heure')
-            ->add('date')
-            ->add('nombrePlacesRestantes');
-        ;
+            ->add('heure','time',array(
+                'label'=>'seanceTrad.heure',
+                'widget'=>'choice',
+                'empty_value'=>array(
+                                    'hour'=>'heure',
+                                    'minute'=>'minute'),
+                'hours'=>$tabHeures))
+            ->add('date','date',array(
+                'label'=>'seanceTrad.date',
+                'widget'=>'choice',
+                'empty_value'=>array(
+                                    'year'=>'Année',
+                                    'month'=>'Mois',
+                                    'day'=>'Jour'),
+                'years'=>$tabAnnees))
+            ->add('nombrePlacesRestantes',null,array('label'=>'seanceTrad.nbPlacesRestantes'));
+        
     }
     
     /**
@@ -31,11 +56,15 @@ class SeanceType extends AbstractType
         ));
     }
 
+
+
+
+
     /**
      * @return string
      */
     public function getName()
     {
-        return 'ab_reservationzenithbundle_seance';
+        return 'seance';
     }
 }

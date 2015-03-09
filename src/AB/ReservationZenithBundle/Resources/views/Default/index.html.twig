@@ -1,1 +1,16 @@
-Hello {{ name }}!
+{% extends "ABReservationZenithBundle::layout.html.twig" %}
+{% block title %}{{'pages.accueilzenith'|trans}}{% endblock %}
+
+{% block body %}
+{{ parent () }}
+<h1>{{'pages.accueilzenith'|trans}}</h1>
+{{channel.title}}
+{{channel.description}}
+{% for item in items %}
+	<li><div class='story' >
+			<div class='headline'><a href="{{item.source}}">{{item.title}}</div></a>
+			<div class='timestamp' >{{item.pubDate}}</div>
+			<div class='body' >{{item.description}}</div>			
+		</div></li>
+{% endfor %}
+{% endblock %}
