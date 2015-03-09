@@ -5,9 +5,11 @@
 {% block body %}
 <div class='well'>
 	<h3>Modifier une réservation</h3>
+	<br>
 	<form action='' method="post" {{form_enctype(form)}}>
 		{{form_widget(form)}}
-		<input type="submit" />
+		<br>
+		<input type="submit" class='btn btn-primary'/>
 	</form>
 </div>
 {% endblock %}

@@ -11,7 +11,7 @@
 			<tr><td>{{form_label(form.prix) }}</td><td>{{form_widget(form.prix)}}</td></tr>
 			<tr><td>{% trans %}intervalle.place.tarif{% endtrans %}</td><td>{{form_widget(form.numeroPlaceMin)}} à {{form_widget(form.numeroPlaceMax)}}</td></tr>
 		</table>
-		<input type="submit" />
+		<input type="submit" class='btn btn-primary'/>
 	</form>
 </div>
 {% endblock %}

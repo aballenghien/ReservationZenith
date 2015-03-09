@@ -5,6 +5,7 @@
 {% block body %}
 <div class='well'>
 	<h3>Modifier un spectacle</h3>
+	<br>
 	<form action="{{path('ajouter_spectacle')}}" method="post" {{form_enctype(form)}}>
 		<div id="spectacle">
 			<p>{{ form_label(form.titre) }}:  {{ form_widget(form.titre) }}  {{form_errors(form.titre)}}</p>
@@ -24,7 +25,8 @@
 			{% endfor %}
 		</div>
 		<div hidden="true"/>{{form_rest(form)}}</div>
-		<input type="submit" />
+		<br>
+		<input type="submit" class='btn btn-primary'/>
 	</form>
 </div>
 {% endblock %}

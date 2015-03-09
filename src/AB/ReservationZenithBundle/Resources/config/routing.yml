@@ -85,3 +85,8 @@ modifier_reservation:
 supprimer_reservation:
     path:     /reservation/supprimer/{id}
     defaults: { _controller: ABReservationZenithBundle:Reservation:supprimer }
+
+##ajouter_reservation
+about:
+    path:   /Default/about
+    defaults: { _controller: ABReservationZenithBundle:Default:about }
