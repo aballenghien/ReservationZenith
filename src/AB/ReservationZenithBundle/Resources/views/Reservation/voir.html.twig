@@ -20,7 +20,9 @@
 			<tr>
 				<td><a href="{{path('modifier_reservation',{'id':reservation.id})}}">{{ 'actionTrad.modifier'|trans }}</a></td>
 				<td><a href="{{path('voir_reservation',{'id':reservation.id})}}">{{ 'actionTrad.details'|trans }}</a></td>
+				{% if is_granted('ROLE_ADMIN') %}
 				<td><a id= "supprResa" href="{{path('supprimer_reservation',{'id':reservation.id})}}">{{ 'actionTrad.supprimer'|trans }}</a></td>
+				{% endif %}
 				<td></td>
 				<td></td>
 				<td></td>

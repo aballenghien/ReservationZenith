@@ -12,6 +12,8 @@ spectacleTrad:
     affiche: Affiche
     seances: Séances Programmées
     tarifs: Tarifs Proposés 
+    tarifsassocies: Voir la liste des tarifs associés
+    seanceprogramme: Voir les Séances
 
 seanceTrad:
     date: Date

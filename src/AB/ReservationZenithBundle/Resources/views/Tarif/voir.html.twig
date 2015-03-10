@@ -4,30 +4,31 @@
 
 {% block body %}
 {{ parent () }}
-<h1>{{ 'voir.tarifsSpectacle'|trans({'%spectacle%': tarifs[0].spectacle.titre}, "messages") }}</h1>
-	
-	{% for tarif in tarifs %}
-	<table>
-		<tr>
-			<td>Prix:</td>
-			<td>{{ tarif.prix }}</td>			
-		</tr>
-		<tr>
-			<td>{{tarif.places|trans}}</td>
-			<td>{{ tarif.numeroPlaceMin}} -- {{ tarif.numeroPlaceMax }}</td>			
-		</tr>
-		<tr>
-			<td>Spectacle:</td>
-			<td>{{ tarif.spectacle }}</td>			
-		</tr>				
-		<tr>
-			{% if is_granted('ROLE_ADMIN') %}
-			<td><a href="{{path('modifier_tarif',{'id':tarif.id})}}">{{ 'actionTrad.modifier'|trans }}</a></td>			
-			<td><a href="{{path('supprimer_tarif',{'id':tarif.id})}}">{{ 'actionTrad.supprimer'|trans }}</a></td>
-			{% endif %}
-			<td><a href="{{path('voir_tarif',{'id':tarif.id})}}">{{ 'actionTrad.details'|trans }}</a></td>
-		</tr>
-	</table>
-	{% endfor %}
-	
+<div class='well'>
+	<h3>{{ 'voir.tarifsSpectacle'|trans({'%spectacle%': tarifs[0].spectacle.titre}, "messages") }}</h3>
+		
+		{% for tarif in tarifs %}
+		<table>
+			<tr>
+				<td>Prix:</td>
+				<td>{{ tarif.prix }}</td>			
+			</tr>
+			<tr>
+				<td>{{tarif.places|trans}}</td>
+				<td>{{ tarif.numeroPlaceMin}} -- {{ tarif.numeroPlaceMax }}</td>			
+			</tr>
+			<tr>
+				<td>Spectacle:</td>
+				<td>{{ tarif.spectacle }}</td>			
+			</tr>				
+			<tr>
+				{% if is_granted('ROLE_ADMIN') %}
+				<td><a href="{{path('modifier_tarif',{'id':tarif.id})}}">{{ 'actionTrad.modifier'|trans }}</a></td>			
+				<td><a href="{{path('supprimer_tarif',{'id':tarif.id})}}">{{ 'actionTrad.supprimer'|trans }}</a></td>
+				{% endif %}
+				<td><a href="{{path('voir_tarif',{'id':tarif.id})}}">{{ 'actionTrad.details'|trans }}</a></td>
+			</tr>
+		</table>
+		{% endfor %}
+</div>	
 {% endblock %}

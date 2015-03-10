@@ -19,6 +19,7 @@ class AppKernel extends Kernel
             new AppBundle\AppBundle(),
             new AB\ReservationZenithBundle\ABReservationZenithBundle(),
             new FOS\UserBundle\FOSUserBundle(),
+            new FOS\JsRoutingBundle\FOSJsRoutingBundle(),
             new JMS\AopBundle\JMSAopBundle(),
 			new JMS\SecurityExtraBundle\JMSSecurityExtraBundle(),
 			new JMS\DiExtraBundle\JMSDiExtraBundle($this),

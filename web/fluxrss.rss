@@ -2,49 +2,115 @@
 <rss version="2.0">
 	<channel>
 		<title>Liste des spectacles à venir</title>
-		<link>/UNIVERSITE/ReservationZenith/web/app_dev.php/fr/accueil-zenith</link>
+		<link>http://localhost/UNIVERSITE/ReservationZenith/web/app_dev.php/UNIVERSITE/ReservationZenith/web/app_dev.php/fr/accueil-zenith</link>
 		<description>Affiche le liste des spectacle programmés pour cette année</description>
 			<item>
 				<title>Test</title>
 				<description>Test</description>
-				<pubDate>2015-03-09</pubDate>
-				<source>/UNIVERSITE/ReservationZenith/web/app_dev.php/spectacle/fr/voir/1</source>
+				<pubDate>2015-03-10</pubDate>
+				<source>http://localhost/UNIVERSITE/ReservationZenith/web/app_dev.php/UNIVERSITE/ReservationZenith/web/app_dev.php/spectacle/fr/voir/1</source>
 			</item>
 			<item>
 				<title></title>
 				<description></description>
-				<pubDate>2015-03-09</pubDate>
-				<source>/UNIVERSITE/ReservationZenith/web/app_dev.php/spectacle/fr/voir</source>
+				<pubDate>2015-03-10</pubDate>
+				<source>http://localhost/UNIVERSITE/ReservationZenith/web/app_dev.php/UNIVERSITE/ReservationZenith/web/app_dev.php/spectacle/fr/voir</source>
 			</item>
 			<item>
 				<title>Test</title>
 				<description>Test</description>
-				<pubDate>2015-03-09</pubDate>
-				<source>/UNIVERSITE/ReservationZenith/web/app_dev.php/spectacle/fr/voir/4</source>
+				<pubDate>2015-03-10</pubDate>
+				<source>http://localhost/UNIVERSITE/ReservationZenith/web/app_dev.php/UNIVERSITE/ReservationZenith/web/app_dev.php/spectacle/fr/voir/4</source>
 			</item>
 			<item>
 				<title>Test</title>
 				<description>TEst</description>
-				<pubDate>2015-03-09</pubDate>
-				<source>/UNIVERSITE/ReservationZenith/web/app_dev.php/spectacle/fr/voir/5</source>
+				<pubDate>2015-03-10</pubDate>
+				<source>http://localhost/UNIVERSITE/ReservationZenith/web/app_dev.php/UNIVERSITE/ReservationZenith/web/app_dev.php/spectacle/fr/voir/5</source>
 			</item>
 			<item>
 				<title>Test</title>
 				<description>Test</description>
-				<pubDate>2015-03-09</pubDate>
-				<source>/UNIVERSITE/ReservationZenith/web/app_dev.php/spectacle/fr/voir/6</source>
+				<pubDate>2015-03-10</pubDate>
+				<source>http://localhost/UNIVERSITE/ReservationZenith/web/app_dev.php/UNIVERSITE/ReservationZenith/web/app_dev.php/spectacle/fr/voir/6</source>
 			</item>
 			<item>
 				<title>Le Spectacle</title>
 				<description>Test</description>
-				<pubDate>2015-03-09</pubDate>
-				<source>/UNIVERSITE/ReservationZenith/web/app_dev.php/spectacle/fr/voir/7</source>
+				<pubDate>2015-03-10</pubDate>
+				<source>http://localhost/UNIVERSITE/ReservationZenith/web/app_dev.php/UNIVERSITE/ReservationZenith/web/app_dev.php/spectacle/fr/voir/7</source>
 			</item>
 			<item>
 				<title>Le Spectacle Test</title>
 				<description>Test</description>
-				<pubDate>2015-03-09</pubDate>
-				<source>/UNIVERSITE/ReservationZenith/web/app_dev.php/spectacle/fr/voir/8</source>
+				<pubDate>2015-03-10</pubDate>
+				<source>http://localhost/UNIVERSITE/ReservationZenith/web/app_dev.php/UNIVERSITE/ReservationZenith/web/app_dev.php/spectacle/fr/voir/8</source>
+			</item>
+			<item>
+				<title>Test</title>
+				<description>Test</description>
+				<pubDate>2015-03-10</pubDate>
+				<source>http://localhost/UNIVERSITE/ReservationZenith/web/app_dev.php/UNIVERSITE/ReservationZenith/web/app_dev.php/spectacle/fr/voir/9</source>
+			</item>
+			<item>
+				<title>Test</title>
+				<description>Test</description>
+				<pubDate>2015-03-10</pubDate>
+				<source>http://localhost/UNIVERSITE/ReservationZenith/web/app_dev.php/UNIVERSITE/ReservationZenith/web/app_dev.php/spectacle/fr/voir/10</source>
+			</item>
+			<item>
+				<title>Test</title>
+				<description>Test</description>
+				<pubDate>2015-03-10</pubDate>
+				<source>http://localhost/UNIVERSITE/ReservationZenith/web/app_dev.php/UNIVERSITE/ReservationZenith/web/app_dev.php/spectacle/fr/voir/11</source>
+			</item>
+			<item>
+				<title>Test</title>
+				<description>Test</description>
+				<pubDate>2015-03-10</pubDate>
+				<source>http://localhost/UNIVERSITE/ReservationZenith/web/app_dev.php/UNIVERSITE/ReservationZenith/web/app_dev.php/spectacle/fr/voir/12</source>
+			</item>
+			<item>
+				<title>Test</title>
+				<description>Test</description>
+				<pubDate>2015-03-10</pubDate>
+				<source>http://localhost/UNIVERSITE/ReservationZenith/web/app_dev.php/UNIVERSITE/ReservationZenith/web/app_dev.php/spectacle/fr/voir/13</source>
+			</item>
+			<item>
+				<title>Test</title>
+				<description>Test</description>
+				<pubDate>2015-03-10</pubDate>
+				<source>http://localhost/UNIVERSITE/ReservationZenith/web/app_dev.php/UNIVERSITE/ReservationZenith/web/app_dev.php/spectacle/fr/voir/14</source>
+			</item>
+			<item>
+				<title>Test</title>
+				<description>Test</description>
+				<pubDate>2015-03-10</pubDate>
+				<source>http://localhost/UNIVERSITE/ReservationZenith/web/app_dev.php/UNIVERSITE/ReservationZenith/web/app_dev.php/spectacle/fr/voir/15</source>
+			</item>
+			<item>
+				<title>Test</title>
+				<description>Test</description>
+				<pubDate>2015-03-10</pubDate>
+				<source>http://localhost/UNIVERSITE/ReservationZenith/web/app_dev.php/UNIVERSITE/ReservationZenith/web/app_dev.php/spectacle/fr/voir/16</source>
+			</item>
+			<item>
+				<title>Test</title>
+				<description>Test</description>
+				<pubDate>2015-03-10</pubDate>
+				<source>http://localhost/UNIVERSITE/ReservationZenith/web/app_dev.php/UNIVERSITE/ReservationZenith/web/app_dev.php/spectacle/fr/voir/17</source>
+			</item>
+			<item>
+				<title>Test</title>
+				<description>Test</description>
+				<pubDate>2015-03-10</pubDate>
+				<source>http://localhost/UNIVERSITE/ReservationZenith/web/app_dev.php/UNIVERSITE/ReservationZenith/web/app_dev.php/spectacle/fr/voir/18</source>
+			</item>
+			<item>
+				<title>Test</title>
+				<description>Test</description>
+				<pubDate>2015-03-10</pubDate>
+				<source>http://localhost/UNIVERSITE/ReservationZenith/web/app_dev.php/UNIVERSITE/ReservationZenith/web/app_dev.php/spectacle/fr/voir/19</source>
 			</item>
 	</channel>
 </rss>

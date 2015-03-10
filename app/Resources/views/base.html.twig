@@ -21,7 +21,10 @@
 
         <div class='container'>
             {% block body %}{% endblock %}
-            {% block javascripts %}{% endblock %}
+            {% block javascripts %}
+            <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
+            <script src="{{ path('fos_js_routing_js', {"callback": "fos.Router.setData"}) }}"></script>
+            {% endblock %}
         </div>
 
         <br>
@@ -37,17 +40,17 @@
                     </div>
 
                     <div class='col-md-6'>
-                        <h4>Présentation</h4>
+                        <h4>{{'base.presentation'|trans}}</h4>
                         <div clas='lead text-justifiy'>
-                            <p>Le Zénith de Nantes Métropole est la 13ème salle construite sous l’enseigne «Zénith», qui compte aujourd’hui 16 réalisations en France Métropolitaine, ainsi qu’un projet en cours de réalisation au Port (Ile de la Réunion).</p>
-                            <p>Ces salles sont conçues et réalisées pour permettre la présentation des spectacles de variétés (chanson, rock, rap, musiques du monde, comédies musicales, one man shows, etc..) à un public nombreux, dans des conditions techniques optimales.</p>
+                            <p>{{'base.zenith1'|trans}},{{'base.zenith2'|trans}} ,{{'base.zenith3'|trans}}</p>
+                            <p>{{'base.zenith4'|trans}},{{'base.chanson'|trans}},{{'base.rock'|trans}}, {{'base.rap'|trans}}, {{'base.musiqueMonde'|trans}}, {{'base.comedie'|trans}}, {{'base.show'|trans}}, {{'base.etc'|trans}},{{'base.conditions'|trans}}</p>
                         </div>  
                     </div>
                     
                     <div class='col-md-offset-1'></div>
 
                     <div class='col-md-3'>
-                        <h4>Nous contacter</h4>
+                        <h4>{{'base.contact'|trans}}</h4>
                         <p>Zénith de Nantes</p>
                         <p>Boulevard du Zénith</p>
                         <p>44800 Saint-Herblain</p>
@@ -63,31 +66,31 @@
                 <div class='row'>
                   <div class='col-md-offset-1 col-md-3'>
                     <font color='grey'>
-                        <h4>Qui sommes-nous</h4>
-                        <p><i>Zénith Nantes Métropole</i> est une salle de spectacle.<a href='tickets.html'> Réservez dès maintenant </a>!</p>
+                        <h4>{{'base.nous'|trans}}</h4>
+                        <p><i>Zénith Nantes Métropole</i> {{'base.salle'|trans}} <a href='{{path('index_reservation')}}'>{{'base.reservez'|trans}}</a>!</p>
                       </div>
 
                       <div class='col-md-2'>
-                        <h4>Liens</h4>
+                        <h4>{{'base.lien'|trans}}</h4>
                         <ul class='list-unstyled'>
-                          <li><a href='/'>Accueil</a></li>
-                          <li><a href='tickets.html'>Réservations</a></li>
-                          <li><a href='stations.html'>Spectacles</a></li>
+                          <li><a href='{{path('ab_reservation_zenith_homepage')}}'>{{'base.accueil'|trans}}</a></li>
+                          <li><a href='{{path('index_reservation')}}'>{{'base.reservation'|trans}}</a></li>
+                          <li><a href='{{path('index_spectacle')}}'>{{'base.spectacle'|trans}}</a></li>
                         </ul>
                       </div>
 
                       <div class='col-md-offset-1 col-md-2'>
-                        <h4>Restez connecté</h4>
+                        <h4>{{'base.connecter'|trans}}</h4>
                         <ul class='list-unstyled'>
-                          <li><a href='about.html'>A propos</a></li>
-                          <li><a href='contact.html'>Nous contacter</a></li>
+                          <li><a href='{{path('about')}}'>{{'base.nous'|trans}}</a></li>
+                          <li><a href='contact.html'>{{'base.contact'|trans}}</a></li>
                           <li><a href='https://twitter.com/zenithnantes' target=_blank>Twitter</a></li>
                           <li><a href='https://www.facebook.com/nantespectacles' target=_blank>Facebook</a></li>
                         </ul>
                       </div>
 
                       <div class='col-md-3'>
-                        <h4>Nous contacter</h4>
+                        <h4>{{'base.contact'|trans}}</h4>
                         <ul class='list-unstyled'>
                           <li><i class='glyphicon glyphicon-globe'></i> Saint-Herblain</li>
                           <li><i class='glyphicon glyphicon-phone'></i> 02 40 92 99 50</li>

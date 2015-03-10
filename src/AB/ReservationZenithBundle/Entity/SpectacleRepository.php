@@ -27,10 +27,9 @@ class SpectacleRepository extends EntityRepository
         $em= $this->getEntityManager();
         $qb = $em->createQueryBuilder();
        
-        $qb->select('sp')
-           ->addSelect('se')
-           ->from('Seance','se')
-           ->leftJoin('Spectacle','sp','WITH',null,'sp.id')
+        $qb->select('sp.id, sp.titre, sp.genre, sp.duree, sp.affiche, sp.commentaires')
+           ->from('ABReservationZenithBundle:Seance','se')
+           ->leftJoin('ABReservationZenithBundle:Spectacle','sp','WITH','se.spectacle=sp.id')
            ->where('se.date <= ?1 AND se.date>= ?2')
            ->setParameter(1,$datemax)
            ->setParameter(2,$datemin);

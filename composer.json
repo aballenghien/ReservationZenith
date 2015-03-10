@@ -21,7 +21,8 @@
         "sensio/generator-bundle": "~2.3",
         "incenteev/composer-parameter-handler": "~2.0",
         "friendsofsymfony/user-bundle": "~2.0@dev",
-        "jms/security-extra-bundle": "~1.5"
+        "jms/security-extra-bundle": "~1.5",
+        "friendsofsymfony/jsrouting-bundle": "~1.5"
     },
     "scripts": {
         "post-install-cmd": [

@@ -7,17 +7,15 @@ ab_reservation_zenith_homepage:
 
 gestion_langue:
     path:     /locale/{locale}/{vue}
-    defaults: { _controller: ABReservationZenithBundle:Default:gestionLangue , _locale: fr } 
-    requirements:
-        _locale: en|fr
+    defaults: { _controller: ABReservationZenithBundle:Default:gestionLangue} 
 about:
-    path:   /Default/{locale}/about
+    path:   /Default/{_locale}/about
     defaults: { _controller: ABReservationZenithBundle:Default:about, _locale: fr }    
     requirements:
         _locale: en|fr  
 ##admin
 backoffice_homepage:
-    path:     /{_locale}/{locale}/backoffice
+    path:     /{_locale}/backoffice
     defaults: {_controller:ABReservationZenithBundle:Default:backoffice , _locale: fr }
     requirements:
         _locale: en|fr
@@ -85,8 +83,6 @@ modifier_seance:
         _locale: en|fr
 
 voir_seance:
-    path:     /seance/voir/{id_spectacle}/{id}
-    defaults: { _controller: ABReservationZenithBundle:Seance:voir, id:0, id_spectacle:0 }
     path:     /seance/{_locale}/voir/{id_spectacle}/{id}
     defaults: { _controller: ABReservationZenithBundle:Seance:voir, id:0, id_spectacle:0 , _locale: fr }
     requirements:

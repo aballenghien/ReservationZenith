@@ -1,18 +1,16 @@
-<<!DOCTYPE html>
-<html>
-<head>
-	<title></title>
-</head>
-<body>
-<h1>Page Admin</h1>
+{% extends "ABReservationZenithBundle::layout.html.twig" %}
+{% block title %}{{'pages.accueil'|trans}}{% endblock %}
+
+{% block body %}
+{{ parent() }}
+<h3>Page Admin</h3>
 {% if is_granted('ROLE_ADMIN') %}
 <ul>
-	<li><a href="{{path('index_spectacle')}}">Accéder à la gestion des spectacles</a>
-	<li><a href="{{path('index_reservation')}}">Accéder à la gestion des réservations</a>
+	<li><a href="{{path('index_spectacle')}}">{{ 'gestionTrad.spectacle'|trans }}</a>
+	<li><a href="{{path('index_reservation')}}">{{ 'gestionTrad.adminreservation'|trans }}</a>
 {%if is_granted('ROLE_SUPER_ADMIN') %}
-	<li><a href="">Accéder à la gestion des utilisateurs</a>
+	<li><a href="">{{ 'gestionTrad.utilisateur'|trans }}</a>
 {% endif %}
 </ul>
 {% endif %}
-</body>
-</html>
+{% endblock %}
