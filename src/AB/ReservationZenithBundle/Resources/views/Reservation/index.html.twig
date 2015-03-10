@@ -4,15 +4,20 @@
 
 {% block body %}
 {{ parent () }}
-<h1>{{ 'index.reservation'|trans }}</h1>
-{% if is_granted('ROLE_USER') %}
-<ul>
-<li><a href="{{path('ajouter_reservation')}}">{{ 'ajouter.reservation'|trans }}</a>
+<div class='well'>
+	<h3>{{ 'index.reservation'|trans }}</h3>
+	{% if is_granted('ROLE_USER') %}
 
-<li><a href="{{path('voir_reservation',{'idClient':user.id})}}">{{ 'voir.listereservationclient'|trans }}</a>
-{% if is_granted('ROLE_ADMIN') %}
-<li><a href="{{path('voir_reservation')}}">{{ 'voir.listereservation'|trans }}</a>
-{% endif %}
-</ul>
-{% endif %}
+		
+
+	<ul>
+	<li><a href="{{path('ajouter_reservation')}}">{{ 'ajouter.reservation'|trans }}</a>
+
+	<li><a href="{{path('voir_reservation',{'idClient':user.id})}}">{{ 'voir.listereservationclient'|trans }}</a>
+	{% if is_granted('ROLE_ADMIN') %}
+	<li><a href="{{path('voir_reservation')}}">{{ 'voir.listereservation'|trans }}</a>
+	{% endif %}
+	</ul>
+	{% endif %}
+</div>
 {% endblock %}

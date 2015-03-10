@@ -9,10 +9,15 @@ gestion_langue:
     path:     /locale/{locale}/{vue}
     defaults: { _controller: ABReservationZenithBundle:Default:gestionLangue , _locale: fr } 
     requirements:
+        _locale: en|fr
+about:
+    path:   /Default/{locale}/about
+    defaults: { _controller: ABReservationZenithBundle:Default:about, _locale: fr }    
+    requirements:
         _locale: en|fr  
 ##admin
 backoffice_homepage:
-    path:     /{_locale}/backoffice
+    path:     /{_locale}/{locale}/backoffice
     defaults: {_controller:ABReservationZenithBundle:Default:backoffice , _locale: fr }
     requirements:
         _locale: en|fr

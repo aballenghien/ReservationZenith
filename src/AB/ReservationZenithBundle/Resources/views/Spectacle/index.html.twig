@@ -4,11 +4,13 @@
 
 {% block body %}
 {{ parent () }}
-<h1>{{ 'index.spectacle'|trans }}</h1>
-<ul>
-	{% if is_granted('ROLE_ADMIN') %}
-	<li><a href="{{path('ajouter_spectacle')}}">{{ 'ajouter.spectacle'|trans }}</a></li>
-	{% endif %}
-	<li><a href="{{path('voir_spectacle')}}">{{ 'voir.spectacle'|trans }}</a>
-</ul>
+<div class='well'>
+	<h3>{{ 'index.spectacle'|trans }}</h3>
+	<ul>
+		{% if is_granted('ROLE_ADMIN') %}
+		<li><a href="{{path('ajouter_spectacle')}}">{{ 'ajouter.spectacle'|trans }}</a></li>
+		{% endif %}
+		<li><a href="{{path('voir_spectacle')}}">{{ 'voir.spectacle'|trans }}</a>
+	</ul>
+</div>
 {% endblock %}
