@@ -3,13 +3,15 @@
 
 {% block body %}
 {{ parent() }}
-<h1>{{'pages.accueil'|trans}}</h1>
+<div class='well'>
+<h3>{{'pages.accueil'|trans}}</h3>
 {% if is_granted('ROLE_USER') %}
 <ul>
 	<li><a href="{{path('voir_spectacle')}}">{{'voir.listespectacle'|trans}}</a>
 	<li><a href="{{path('index_reservation')}}">{{'gestionTrad.clientreservation'|trans}}</a>
 </ul>
 {% else %}
-<h1>{{'privilege.espaceclient'|trans}}</h1>
+<h3>{{'privilege.espaceclient'|trans}}</h3>
+</div>
 {% endif %}
 {% endblock %}

@@ -18,26 +18,26 @@ class User extends BaseUser
      */
     protected $id;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="nom", type="string", length=20)
-     */
-    private $nom;
+  // /**
+  //   * @var string
+  //   *
+   //  * @ORM\Column(name="nom", type="string", length=20, options={"default"= 'NULL'})
+   //  */
+   // private $nom;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="prenom", type="string", length=50)
-     */
-    private $prenom;
+  //  /**
+  //   * @var string
+  //   *
+  //   * @ORM\Column(name="prenom", type="string", length=50, options={"default"= 'NULL'})
+  //   */
+   // private $prenom;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="adresse", type="string", length=200)
-     */
-    private $adresse;
+   // /**
+   //  * @var string
+  //   *
+  //   * @ORM\Column(name="adresse", type="string", length=200, options={"default"= 'NULL'})
+   //  */
+  //  private $adresse;
 
     public function __construct()
     {

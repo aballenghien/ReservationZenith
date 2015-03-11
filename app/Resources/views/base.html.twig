@@ -11,12 +11,14 @@
     <body>
 
         <div class='navbar navbar-inverse'>
+        {% block entete  %}
             <div class='container'>
-                <a href='/' class='navbar-brand'>
+                <a href='{{path('ab_reservation_zenith_homepage')}}' class='navbar-brand'>
                     <font color='white'>Zénith Nantes Métropole</font>
                 </a>
                 <ul class='nav navbar-right'><img src='http://www.infoconcert.com/media/details/zenith_nantes_120x150.jpg' width=40 /></ul>
             </div>
+        {% endblock %}
         </div>
 
         <div class='container'>
@@ -34,8 +36,8 @@
 
             <div class='footer'>
 
-                    <div class='col-md-2'>
-                        <img src='http://www.zenith-nantesmetropole.com/images/stories/photo-zenith/exterieur-zenith-nantes2.jpg'/>
+                    <!--<div class='col-md-2'>
+                        <img src="{{asset ('image/zenith.jpg')}}"/>
                         
                     </div>
 
@@ -55,7 +57,7 @@
                         <p>Boulevard du Zénith</p>
                         <p>44800 Saint-Herblain</p>
                         <p><a href="mailto:contact@zenith-nm.com">contact@zenith-nm.com</a></p>
-                    </div
+                    </div>-->
 
             </div>
 

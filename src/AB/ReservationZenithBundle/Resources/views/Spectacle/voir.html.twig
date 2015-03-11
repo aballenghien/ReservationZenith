@@ -9,7 +9,6 @@
 		<table>
 		{% for spectacle in spectacles %}
 			<tr>
-				<td>titre :</td>
 				<td>{{ spectacle.titre }} </td>
 				{% if is_granted('ROLE_ADMIN') %}
 				<td> <a href="{{path('modifier_spectacle',{'id':spectacle.id})}}"> {{'actionTrad.modifier'|trans}}</a> </td>			

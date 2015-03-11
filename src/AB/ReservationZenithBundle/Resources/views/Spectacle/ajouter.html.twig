@@ -9,13 +9,14 @@
 	<h3>{{ 'ajouter.spectacle'|trans }}</h3>
 	<form action="{{path('ajouter_spectacle')}}" method="post" {{form_enctype(form)}}>
 		<div id="spectacle">
-			<p>{{ form_label(form.titre) }}:  {{ form_widget(form.titre) }}  {{form_errors(form.titre)}}</p>
-			<p>{{ form_label(form.duree) }}:  {{ form_widget(form.duree) }}  {{form_errors(form.duree)}}</p>
-			<p>{{ form_label(form.genre) }}:  {{ form_widget(form.genre) }}  {{form_errors(form.genre)}}</p>
-			<p>{{ form_label(form.nombreDePlaces) }}:  {{ form_widget(form.nombreDePlaces) }}  {{form_errors(form.nombreDePlaces)}}</p>
-			<p>{{ form_label(form.commentaires) }}:  {{ form_widget(form.commentaires) }}  {{form_errors(form.commentaires)}}</p>
-			<p>{{ form_label(form.affiche) }}:  {{ form_widget(form.affiche) }}  {{form_errors(form.affiche)}}</p>
-		
+		<table>
+			<tr><td>{{ form_label(form.titre) }}: </td><td> {{ form_widget(form.titre) }}  {{form_errors(form.titre)}}</td></tr>
+			<tr><td>{{ form_label(form.duree) }}: </td><td>  {{ form_widget(form.duree) }}  {{form_errors(form.duree)}}</td></tr>
+			<tr><td>{{ form_label(form.genre) }}: </td><td> {{ form_widget(form.genre) }}  {{form_errors(form.genre)}}</td></tr>
+			<tr><td>{{ form_label(form.nombreDePlaces) }} </td><td>  {{ form_widget(form.nombreDePlaces) }}  {{form_errors(form.nombreDePlaces)}}</td></tr>
+			<tr><td>{{ form_label(form.commentaires) }} :</td><td>  {{ form_widget(form.commentaires) }}  {{form_errors(form.commentaires)}}</td></tr>
+			<tr><td>{{ form_label(form.affiche) }} :</td><td>  {{ form_widget(form.affiche) }}  {{form_errors(form.affiche)}}</td></tr>
+		</table>
 		</div>
 		<div id="seances" data-prototype="
 		{% filter escape %}
@@ -32,7 +33,7 @@
 		<div hidden="true"/>
 		{{form_rest(form)}}
 		</div>
-		<input type="submit" />
+		<input type="submit" class="btn btn-primary"/>
 	</form>
 	{% else %}
 	<h1> {{'privilege.addsppectacle'|trans }}</h1>

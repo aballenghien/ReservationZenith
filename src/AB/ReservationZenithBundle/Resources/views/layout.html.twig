@@ -3,8 +3,8 @@
 {% block stylesheets %}
 	<link href="{{ asset('bootstrap/css/bootstrap.css') }}" type="text/css" rel="stylesheet" />
 {% endblock %}
-        
-{% block body %}
+	{% block entete %}
+	{{parent()}}
 	<div id="connexion">
 	    {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
 	        {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }} |
@@ -21,6 +21,8 @@
 		<a href="{{path('gestion_langue',{'locale':'en', 'vue':currentPath})}}" >{{'langue.anglais'|trans}}</a>
 		<a href="{{path('gestion_langue',{'locale':'fr', 'vue':currentPath})}}" >{{'langue.francais'|trans}}</a>
 	</div>
+	{% endblock %}
+{% block body %}
 {% endblock %}
 {% block javascripts %} 
     {% javascripts

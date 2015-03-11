@@ -3,14 +3,16 @@
 
 {% block body %}
 {{ parent () }}
-<h1>{{'pages.accueilzenith'|trans}}</h1>
+<h3>{{'pages.accueilzenith'|trans}}</h3>
 {{channel.title}}
 {{channel.description}}
+<ul>
 {% for item in items %}
-	<li><div class='story' >
-			<div class='headline'><a href="{{item.source}}">{{item.title}}</div></a>
-			<div class='timestamp' >{{item.pubDate}}</div>
-			<div class='body' >{{item.description}}</div>			
+	<li><div>
+			<div><a href="{{item.source}}">{{item.title}}</div></a>
+			<div>{{item.pubDate}}</div>
+			<div>{{item.description}}</div>		
 		</div></li>
 {% endfor %}
+</ul>
 {% endblock %}
