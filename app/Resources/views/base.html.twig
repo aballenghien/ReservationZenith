@@ -12,12 +12,28 @@
 
         <div class='navbar navbar-inverse'>
         {% block entete  %}
-            <div class='container'>
                 <a href='{{path('ab_reservation_zenith_homepage')}}' class='navbar-brand'>
                     <font color='white'>Zénith Nantes Métropole</font>
                 </a>
-                <ul class='nav navbar-right'><img src='http://www.infoconcert.com/media/details/zenith_nantes_120x150.jpg' width=40 /></ul>
-            </div>
+                <ul class='nav navbar-nav pull-right'>
+                  <font color='grey'>
+                    <div id="connexion">
+                      <img src='http://www.infoconcert.com/media/details/zenith_nantes_120x150.jpg' width=40 />
+                      {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+
+                      {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }} <i class='glyphicon glyphicon-user'></i> |
+                        <a href="{{ path('fos_user_security_logout') }}">{{ 'layout.logout'|trans({}, 'FOSUserBundle')   }}</a>
+                      {% else %}
+                        <a href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
+                      {% endif %}
+                    </div>
+                  </font>
+                    <div id="choixLangue">
+                    {% set currentPath = app.request.attributes.get('_route') %} |
+                      <a href="{{path('gestion_langue',{'locale':'en', 'vue':currentPath})}}" >{{'langue.anglais'|trans}}</a>
+                      <a href="{{path('gestion_langue',{'locale':'fr', 'vue':currentPath})}}" >{{'langue.francais'|trans}}</a>
+                    </div>
+                </ul>
         {% endblock %}
         </div>
 
@@ -36,72 +52,47 @@
 
             <div class='footer'>
 
-                    <!--<div class='col-md-2'>
-                        <img src="{{asset ('image/zenith.jpg')}}"/>
-                        
-                    </div>
 
-                    <div class='col-md-6'>
-                        <h4>{{'base.presentation'|trans}}</h4>
-                        <div clas='lead text-justifiy'>
-                            <p>{{'base.zenith1'|trans}},{{'base.zenith2'|trans}} ,{{'base.zenith3'|trans}}</p>
-                            <p>{{'base.zenith4'|trans}},{{'base.chanson'|trans}},{{'base.rock'|trans}}, {{'base.rap'|trans}}, {{'base.musiqueMonde'|trans}}, {{'base.comedie'|trans}}, {{'base.show'|trans}}, {{'base.etc'|trans}},{{'base.conditions'|trans}}</p>
-                        </div>  
-                    </div>
-                    
-                    <div class='col-md-offset-1'></div>
+              <div class='container'>
+                  <div class='navbar navbar-inverse navbar-fixed-bottom'>
+                      <div class='row'>
+                        <div class='col-md-offset-1 col-md-3'>
+                          <font color='grey'>
+                              <h4>{{'base.nous'|trans}}</h4>
+                              <p><i>Zénith Nantes Métropole</i> {{'base.salle'|trans}} <a href='{{path('index_reservation')}}'>{{'base.reservez'|trans}}</a>!</p>
+                            </div>
 
-                    <div class='col-md-3'>
-                        <h4>{{'base.contact'|trans}}</h4>
-                        <p>Zénith de Nantes</p>
-                        <p>Boulevard du Zénith</p>
-                        <p>44800 Saint-Herblain</p>
-                        <p><a href="mailto:contact@zenith-nm.com">contact@zenith-nm.com</a></p>
-                    </div>-->
+                            <div class='col-md-2'>
+                              <h4>{{'base.lien'|trans}}</h4>
+                              <ul class='list-unstyled'>
+                                <li><a href='{{path('ab_reservation_zenith_homepage')}}'>{{'base.accueil'|trans}}</a></li>
+                                <li><a href='{{path('index_reservation')}}'>{{'base.reservation'|trans}}</a></li>
+                                <li><a href='{{path('index_spectacle')}}'>{{'base.spectacle'|trans}}</a></li>
+                              </ul>
+                            </div>
 
-            </div>
+                            <div class='col-md-offset-1 col-md-2'>
+                              <h4>{{'base.connecter'|trans}}</h4>
+                              <ul class='list-unstyled'>
+                                <li><a href='{{path('about')}}'>{{'base.nous'|trans}}</a></li>
+                                <li><a href='contact.html'>{{'base.contact'|trans}}</a></li>
+                                <li><a href='https://twitter.com/zenithnantes' target=_blank>Twitter</a></li>
+                                <li><a href='https://www.facebook.com/nantespectacles' target=_blank>Facebook</a></li>
+                              </ul>
+                            </div>
 
-        </div>
-
-        <div class='container'>
-            <div class='navbar navbar-inverse navbar-fixed-bottom'>
-                <div class='row'>
-                  <div class='col-md-offset-1 col-md-3'>
-                    <font color='grey'>
-                        <h4>{{'base.nous'|trans}}</h4>
-                        <p><i>Zénith Nantes Métropole</i> {{'base.salle'|trans}} <a href='{{path('index_reservation')}}'>{{'base.reservez'|trans}}</a>!</p>
+                            <div class='col-md-3'>
+                              <h4>{{'base.contact'|trans}}</h4>
+                              <ul class='list-unstyled'>
+                                <li><i class='glyphicon glyphicon-globe'></i> Saint-Herblain</li>
+                                <li><i class='glyphicon glyphicon-phone'></i> 02 40 92 99 50</li>
+                                <li><i class='glyphicon glyphicon-envelope'></i> <a href='mailto:contact@zenith-nm.com'> contact@zenith-nm.com</a></li>
+                              </ul>
+                              <p style='text-color:white'>Le Zénith Nantes Métropole &copy;2012.</p>
+                            </div>
+                          </font>
                       </div>
-
-                      <div class='col-md-2'>
-                        <h4>{{'base.lien'|trans}}</h4>
-                        <ul class='list-unstyled'>
-                          <li><a href='{{path('ab_reservation_zenith_homepage')}}'>{{'base.accueil'|trans}}</a></li>
-                          <li><a href='{{path('index_reservation')}}'>{{'base.reservation'|trans}}</a></li>
-                          <li><a href='{{path('index_spectacle')}}'>{{'base.spectacle'|trans}}</a></li>
-                        </ul>
-                      </div>
-
-                      <div class='col-md-offset-1 col-md-2'>
-                        <h4>{{'base.connecter'|trans}}</h4>
-                        <ul class='list-unstyled'>
-                          <li><a href='{{path('about')}}'>{{'base.nous'|trans}}</a></li>
-                          <li><a href='contact.html'>{{'base.contact'|trans}}</a></li>
-                          <li><a href='https://twitter.com/zenithnantes' target=_blank>Twitter</a></li>
-                          <li><a href='https://www.facebook.com/nantespectacles' target=_blank>Facebook</a></li>
-                        </ul>
-                      </div>
-
-                      <div class='col-md-3'>
-                        <h4>{{'base.contact'|trans}}</h4>
-                        <ul class='list-unstyled'>
-                          <li><i class='glyphicon glyphicon-globe'></i> Saint-Herblain</li>
-                          <li><i class='glyphicon glyphicon-phone'></i> 02 40 92 99 50</li>
-                          <li><i class='glyphicon glyphicon-envelope'></i> <a href='mailto:contact@zenith-nm.com'> contact@zenith-nm.com</a></li>
-                        </ul>
-                        <p style='text-color:white'>Le Zénith Nantes Métropole &copy;2012.</p>
-                      </div>
-                    </font>
-                </div>
+                  </div>
             </div>
         </div>
 
