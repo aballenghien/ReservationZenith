@@ -114,3 +114,14 @@ function confirmerSuppression($objet){
     res = confirm("Voulez vous vraiment supprimer ?");
     return res;
 }
+
+var champAffiche = $("#spectacle_affiche");
+var divAffiche = $("#affiche")
+$(document).ready(function(){
+    divAffiche.html("<img src='"+champAffiche.val()+"' width=250/></br>");
+    champAffiche.blur( function(e) {
+        e.preventDefault();
+        divAffiche.html("<img src='"+champAffiche.val()+"' width=250/></br>");
+        
+    });
+});

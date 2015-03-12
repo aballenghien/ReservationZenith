@@ -49,6 +49,10 @@ class genererFluxRssCommand extends ContainerAwareCommand
                 fputs($file,"\t"."\t"."\t"."\t".'<description>'.$un_spectacle['commentaires'].'</description>'."\n");
                 fputs($file,"\t"."\t"."\t"."\t".'<pubDate>'.date('Y-m-d').'</pubDate>'."\n");
                 fputs($file,"\t"."\t"."\t"."\t".'<source>'.$urlSource.$this->getContainer()->get('router')->generate('voir_spectacle',array('id'=>$un_spectacle['id'])).'</source>'."\n");
+                fputs($file,"\t"."\t"."\t"."\t".'<image>'."\n");
+                fputs($file,"\t"."\t"."\t"."\t"."\t".'<url>'.$un_spectacle['affiche'].'</url>'."\n");
+                fputs($file,"\t"."\t"."\t"."\t"."\t".'<link>'.$un_spectacle['affiche'].'</link>'."\n");
+                fputs($file,"\t"."\t"."\t"."\t".'</image>'."\n");
                 fputs($file,"\t"."\t"."\t".'</item>'."\n");
                 $lignes++;
             }
