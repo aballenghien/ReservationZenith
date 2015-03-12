@@ -64,8 +64,41 @@ function addTagFormDeleteLink($formDiv) {
 
 /*suppression*/
 var supprLinkResa = $('#supprResa');
+var supprLinkSpectacle = $('#supprSpectacle');
+var supprLinkSeance = $('#supprSeance');
+var supprLinkTarif = $('#supprTarif');
 jQuery(document).ready(function(){
     supprLinkResa.on('click', function(e) {
+        e.preventDefault();
+        res = confirmerSuppression("cette réservation");
+        if(res){
+            window.location.href = $(this).attr("href");
+        }else{
+            window.location.href = document.URL;
+        }
+    });
+
+    supprLinkSpectacle.on('click', function(e) {
+        e.preventDefault();
+        res = confirmerSuppression("cette réservation");
+        if(res){
+            window.location.href = $(this).attr("href");
+        }else{
+            window.location.href = document.URL;
+        }
+    });
+
+    supprLinkSeance.on('click', function(e) {
+        e.preventDefault();
+        res = confirmerSuppression("cette réservation");
+        if(res){
+            window.location.href = $(this).attr("href");
+        }else{
+            window.location.href = document.URL;
+        }
+    });
+
+    supprLinkTarif.on('click', function(e) {
         e.preventDefault();
         res = confirmerSuppression("cette réservation");
         if(res){

@@ -12,7 +12,7 @@
 				<td>{{ spectacle.titre }} </td>
 				{% if is_granted('ROLE_ADMIN') %}
 				<td> <a href="{{path('modifier_spectacle',{'id':spectacle.id})}}"> {{'actionTrad.modifier'|trans}}</a> </td>			
-				<td> <a href="{{path('supprimer_spectacle',{'id':spectacle.id})}}"> {{'actionTrad.supprimer'|trans}}</a> </td>
+				<td> <a id= "supprSpectacle" href="{{path('supprimer_spectacle',{'id':spectacle.id})}}"> {{'actionTrad.supprimer'|trans}}</a> </td>
 				{% endif %}
 				<td> <a href="{{path('voir_spectacle',{'id':spectacle.id})}}">{{'actionTrad.details'|trans}}</a> </td>
 				{% if spectacle.tarifs|length > 0%}

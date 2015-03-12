@@ -13,6 +13,14 @@
 	<tr><td>{{form_label(form.nom)}}</td><td>{{form_widget(form.nom)}}</td></tr>
 	<tr><td>{{form_label(form.prenom)}}</td><td>{{form_widget(form.prenom)}}</td></tr>
 	<tr><td>{{form_label(form.place)}}</td><td>{{form_widget(form.place)}}</td></tr>
+	<tr><td>{{'reservationTrad.spectacle'|trans}} : </td><td>
+	<select id='reservation_spectacles'>
+		{% for sp in spectacles %}
+		<option value="{{sp.id}}">{{sp.titre}}</option>
+		{% endfor %}
+	</select>
+	<input type="hidden" value="localhost{{path('ajax_prix', { place: plc, id_spectacle: id  })}}" id="href" />
+	</td>
 	<tr><td>{{form_label(form.seance)}}</td><td>{{form_widget(form.seance)}}</td></tr>
 	<tr><td>{{form_label(form.tarif)}}</td><td>{{form_widget(form.tarif)}}</td></tr>
 	</table>
