@@ -4,8 +4,8 @@
 
 {% block body %}
 {{ parent () }}
+<h3>{{ 'index.reservation'|trans }}</h3>
 <div class='well'>
-	<h3>{{ 'index.reservation'|trans }}</h3>
 	{% if is_granted('ROLE_USER') %}
 
 		

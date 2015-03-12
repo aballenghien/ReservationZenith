@@ -4,8 +4,8 @@
 
 {% block body %}
 {{ parent () }}
+<h3>{{ 'voir.reservation'|trans }}</h3>
 <div class='well'>
-	<h3>{{ 'voir.reservation'|trans }}</h3>
 		<table>
 		{% for reservation in reservations %}
 		

@@ -5,22 +5,7 @@
 {% endblock %}
 	{% block entete %}
 	{{parent()}}
-	<div id="connexion">
-	    {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-	        {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }} |
-	        <a href="{{ path('fos_user_security_logout') }}">
-	            {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
-	        </a>
-	    {% else %}
-	        <a href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
-	    {% endif %}
-	</div>
-	<div id="choixLangue">
-	{% set currentPath = app.request.attributes.get('_route') %}
-
-		<a href="{{path('gestion_langue',{'locale':'en', 'vue':currentPath})}}" >{{'langue.anglais'|trans}}</a>
-		<a href="{{path('gestion_langue',{'locale':'fr', 'vue':currentPath})}}" >{{'langue.francais'|trans}}</a>
-	</div>
+	
 	{% endblock %}
 {% block body %}
 {% endblock %}

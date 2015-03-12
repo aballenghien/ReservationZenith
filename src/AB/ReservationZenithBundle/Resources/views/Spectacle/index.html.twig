@@ -4,8 +4,8 @@
 
 {% block body %}
 {{ parent () }}
+<h3>{{ 'index.spectacle'|trans }}</h3>
 <div class='well'>
-	<h3>{{ 'index.spectacle'|trans }}</h3>
 	<ul>
 		{% if is_granted('ROLE_ADMIN') %}
 		<li><a href="{{path('ajouter_spectacle')}}">{{ 'ajouter.spectacle'|trans }}</a></li>

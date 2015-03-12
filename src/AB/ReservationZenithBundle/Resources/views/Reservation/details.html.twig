@@ -5,44 +5,46 @@
 {% block body %}
 {{ parent () }}
 
-<div class='container well'>
+<div class='container'>
 	<h3>{{'details.reservation'|trans }}</h3>
-		{% if is_granted('ROLE_USER') %}
-		<table>
-			<tr>
-				<td>{{'reservationTrad.nom'|trans }} : </td>
-				<td>{{ reservation.nom }}</td>			
-			</tr>
-			<tr>
-				<td>{{'reservationTrad.prenom'|trans }}:</td>
-				<td>{{ reservation.prenom }}</td>			
-			</tr>
-			<tr>
-				<td>{{'reservationTrad.place'|trans }}</td>
-				<td>{{ reservation.place }}</td>			
-			</tr>
-			<tr>
-				<td>{{'details.spectacle'|trans }}</td>
-				<td><table>
-				<tr><td>{{'spectacleTrad.titre'|trans }}</td><td>{{ reservation.seance.spectacle.titre }}</td></tr>
-				<tr><td>{{'spectacleTrad.duree'|trans }}</td><td>{{ reservation.seance.spectacle.duree }}</td></tr>
-				<tr><td>{{'spectacleTrad.commentaires'|trans }}</td><td>{{ reservation.seance.spectacle.commentaires }}</td></tr>
-				<tr><td>{{'spectacleTrad.affiche'|trans }}</td><td>{{ reservation.seance.spectacle.affiche }}</td></tr>
-				<tr><td>{{'seanceTrad.date'|trans }}</td><td>{{ reservation.seance.date|date('d/m/Y') }}</td></tr>
-				<tr><td>{{'seanceTrad.heure'|trans }}</td><td>{{ reservation.seance.heure|date('H:i') }}</td></tr>
-				</table></td>			
-			</tr>
-			<tr>
-				<td>{{'tarifTrad.prix'|trans }}</td>
-				<td>{{ reservation.tarif }}</td>			
-			</tr>		
-			<tr>
-				<td><a href="{{path('modifier_reservation',{'id':reservation.id})}}">{{'actionTrad.modifier'|trans }}</a></td>
-				<td><a href="{{path('voir_reservation',{'idClient':user.id})}}">{{ 'voir.listereservationclient'|trans }}</a></td>
-			</tr>
-		</table>
-		{% else %}
-		{{'privilege.reservation'|trans}}
-		{% endif %}
-	</div>
+	<div class='well'>
+			{% if is_granted('ROLE_USER') %}
+			<table>
+				<tr>
+					<td>{{'reservationTrad.nom'|trans }} : </td>
+					<td>{{ reservation.nom }}</td>			
+				</tr>
+				<tr>
+					<td>{{'reservationTrad.prenom'|trans }}:</td>
+					<td>{{ reservation.prenom }}</td>			
+				</tr>
+				<tr>
+					<td>{{'reservationTrad.place'|trans }}</td>
+					<td>{{ reservation.place }}</td>			
+				</tr>
+				<tr>
+					<td>{{'details.spectacle'|trans }}</td>
+					<td><table>
+					<tr><td>{{'spectacleTrad.titre'|trans }}</td><td>{{ reservation.seance.spectacle.titre }}</td></tr>
+					<tr><td>{{'spectacleTrad.duree'|trans }}</td><td>{{ reservation.seance.spectacle.duree }}</td></tr>
+					<tr><td>{{'spectacleTrad.commentaires'|trans }}</td><td>{{ reservation.seance.spectacle.commentaires }}</td></tr>
+					<tr><td>{{'spectacleTrad.affiche'|trans }}</td><td>{{ reservation.seance.spectacle.affiche }}</td></tr>
+					<tr><td>{{'seanceTrad.date'|trans }}</td><td>{{ reservation.seance.date|date('d/m/Y') }}</td></tr>
+					<tr><td>{{'seanceTrad.heure'|trans }}</td><td>{{ reservation.seance.heure|date('H:i') }}</td></tr>
+					</table></td>			
+				</tr>
+				<tr>
+					<td>{{'tarifTrad.prix'|trans }}</td>
+					<td>{{ reservation.tarif }}</td>			
+				</tr>		
+				<tr>
+					<td><a href="{{path('modifier_reservation',{'id':reservation.id})}}">{{'actionTrad.modifier'|trans }}</a></td>
+					<td><a href="{{path('voir_reservation',{'idClient':user.id})}}">{{ 'voir.listereservationclient'|trans }}</a></td>
+				</tr>
+			</table>
+			{% else %}
+			{{'privilege.reservation'|trans}}
+			{% endif %}
+		</div>
+</div>
 {% endblock %}

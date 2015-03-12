@@ -4,8 +4,8 @@
 
 {% block body %}
 {{ parent () }}
+<h3>{{'modifier.reservation'|trans}}</h3>
 <div class='well'>
-	<h3>{{'modifier.reservation'|trans}}</h3>
 	<form action='' method="post" {{form_enctype(form)}}>
 		<table>
 		<tr><td>{{form_label(form.nom)}}</td><td>{{form_widget(form.nom)}}</td></tr>
