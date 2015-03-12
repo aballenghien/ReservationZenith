@@ -186,7 +186,7 @@ table {
 }
 td,
 th {
-  padding: 0;
+  padding: 10;
 }
 /*! Source: https://github.com/h5bp/html5-boilerplate/blob/master/src/css/main.css */
 @media print {
@@ -225,6 +225,7 @@ th {
   tr,
   img {
     page-break-inside: avoid;
+    padding-left: 10;
   }
   img {
     max-width: 100% !important;
@@ -1214,6 +1215,7 @@ h3,
 .h3 {
   margin-top: 20px;
   margin-bottom: 10px;
+  font-style: italic;
 }
 h1 small,
 .h1 small,

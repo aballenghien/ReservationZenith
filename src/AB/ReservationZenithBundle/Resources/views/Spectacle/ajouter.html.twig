@@ -8,35 +8,44 @@
 	<h3>{{ 'ajouter.spectacle'|trans }}</h3>
 	<br>
 	<div class='well well-lg'>
-		<form action="{{path('ajouter_spectacle')}}" method="post" {{form_enctype(form)}}>
-			<div id="spectacle">
-			<table cellspacing = '30' cellpadding="30">
-				<tr><td>{{ form_label(form.titre) }}: </td><td> {{ form_widget(form.titre) }}  {{form_errors(form.titre)}}</td></tr>
-				<tr><td>{{ form_label(form.duree) }}: </td><td>  {{ form_widget(form.duree) }}  {{form_errors(form.duree)}}</td></tr>
-				<tr><td>{{ form_label(form.genre) }}: </td><td> {{ form_widget(form.genre) }}  {{form_errors(form.genre)}}</td></tr>
-				<tr><td>{{ form_label(form.nombreDePlaces) }} </td><td>  {{ form_widget(form.nombreDePlaces) }}  {{form_errors(form.nombreDePlaces)}}</td></tr>
-				<tr><td>{{ form_label(form.commentaires) }} :</td><td>  {{ form_widget(form.commentaires) }}  {{form_errors(form.commentaires)}}</td></tr>
-				<tr><td>{{ form_label(form.affiche) }} :</td><td>  {{ form_widget(form.affiche) }}  {{form_errors(form.affiche)}}</td></tr>
-			</table>
+		<div class='row'>
+			<div id="spectacle" class='col-md-6'>
+				<form action="{{path('ajouter_spectacle')}}" method="post" {{form_enctype(form)}}>
+					<table border>
+							<tr><td>{{ form_label(form.titre) }} : </td><td> {{ form_widget(form.titre) }}  {{form_errors(form.titre)}}</td></tr>
+							<tr><td>{{ form_label(form.duree) }} : </td><td>  {{ form_widget(form.duree) }}  {{form_errors(form.duree)}}</td></tr>
+							<tr><td>{{ form_label(form.genre) }} : </td><td> {{ form_widget(form.genre) }}  {{form_errors(form.genre)}}</td></tr>
+							<tr><td>{{ form_label(form.nombreDePlaces) }} : </td><td>  {{ form_widget(form.nombreDePlaces) }}  {{form_errors(form.nombreDePlaces)}}</td></tr>
+							<tr><td>{{ form_label(form.commentaires) }} : </td><td>  {{ form_widget(form.commentaires) }}  {{form_errors(form.commentaires)}}</td></tr>
+					</table>
+
+					<div id="seances" data-prototype="
+					{% filter escape %}
+				             {{ include('ABReservationZenithBundle:Seance:ajouter.html.twig', { 'form': form.seances.vars.prototype }) }}
+				    {% endfilter %}">
+							
+					</div>
+					<div id="tarifs" data-prototype="
+					{% filter escape %}
+				             {{ include('ABReservationZenithBundle:Tarif:ajouter.html.twig', { 'form': form.tarifs.vars.prototype }) }}
+				    {% endfilter %}">	
+						
+					</div>
+					<div hidden="true">
+					{{form_rest(form)}}
+					</div>
+					<br>
+					<input type="submit" class="btn btn-primary"/>
+				</form>
 			</div>
-			<div id="seances" data-prototype="
-			{% filter escape %}
-		             {{ include('ABReservationZenithBundle:Seance:ajouter.html.twig', { 'form': form.seances.vars.prototype }) }}
-		    {% endfilter %}">
-					
+			<div class='col-md-6'>
+				<img src="{{asset ('http://www.musicalavenue.fr/files/image/actualite/2009/02_Fevrier/Energia(1).jpg')}}" width=250/><br/>
+				{{ form_label(form.affiche) }} : </td><td>  {{ form_widget(form.affiche) }}  {{form_errors(form.affiche)}}<br/>
+				<input type="submit" class="btn btn-danger"/>
 			</div>
-			<div id="tarifs" data-prototype="
-			{% filter escape %}
-		             {{ include('ABReservationZenithBundle:Tarif:ajouter.html.twig', { 'form': form.tarifs.vars.prototype }) }}
-		    {% endfilter %}">	
-				
-			</div>
-			<div hidden="true"/>
-			{{form_rest(form)}}
-			</div>
-			<br>
-			<input type="submit" class="btn btn-primary"/>
-		</form>
+		</div>
+	</div>
+
 	{% else %}
 	<div class='well well-lg'>
 		<h3> {{'privilege.addsppectacle'|trans }}</h3>

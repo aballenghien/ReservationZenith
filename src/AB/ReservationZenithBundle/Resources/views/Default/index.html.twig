@@ -3,17 +3,23 @@
 
 {% block body %}
 {{ parent () }}
+<div class='container' style="text-align:center">
+    <img src="{{asset('image/img.jpg')}}" width="500" alt="zenith"/>
+</div>
 <h3>{{'pages.accueilzenith'|trans}}</h3>
 {{channel.title}}
 {{channel.description}}
 <ul>
-{% for item in items %}
-	<li><div>
-			<div><a href="{{item.source}}">{{item.title}}</div></a>
-			<div>{{item.pubDate}}</div>
-			<div>{{item.description}}</div>		
-		</div></li>
-{% endfor %}
+<div class='well'>
+    {% for item in items %}
+    	<li><div>
+    			<div><a href="{{item.source}}">{{item.title}}</div></a>
+    			<div>{{item.pubDate}}</div>
+    			<div>{{item.description}}</div>		
+    		</div></li>
+            <br/>
+    {% endfor %}
+</div>
 </ul>
 
 <div class='col-md-2'>
@@ -21,7 +27,7 @@
 </div>
 
 <div class='col-md-6'>
-    <h4>{{'base.presentation'|trans}}</h4>
+    <h3>{{'base.presentation'|trans}}</h3>
     <div clas='lead text-justifiy'>
         <p>{{'base.zenith1'|trans}},{{'base.zenith2'|trans}} ,{{'base.zenith3'|trans}}</p>
         <p>{{'base.zenith4'|trans}},{{'base.chanson'|trans}},{{'base.rock'|trans}}, {{'base.rap'|trans}}, {{'base.musiqueMonde'|trans}}, {{'base.comedie'|trans}}, {{'base.show'|trans}}, {{'base.etc'|trans}},{{'base.conditions'|trans}}</p>
