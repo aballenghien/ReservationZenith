@@ -57,7 +57,6 @@ class Spectacle
      */
     private $commentaires;
 
-
     /**
      * @var string
      *
