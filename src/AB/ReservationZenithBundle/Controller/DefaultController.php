@@ -6,6 +6,7 @@ use JMS\SecurityExtraBundle\Annotation\Secure;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Session\Session;
 use Symfony\Component\HttpFoundation\Response;
+
 class DefaultController extends Controller
 {
 
@@ -23,6 +24,11 @@ class DefaultController extends Controller
         $this->get('session')->set('_locale', $locale);
         return $this->redirect($this->get('router')->generate($vue));
         //return new Response($this->get('session')->get('_locale'));
+    }
+
+    public function gestionAffichage($id){
+
+        $session->set('theme',1);
     }
 
 

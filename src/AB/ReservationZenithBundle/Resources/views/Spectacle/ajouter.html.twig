@@ -39,8 +39,14 @@
 				</form>
 			</div>
 			<div class='col-md-6'>
-				<img src="{{asset ('http://www.musicalavenue.fr/files/image/actualite/2009/02_Fevrier/Energia(1).jpg')}}" width=250/><br/>
-				{{ form_label(form.affiche) }} : </td><td>  {{ form_widget(form.affiche) }}  {{form_errors(form.affiche)}}<br/>
+
+					<img src="{{asset ('http://www.musicalavenue.fr/files/image/actualite/2009/02_Fevrier/Energia(1).jpg')}}" width=250/><br/>
+
+
+				<table border>
+					<tr><td>{{ form_label(form.affiche) }} : </td><td>  {{ form_widget(form.affiche) }}  {{form_errors(form.affiche)}}</td></tr>
+				</table>
+
 				<input type="submit" class="btn btn-danger"/>
 			</div>
 		</div>

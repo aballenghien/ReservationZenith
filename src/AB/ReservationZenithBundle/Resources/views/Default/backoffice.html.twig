@@ -5,12 +5,14 @@
 {{ parent() }}
 <h3>Page Admin</h3>
 {% if is_granted('ROLE_ADMIN') %}
-<ul>
-	<li><a href="{{path('index_spectacle')}}">{{ 'gestionTrad.spectacle'|trans }}</a>
-	<li><a href="{{path('index_reservation')}}">{{ 'gestionTrad.adminreservation'|trans }}</a>
-{%if is_granted('ROLE_SUPER_ADMIN') %}
-	<li><a href="">{{ 'gestionTrad.utilisateur'|trans }}</a>
-{% endif %}
-</ul>
+<div class='well well-lg'>
+	<ul>
+		<li><a href="{{path('index_spectacle')}}">{{ 'gestionTrad.spectacle'|trans }}</a>
+		<li><a href="{{path('index_reservation')}}">{{ 'gestionTrad.adminreservation'|trans }}</a>
+	{%if is_granted('ROLE_SUPER_ADMIN') %}
+		<li><a href="">{{ 'gestionTrad.utilisateur'|trans }}</a>
+	{% endif %}
+	</ul>
+</div>
 {% endif %}
 {% endblock %}
