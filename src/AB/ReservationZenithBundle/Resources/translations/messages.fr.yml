@@ -78,8 +78,14 @@ index:
 langue:
     francais: Français
     anglais: Anglais
+    langue: Langue
 
 privilege:
     espaceclient: Veuillez vous connecter pour accéder à votre espace client
     addsppectacle: L'accès à cette page ne vous est pas autorisé
     reservation: Vous pouver réserver une fois connecté
+
+choix_theme:
+    theme: Thème
+    theme1: Thème n°1
+    theme2: Thème n°2

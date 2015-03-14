@@ -75,8 +75,14 @@ index:
 langue:
     francais: French
     anglais: English
+    langue: Language
 
 privilege:
     espaceclient: You have to log in to access to your client area
     addsppectacle: Acces unauthorized
-    reservation: You can reserv only if you are logged in
+    reservation: You can reserv only if you are logged in    
+
+choix_theme:
+    theme: Theme
+    theme1: Theme n°1
+    theme2: Theme n°2

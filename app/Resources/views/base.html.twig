@@ -22,6 +22,7 @@
                       <table cellpadding='3'>
 
                           <tr>
+                            
                             <td rowspan='2'>
                                 <img src="{{asset ('http://www.infoconcert.com/media/details/zenith_nantes_120x150.jpg')}}" width=40/>
                             </td>
@@ -43,11 +44,33 @@
                           </tr>
 
                           <tr>
+
                               <td align='right'>
-                                <div id="choixLangue">
-                                  {% set currentPath = app.request.attributes.get('_route') %}
-                                    <a href="{{path('gestion_langue',{'locale':'en', 'vue':currentPath})}}" >{{'langue.anglais'|trans}}</a> <font color='grey'>|</font>
-                                    <a href="{{path('gestion_langue',{'locale':'fr', 'vue':currentPath})}}" >{{'langue.francais'|trans}}</a>
+                                <div class="btn-group" role="group">
+                                  <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                    {{'choix_theme.theme'|trans}}
+                                    <span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu" role="menu">
+                                      <li><a href="#">{{'choix_theme.theme1'|trans}}</a></li>
+                                      <li><a href="#">{{'choix_theme.theme2'|trans}}</a></li>
+                                    </ul>
+                                </div>
+                              </td>
+
+                              <td align='right'>
+                                <div class="btn-group" role="group">
+                                  <div id="choixLangue">
+                                    {% set currentPath = app.request.attributes.get('_route') %}
+                                      <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                        {{'langue.langue'|trans}}
+                                        <span class="caret"></span>
+                                      </button>
+                                      <ul class="dropdown-menu" role="menu" >
+                                        <li><a href="{{path('gestion_langue',{'locale':'en', 'vue':currentPath})}}">{{'langue.anglais'|trans}}</a></li>
+                                        <li><a href="{{path('gestion_langue',{'locale':'fr', 'vue':currentPath})}}">{{'langue.francais'|trans}}</a></li>
+                                      </ul>
+                                  </div>
                                 </div>
                               </td>
                           </tr>
@@ -72,6 +95,7 @@
         <br>
         <br>
 
+        {% block piedPage %}
 
             <div class='footer'>
 
@@ -115,5 +139,10 @@
                       </div>
                   </div>
 
+      <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+      <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+
+      {% endblock %}
+      
     </body>
 </html>

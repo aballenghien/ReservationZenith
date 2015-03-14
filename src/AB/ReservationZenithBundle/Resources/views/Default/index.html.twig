@@ -9,26 +9,37 @@
 <h3>{{'pages.accueilzenith'|trans}}</h3>
 {{channel.title}}
 {{channel.description}}
-<ul>
-<div class='well'>
+
     {% for item in items %}
-    	<li><div>
-    			<div><a href="{{item.source}}">{{item.title}}</div></a>
-    			<div>{{item.pubDate}}</div>
-    			<div>{{item.description}}</div>
-                <div><img src="{{item.image.url}}" /></div>		
-    		</div></li>
-            <br/>
+    <div class='well'>
+    	
+            <table>
+                <div>
+                    <tr>
+            			<td width='50%'><div><font size=5><a href="{{item.source}}">{{item.title}}</div></a></font></td>
+                        <td align='center' rowspan='3'><div><img src="{{item.image.url}}" width="50%" height="50%" style="border: 4px solid black;-webkit-border-radius: 30px;"/></div> </td>
+                    </tr>
+                    <tr>
+            			<td><div>{{item.pubDate}}</div></td>
+                    </tr>
+                    <tr>
+            			<td><div>{{item.description}}</div></td>
+                    </tr>
+	
+        		</div>
+            </table>
+        
+    </div>
     {% endfor %}
-</div>
-</ul>
+
+
 
 <div class='col-md-2'>
     <img src="{{asset ('image/zenith.jpg')}}"/>
 </div>
 
 <div class='col-md-6'>
-    <h3>{{'base.presentation'|trans}}</h3>
+    <h4>{{'base.presentation'|trans}}</h4>
     <div clas='lead text-justifiy'>
         <p>{{'base.zenith1'|trans}},{{'base.zenith2'|trans}} ,{{'base.zenith3'|trans}}</p>
         <p>{{'base.zenith4'|trans}},{{'base.chanson'|trans}},{{'base.rock'|trans}}, {{'base.rap'|trans}}, {{'base.musiqueMonde'|trans}}, {{'base.comedie'|trans}}, {{'base.show'|trans}}, {{'base.etc'|trans}},{{'base.conditions'|trans}}</p>
