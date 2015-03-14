@@ -25,6 +25,11 @@ class DefaultController extends Controller
         //return new Response($this->get('session')->get('_locale'));
     }
 
+    public function gestionTheme($theme, $vue){
+
+        $this->get('session')->set('_theme', $locale);
+        return $this->redirect($this->get('router')->generate($vue));
+    }
 
 /**
 * @Secure(roles="ROLE_ADMIN")

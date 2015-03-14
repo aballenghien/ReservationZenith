@@ -8,6 +8,11 @@ ab_reservation_zenith_homepage:
 gestion_langue:
     path:     /locale/{locale}/{vue}
     defaults: { _controller: ABReservationZenithBundle:Default:gestionLangue} 
+
+gestion_langue:
+    path:     /locale/{locale}/{vue}
+    defaults: { _controller: ABReservationZenithBundle:Default:gestionTheme} 
+
 about:
     path:   /Default/{_locale}/about
     defaults: { _controller: ABReservationZenithBundle:Default:about, _locale: fr }    

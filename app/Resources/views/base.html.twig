@@ -16,24 +16,48 @@
                     <font color='white'>Zénith Nantes Métropole</font>
                 </a>
                 <ul class='nav navbar-nav pull-right'>
-                  <font color='grey'>
-                    <div id="connexion">
-                      <img src="{{asset ('http://www.infoconcert.com/media/details/zenith_nantes_120x150.jpg')}}" width=40/>
-                      {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
 
-                      {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }} <i class='glyphicon glyphicon-user'></i> |
-                        <a href="{{ path('fos_user_security_logout') }}">{{ 'layout.logout'|trans({}, 'FOSUserBundle')   }}</a>
-                      {% else %}
-                        <a href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
-                      {% endif %}
-                    </div>
+                  <font color='grey'>
+                    
+                      <table cellpadding='3'>
+
+                          <tr>
+                            <td rowspan='2'>
+                                <img src="{{asset ('http://www.infoconcert.com/media/details/zenith_nantes_120x150.jpg')}}" width=40/>
+                            </td>
+
+                            <div id="connexion">
+                              <td>  {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+
+                                    {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }} <i class='glyphicon glyphicon-user'></i> |
+                                      <a href="{{ path('fos_user_security_logout') }}">{{ 'layout.logout'|trans({}, 'FOSUserBundle')   }}</a>
+                                    {% else %}
+                                      {% block connexion  %}
+                                       {#  <a href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a> #}
+                                        
+                                      {% endblock %}
+                                    {% endif %}
+                              </td>
+                            </div>
+
+                          </tr>
+
+                          <tr>
+                              <td align='right'>
+                                <div id="choixLangue">
+                                  {% set currentPath = app.request.attributes.get('_route') %}
+                                    <a href="{{path('gestion_langue',{'locale':'en', 'vue':currentPath})}}" >{{'langue.anglais'|trans}}</a> <font color='grey'>|</font>
+                                    <a href="{{path('gestion_langue',{'locale':'fr', 'vue':currentPath})}}" >{{'langue.francais'|trans}}</a>
+                                </div>
+                              </td>
+                          </tr>
+
+                      </table>
+                    
                   </font>
-                    <div id="choixLangue">
-                    {% set currentPath = app.request.attributes.get('_route') %} |
-                      <a href="{{path('gestion_langue',{'locale':'en', 'vue':currentPath})}}" >{{'langue.anglais'|trans}}</a> <font color='grey'>|</font>
-                      <a href="{{path('gestion_langue',{'locale':'fr', 'vue':currentPath})}}" >{{'langue.francais'|trans}}</a>
-                    </div>
+                    
                 </ul>
+
         {% endblock %}
         </div>
 
@@ -48,13 +72,10 @@
         <br>
         <br>
 
-        <div class='container'>
 
             <div class='footer'>
 
-
-              <div class='container'>
-                  <div class='navbar navbar-inverse navbar-fixed-bottom'>
+                <div class='navbar navbar-inverse navbar-fixed-bottom'>
                       <div class='row'>
                         <div class='col-md-offset-1 col-md-3'>
                           <font color='grey'>
@@ -93,8 +114,6 @@
                           </font>
                       </div>
                   </div>
-            </div>
-        </div>
 
     </body>
 </html>
