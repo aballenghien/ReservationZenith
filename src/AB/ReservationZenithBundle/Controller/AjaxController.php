@@ -12,17 +12,17 @@ class AjaxController extends Controller
 	public function getTarifWithPlaceAction($place, $id_spectacle){
 		$em = $this->getDoctrine()->getManager();
 		$tarif = $em->getRepository('ABReservationZenithBundle:Tarif')->getTarifByPlace($place, $id_spectacle);
-		return $this->render('ABReservationZenithBundle:Ajax:tarif.html.twig', array(
-        'tarif'=>$tarif
-            ));
+		$serializer = $this->get('jms_serializer');
+        $reports = $serializer->serialize($tarif, 'json');
+        return new Response($reports);
     } 
 
     public function getSeancesBySpectacleAction($id_spectacle){
     	$em = $this->getDoctrine()->getManager();
 		$spectacle = $em->getRepository('ABReservationZenithBundle:Spectacle')->find($id_spectacle);
-		return $this->render('ABReservationZenithBundle:Ajax:seances.html.twig', array(
-        'seances'=>$spectacles->getSeances()
-            ));
+        $serializer = $this->get('jms_serializer');
+        $reports = $serializer->serialize($spectacle->getSeances(), 'json');
+        return new Response($reports);
     }
 }
 

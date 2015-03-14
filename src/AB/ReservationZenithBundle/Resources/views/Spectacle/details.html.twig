@@ -12,7 +12,7 @@
 			<tr><td>{{ 'spectacleTrad.genre'|trans }} :</td><td>{{spectacle.genre}}</td></tr>
 			<tr><td>{{ 'spectacleTrad.nbPlaces'|trans }} :</td><td>{{spectacle.nombreDePlaces}}</td></tr>
 			<tr><td>{{ 'spectacleTrad.commentaires'|trans }} :</td><td>{{spectacle.commentaires}}</td></tr>
-			<tr><td>{{ 'spectacleTrad.affiche'|trans }} :</td><td>{{spectacle.affiche}}</td></tr>
+			<tr><td>{{ 'spectacleTrad.affiche'|trans }} :</td><td><img src="{{spectacle.affiche}}"/></td></tr>
 			<tr><td>{{ 'spectacleTrad.seances'|trans }} :</td><td>
 				{% for seance in spectacle.seances %}
 				<table>

@@ -39,6 +39,12 @@ ajax_prix:
     defaults: { _controller: ABReservationZenithBundle:Ajax:getTarifWithPlace}     
     options:
         expose: true
+
+ajax_seances:
+    path:     /ajax/seances/{id_spectacle}
+    defaults: { _controller: ABReservationZenithBundle:Ajax:getSeancesBySpectacle}     
+    options:
+        expose: true
 ##spectacle
 index_spectacle:
     path:     /spectacle/{_locale}/index

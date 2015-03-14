@@ -22,7 +22,8 @@
         "incenteev/composer-parameter-handler": "~2.0",
         "friendsofsymfony/user-bundle": "~2.0@dev",
         "jms/security-extra-bundle": "~1.5",
-        "friendsofsymfony/jsrouting-bundle": "~1.5@stable"
+        "friendsofsymfony/jsrouting-bundle": "~1.5@stable",
+        "jms/serializer-bundle": "0.13.*"
     },
     "scripts": {
         "post-install-cmd": [

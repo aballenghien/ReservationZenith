@@ -28,7 +28,7 @@
 					<tr><td>{{'spectacleTrad.titre'|trans }}</td><td>{{ reservation.seance.spectacle.titre }}</td></tr>
 					<tr><td>{{'spectacleTrad.duree'|trans }}</td><td>{{ reservation.seance.spectacle.duree }}</td></tr>
 					<tr><td>{{'spectacleTrad.commentaires'|trans }}</td><td>{{ reservation.seance.spectacle.commentaires }}</td></tr>
-					<tr><td>{{'spectacleTrad.affiche'|trans }}</td><td>{{ reservation.seance.spectacle.affiche }}</td></tr>
+					<tr><td>{{'spectacleTrad.affiche'|trans }}</td><td><img src="{{reservation.seance.spectacle.affiche}}" width="50%" height="50%" style="border: 4px solid black;-webkit-border-radius: 30px;"/></td></tr>
 					<tr><td>{{'seanceTrad.date'|trans }}</td><td>{{ reservation.seance.date|date('d/m/Y') }}</td></tr>
 					<tr><td>{{'seanceTrad.heure'|trans }}</td><td>{{ reservation.seance.heure|date('H:i') }}</td></tr>
 					</table></td>			

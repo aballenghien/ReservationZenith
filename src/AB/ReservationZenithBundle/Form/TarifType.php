@@ -17,8 +17,8 @@ class TarifType extends AbstractType
         $builder
             ->add('prix',null,array(
 				'label'=> 'tarifTrad.prix' ))
-			->add('numeroPlaceMin','integer',array('label'=>'tarifTrad.numPlaceMin'))
-			->add('numeroPlaceMax','integer',array('label'=>'tarifTrad.numPlaceMax'));
+			->add('numeroPlaceMin','integer',array('label'=>'tarifTrad.numeroPlaceMin'))
+			->add('numeroPlaceMax','integer',array('label'=>'tarifTrad.numeroPlaceMax'));
         ;
     }
     
