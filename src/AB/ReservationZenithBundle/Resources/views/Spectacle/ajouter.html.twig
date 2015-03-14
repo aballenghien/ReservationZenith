@@ -17,6 +17,7 @@
 							<tr><td>{{ form_label(form.genre) }} : </td><td> {{ form_widget(form.genre) }}  {{form_errors(form.genre)}}</td></tr>
 							<tr><td>{{ form_label(form.nombreDePlaces) }} : </td><td>  {{ form_widget(form.nombreDePlaces) }}  {{form_errors(form.nombreDePlaces)}}</td></tr>
 							<tr><td>{{ form_label(form.commentaires) }} : </td><td>  {{ form_widget(form.commentaires) }}  {{form_errors(form.commentaires)}}</td></tr>
+							<tr><td>{{ form_label(form.affiche) }} :  </td><td> {{ form_widget(form.affiche) }}  {{form_errors(form.affiche)}}</td></tr>
 					</table>
 
 					<div id="seances" data-prototype="
@@ -38,10 +39,7 @@
 					<input type="submit" class="btn btn-primary"/>
 				</form>
 			</div>
-			<div class='col-md-6'>
-				<img src="{{asset ('http://www.musicalavenue.fr/files/image/actualite/2009/02_Fevrier/Energia(1).jpg')}}" width=250/><br/>
-				{{ form_label(form.affiche) }} : </td><td>  {{ form_widget(form.affiche) }}  {{form_errors(form.affiche)}}<br/>
-				<input type="submit" class="btn btn-danger"/>
+			<div id="affiche" class='col-md-6'>
 			</div>
 		</div>
 	</div>

@@ -51,6 +51,12 @@ class Seance
      **/
 	private $spectacle;
 
+     /**
+     * @ORM\OneToMany(targetEntity="Reservation",mappedBy="seance", cascade={"remove"})
+     **/
+     private $seances;
+
+
     /**
      * Get id
      *

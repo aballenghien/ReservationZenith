@@ -30,6 +30,7 @@ class reservationController extends Controller
         $reservation = new Reservation();
         $reservation->setIdClientConcerne($user);
 		$form = $this->createForm(new ReservationType(), $reservation);
+        $spectacles = $em->getRepository('ABReservationZenithBundle:Spectacle')->getSpectacleByDates(date('Y-m-d'), date('Y-m-d', strtotime('+1 year')));
         if($request->isMethod('POST')){
     		$form->handleRequest($this->getRequest());
     		if($form->isValid()){
@@ -40,8 +41,10 @@ class reservationController extends Controller
     			return $this->redirect($this->get('router')->generate('voir_reservation',array('id'=>$id)));
     		}
         }
+        $place = "__place__";
+        $id_spectacle = "__spectacle__";
         return $this->render('ABReservationZenithBundle:Reservation:ajouter.html.twig', array(
-        'form'=>$form->createView()
+        'form'=>$form->createView(),'spectacles'=>$spectacles, 'plc'=>$place, 'id'=>$id_spectacle
             ));    }
 /**
 * @Secure(roles="ROLE_USER")

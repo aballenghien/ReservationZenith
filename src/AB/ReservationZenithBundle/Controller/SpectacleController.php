@@ -125,10 +125,24 @@ class SpectacleController extends Controller
     {
 		$em = $this->getDoctrine()->getManager();
         $spectacle = $em->getRepository('ABReservationZenithBundle:Spectacle')->findOneById($id);
+        foreach ($spectacle->getSeances() as $se) {
+        	$reservations = $em->getRepository('ABReservationZenithBundle:Reservation')->findBy(array('seance' => $se->getId() ));
+        	foreach($reservations as $re){
+        		$em->remove($re);
+        		$em->flush();
+        	}
+        	$em->remove($se);
+        	$em->flush();
+        }
+
+        foreach ($spectacle->getTarifs() as $ta) {
+        	$em->remove($ta);
+        	$em->flush();
+        }
         $em->remove($spectacle);
         $em->flush();
         $spectacles = $em->getRepository('ABReservationZenithBundle:Spectacle')->findAll();		
-			
+		ExecuterLesCommandes::runCommand('reservationzenith:genererRSS',$this);
         return $this->render('ABReservationZenithBundle:Spectacle:voir.html.twig', array(
         'spectacles'=>$spectacles
             ));

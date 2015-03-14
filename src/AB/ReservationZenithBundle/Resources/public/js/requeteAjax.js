@@ -1,22 +1,25 @@
 /*selection du tarif en fonction de la place*/
 var champPlace = $('#reservation_place');
 var champPrix = $('#reservation_tarif');
-var champSeance = $('#reservation_seance');
+var champSpectacle = $('#reservation_spectacles');
+var champHref = $('#href');
 
-jQuery(document).ready(function() {
-    champPlace.change(function(){
-        var place='';
-        place = champPlace.val();
-        seance = champSeance.val();
-        $.ajax({
-                   type:"POST"
-                   url:"../ajax/getTarifWithPlace",
-                   data:"place="+place,
-                   
-                   success: function(retour){
-           chamPrix.val(retour);
-                   }
-                   
-               });
+$(document).ready(function(){  
+  champPlace.change(function(){
+    var plc = champPlace.val();
+    var id = champSpectacle.val();
+    var unurl = champHref.val();
+    unurl = unurl.replace("__place__",plc);
+    unurl = unurl.replace("__spectacle__",id);
+    $.ajax({
+       url : unurl,
+       type : 'POST',
+       success: function(retour){
+        alert(retour);
+       },
+       error: function(XMLHttpRequest, textStatus, errorThrown) { 
+          alert("Status: " + textStatus); 
+       }  
     });
+  });
 });

@@ -38,4 +38,6 @@ class SpectacleRepository extends EntityRepository
             WHERE se.date >= :datemin AND se.date<= :datemax'*/
         return $qb;
     }
+
+
 }

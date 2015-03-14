@@ -50,6 +50,8 @@ class Tarif
      * @ORM\JoinColumn(name="spectacle_id", referencedColumnName="id")
      **/
      private $spectacle;
+
+     
     /**
      * Get id
      *

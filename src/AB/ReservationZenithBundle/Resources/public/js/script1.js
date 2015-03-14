@@ -64,8 +64,41 @@ function addTagFormDeleteLink($formDiv) {
 
 /*suppression*/
 var supprLinkResa = $('#supprResa');
+var supprLinkSpectacle = $('#supprSpectacle');
+var supprLinkSeance = $('#supprSeance');
+var supprLinkTarif = $('#supprTarif');
 jQuery(document).ready(function(){
     supprLinkResa.on('click', function(e) {
+        e.preventDefault();
+        res = confirmerSuppression("cette réservation");
+        if(res){
+            window.location.href = $(this).attr("href");
+        }else{
+            window.location.href = document.URL;
+        }
+    });
+
+    supprLinkSpectacle.on('click', function(e) {
+        e.preventDefault();
+        res = confirmerSuppression("cette réservation");
+        if(res){
+            window.location.href = $(this).attr("href");
+        }else{
+            window.location.href = document.URL;
+        }
+    });
+
+    supprLinkSeance.on('click', function(e) {
+        e.preventDefault();
+        res = confirmerSuppression("cette réservation");
+        if(res){
+            window.location.href = $(this).attr("href");
+        }else{
+            window.location.href = document.URL;
+        }
+    });
+
+    supprLinkTarif.on('click', function(e) {
         e.preventDefault();
         res = confirmerSuppression("cette réservation");
         if(res){
@@ -81,3 +114,14 @@ function confirmerSuppression($objet){
     res = confirm("Voulez vous vraiment supprimer ?");
     return res;
 }
+
+var champAffiche = $("#spectacle_affiche");
+var divAffiche = $("#affiche")
+$(document).ready(function(){
+    divAffiche.html("<img src='"+champAffiche.val()+"' width=250/></br>");
+    champAffiche.blur( function(e) {
+        e.preventDefault();
+        divAffiche.html("<img src='"+champAffiche.val()+"' width=250/></br>");
+        
+    });
+});

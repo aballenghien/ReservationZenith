@@ -13,17 +13,19 @@ use Doctrine\ORM\EntityRepository;
 class TarifRepository extends EntityRepository
 {
 	public function getTarifByPlace($place, $id_spectacle){
-        $query = $this->getEntityManager()
-        ->createQuery('
-            SELECT t.prix 
-            FROM tarif t 
-            INNER JOIN Spectacle s ON s.id = t.spectacle_id 
-            WHERE s.id= :id AND t.numeroplacemin <= :place AND t.numeroplacemax >= :place'
-        )->setParameter('place', $place)
-        ->setParameter('id',$id_spectacle);
+        $em = $this->getEntityManager();
+        $qb = $em->createQueryBuilder();
+        $qb->select('t.prix')
+           ->from('ABReservationZenithBundle:Tarif','t')
+           ->leftJoin('ABReservationZenithBundle:Spectacle','sp','WITH','t.spectacle=sp.id')
+           ->where('sp.id <= ?1 AND t.numeroPlaceMin <= ?2 AND t.numeroPlaceMax >= ?3')
+           ->setParameter(1,$id_spectacle)
+           ->setParameter(2,$place)
+           ->setParameter(3,$place);
+        $query = $qb->getQuery();
 
         try {
-            return $query->execute();
+            return $query->getSingleResult();
         } catch (\Doctrine\ORM\NoResultException $e) {
             return null;
         }

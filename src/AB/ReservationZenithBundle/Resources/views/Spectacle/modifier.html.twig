@@ -6,67 +6,48 @@
 {{ parent () }}
 	{% if is_granted('ROLE_ADMIN') %}
 	<h3>{{ 'modifier.spectacle'|trans }}</h3>
-	<div class='well'>
-		<form action="" method="post">
-		{{ form_start(form) }}
-			<div id="spectacle">
-				<p>{{ form_label(form.titre) }}:  {{ form_widget(form.titre) }}  {{form_errors(form.titre)}}</p>
-				<p>{{ form_label(form.duree) }}:  {{ form_widget(form.duree) }}  {{form_errors(form.duree)}}</p>
-				<p>{{ form_label(form.genre) }}:  {{ form_widget(form.genre) }}  {{form_errors(form.genre)}}</p>
-				<p>{{ form_label(form.nombreDePlaces) }}:  {{ form_widget(form.nombreDePlaces) }}  {{form_errors(form.nombreDePlaces)}}</p>
-			
-			</div>
-			<div id="seances" data-prototype="
-			{% filter escape %}
-		             {{ include('ABReservationZenithBundle:Seance:ajouter.html.twig', { 'form': form.seances.vars.prototype }) }}
-		    {% endfilter %}">
-				{% for seance in form.seances %}
-					<div id="seance">			
-					
-					{{ 'seanceTrad.seance'|trans }} n°{{form_label(seance)}}
-				    <table>
-				    	<tr><td>{{form_label(seance.heure)}}</td><td>{{form_widget(seance.heure)}}</td></tr>
-				    	<tr><td>{{form_label(seance.date)}}</td><td>{{form_widget(seance.date)}}</td></tr>
-				    	<tr><td>{{form_label(seance.nombrePlacesRestantes)}}</td><td>{{form_widget(seance.nombrePlacesRestantes)}}</td></tr>
-				    </table>
-					<div hidden="true"/>
-						{{form_rest(seance)}}
+	<br>
+	<div class='well well-lg'>
+		<div class='row'>
+			<div id="spectacle" class='col-md-6'>
+				<form action="{{path('ajouter_spectacle')}}" method="post" {{form_enctype(form)}}>
+					<table border>
+							<tr><td>{{ form_label(form.titre) }} : </td><td> {{ form_widget(form.titre) }}  {{form_errors(form.titre)}}</td></tr>
+							<tr><td>{{ form_label(form.duree) }} : </td><td>  {{ form_widget(form.duree) }}  {{form_errors(form.duree)}}</td></tr>
+							<tr><td>{{ form_label(form.genre) }} : </td><td> {{ form_widget(form.genre) }}  {{form_errors(form.genre)}}</td></tr>
+							<tr><td>{{ form_label(form.nombreDePlaces) }} : </td><td>  {{ form_widget(form.nombreDePlaces) }}  {{form_errors(form.nombreDePlaces)}}</td></tr>
+							<tr><td>{{ form_label(form.commentaires) }} : </td><td>  {{ form_widget(form.commentaires) }}  {{form_errors(form.commentaires)}}</td></tr>
+							<tr><td>{{ form_label(form.affiche) }} :  </td><td> {{ form_widget(form.affiche) }}  {{form_errors(form.affiche)}}</td></tr>
+					</table>
+
+					<div id="seances" data-prototype="
+					{% filter escape %}
+				             {{ include('ABReservationZenithBundle:Seance:ajouter.html.twig', { 'form': form.seances.vars.prototype }) }}
+				    {% endfilter %}">
+							
 					</div>
+					<div id="tarifs" data-prototype="
+					{% filter escape %}
+				             {{ include('ABReservationZenithBundle:Tarif:ajouter.html.twig', { 'form': form.tarifs.vars.prototype }) }}
+				    {% endfilter %}">	
+						
 					</div>
-				{% endfor %}
-					
-				
-			</div>
-			<div id="tarifs" data-prototype="
-			{% filter escape %}
-		             {{ include('ABReservationZenithBundle:Tarif:ajouter.html.twig', { 'form': form.tarifs.vars.prototype }) }}
-		    {% endfilter %}">
-				{% for tarif in form.tarifs %}
-					<div id="tarif">
-						{{ 'tarifTrad.tarif'|trans }} n°{{form_label(tarif)}}
-						<table>
-					    	<tr><td>{{form_label(tarif.prix)}}</td><td>{{form_widget(tarif.prix)}}</td></tr>
-					    	<tr><td>{{form_label(tarif.numeroPlaceMin)}}</td><td>{{form_widget(tarif.numeroPlaceMin)}}</td></tr>
-					    	<tr><td>{{form_label(tarif.numeroPlaceMax)}}</td><td>{{form_widget(tarif.numeroPlaceMax)}}</td></tr>
-			    		</table>  	
-						<div hidden="true"/>
-							{{form_rest(tarif)}}
-						</div>
+					<div hidden="true">
+					{{form_rest(form)}}
 					</div>
-				{% endfor %}
-					
-				
+					<br>
+					<input type="submit" class="btn btn-primary"/>
+				</form>
 			</div>
-			<div hidden="true"/>
-			{{form_rest(form)}}
+			<div id="affiche" class='col-md-6'>
 			</div>
-			<input type="submit" />
-			{{ form_end(form) }}
-		</form>
+		</div>
+	</div>
+
 	{% else %}
-	<div class='well'>
+	<div class='well well-lg'>
 		<h3> {{'privilege.addsppectacle'|trans }}</h3>
 	{% endif %}
-</div>
+	</div>
 {% endblock %}
 
