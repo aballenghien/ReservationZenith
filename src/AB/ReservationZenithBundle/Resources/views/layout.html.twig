@@ -1,7 +1,7 @@
 {% extends "::base.html.twig" %}
 {% block title %}Welcome!{% endblock %}
 {% block stylesheets %}
-	<link href="{{ asset('bootstrap/css/bootstrap.css') }}" type="text/css" rel="stylesheet" />
+	{{parent()}}
 {% endblock %}
 	{% block entete %}
 	{{parent()}}

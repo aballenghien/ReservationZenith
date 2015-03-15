@@ -28,8 +28,9 @@ class DefaultController extends Controller
 
     public function gestionTheme($theme, $vue){
 
-        $this->get('session')->set('_theme', $locale);
-        return $this->redirect($this->get('router')->generate($vue));
+        $this->get('session')->set('_theme', $theme);
+        //return $this->redirect($this->get('router')->generate($vue));
+        return new Response($this->get('session')->get('_theme'));
     }
 
 /**
