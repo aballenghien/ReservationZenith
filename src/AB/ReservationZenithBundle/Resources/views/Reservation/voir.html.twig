@@ -28,7 +28,11 @@
 				<td></td>
 			</tr>
 		
-		{% endfor %}
+		{% endfor %}		
 		</table>
+		{% if reservations|length == 0 %}
+			{{'aucun_resultat.reservation'|trans}}
+		{% endif %}
 </div>
+<a class='btn btn-primary' style='color:white' href="{{path('index_reservation')}}">{{ 'actionTrad.retour'|trans }}</a>
 {% endblock %}

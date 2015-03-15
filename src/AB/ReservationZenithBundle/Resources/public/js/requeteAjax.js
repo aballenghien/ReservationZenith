@@ -26,7 +26,8 @@ champSeance.html(null);
     });
   });
 
-  champSpectacle.change(function(){
+  champSpectacle.change(function(){    
+    champSeance.html(null);
     var plc = champPlace.val();
     var id = champSpectacle.val();
     var unurl = "";

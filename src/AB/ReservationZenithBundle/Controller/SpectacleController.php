@@ -35,7 +35,6 @@ class SpectacleController extends Controller
 			
 			if($form->isValid()){
 					$spectacle = $form->getData();
-					$this->valider($spectacle);
 					$em->persist($spectacle);
 					$em->flush();
 					$id = $spectacle->getId();
@@ -147,12 +146,9 @@ class SpectacleController extends Controller
         	$em->flush();
         }
         $em->remove($spectacle);
-        $em->flush();
-        $spectacles = $em->getRepository('ABReservationZenithBundle:Spectacle')->findAll();		
+        $em->flush();		
 		ExecuterLesCommandes::runCommand('reservationzenith:genererRSS',$this);
-        return $this->render('ABReservationZenithBundle:Spectacle:voir.html.twig', array(
-        'spectacles'=>$spectacles
-            ));
+        return $this->redirect($this->get('router')->generate('voir_spectacle'));
     }
 
 

@@ -16,6 +16,7 @@ spectacleTrad:
     tarifs: Tarifs Proposés 
     tarifsassocies: Voir la liste des tarifs associés
     seanceprogramme: Voir les Séances
+    spectacle: Spectacle
 
 seanceTrad:
     date: Date
@@ -35,6 +36,8 @@ actionTrad:
     voir: Voir
     ajouter: Ajouter
     details: Details
+    annuler: Annuler
+    retour: Retour
 
 gestionTrad:
     spectacle: Accéder à la gestion des spectacles
@@ -48,7 +51,7 @@ pages:
     accueilzenith: Accueil 
 
 voir:
-    listespectacles: Voir les spectacles programmés
+    listespectacle: Voir les spectacles programmés
     listereservationclient: Voir la liste de mes réservations
     listereservation: Voir la liste des réservations
     reservation: Liste des réservations
@@ -91,4 +94,8 @@ choix_theme:
     theme: Thème
     theme1: Thème n°1
     theme2: Thème n°2
+
+aucun_resultat:
+    reservation: Aucune réservation à votre nom
+    spectacle: Aucun spectacle programmé
 

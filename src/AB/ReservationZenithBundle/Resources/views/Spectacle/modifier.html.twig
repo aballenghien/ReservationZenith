@@ -57,11 +57,15 @@
 						</div>
 					</div>
 					{% endfor %}
+					</div>
 					<div hidden="true">
 							{{form_rest(form)}}
 						</div>
+
+					<a class='btn btn-primary' style='color:white' href="{{path('voir_spectacle')}}">{{ 'actionTrad.annuler'|trans }}</a>
+
 					<input type="submit" class="btn btn-primary"/>
-					</div>
+					
 					
 				</form>				
 					</br>

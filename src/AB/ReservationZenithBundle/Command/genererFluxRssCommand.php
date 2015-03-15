@@ -39,7 +39,7 @@ class genererFluxRssCommand extends ContainerAwareCommand
         fputs($file,"\t".'<channel>'."\n");
         fputs($file,"\t"."\t".'<title>Liste des spectacles à venir</title>'."\n");
         fputs($file,"\t"."\t".'<link>'.$urlSource.$this->getContainer()->get('router')->generate('ab_reservation_zenith_homepage').'</link>'."\n");
-        fputs($file,"\t"."\t".'<description>Affiche le liste des spectacle programmés pour cette année</description>'."\n");
+        fputs($file,"\t"."\t".'<description>Affiche la liste des spectacles programmés pour cette année</description>'."\n");
         $output->writeln($nomFile);
         $listeSpectacles = $em->getRepository('ABReservationZenithBundle:Spectacle')->getSpectacleByDates(date('Y-m-d'), date('Y-m-d', strtotime('+1 year')));
         if(count($listeSpectacles) >0){
