@@ -12,6 +12,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\RouterInterface;
 use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
 use Symfony\Component\Security\Http\Authentication\AuthenticationSuccessHandlerInterface;
+use Symfony\Component\HttpFoundation\Session\Session;
  
 class AfterLoginRedirection implements AuthenticationSuccessHandlerInterface
 {
@@ -43,10 +44,10 @@ class AfterLoginRedirection implements AuthenticationSuccessHandlerInterface
         }, $roles);
         // S'il s'agit d'un admin ou d'un super admin on le redirige vers le backoffice
         if (in_array('ROLE_ADMIN', $rolesTab, true) || in_array('ROLE_SUPER_ADMIN', $rolesTab, true))
-            $redirection = new RedirectResponse($this->router->generate('backoffice_homepage'));
+            $redirection = new RedirectResponse($this->router->generate($request->getSession()->get('pageprecedente')));
         // sinon, s'il s'agit d'un commercial on le redirige vers le CRM
         elseif (in_array('ROLE_USER', $rolesTab, true))
-            $redirection = new RedirectResponse($this->router->generate('espaceclient_homepage'));       
+            $redirection = new RedirectResponse($this->router->generate($request->getSession()->get('pageprecedente')));       
  
         return $redirection;
     }

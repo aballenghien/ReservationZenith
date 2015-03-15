@@ -63,11 +63,12 @@ function addTagFormDeleteLink($formDiv) {
 
 
 /*suppression*/
-var supprLinkResa = $('#supprResa');
-var supprLinkSpectacle = $('#supprSpectacle');
-var supprLinkSeance = $('#supprSeance');
-var supprLinkTarif = $('#supprTarif');
-jQuery(document).ready(function(){
+
+$(document).ready(function(){
+    var supprLinkResa = $('#supprResa');
+    var supprLinkSpectacle = $('#supprSpectacle');
+    var supprLinkSeance = $('#supprSeance');
+    var supprLinkTarif = $('#supprTarif');
     supprLinkResa.on('click', function(e) {
         e.preventDefault();
         res = confirmerSuppression("cette réservation");
@@ -80,7 +81,7 @@ jQuery(document).ready(function(){
 
     supprLinkSpectacle.on('click', function(e) {
         e.preventDefault();
-        res = confirmerSuppression("cette réservation");
+        res = confirmerSuppression("ce spectacle");
         if(res){
             window.location.href = $(this).attr("href");
         }else{
@@ -90,7 +91,7 @@ jQuery(document).ready(function(){
 
     supprLinkSeance.on('click', function(e) {
         e.preventDefault();
-        res = confirmerSuppression("cette réservation");
+        res = confirmerSuppression("cette séance");
         if(res){
             window.location.href = $(this).attr("href");
         }else{
@@ -100,7 +101,7 @@ jQuery(document).ready(function(){
 
     supprLinkTarif.on('click', function(e) {
         e.preventDefault();
-        res = confirmerSuppression("cette réservation");
+        res = confirmerSuppression("ce tarif");
         if(res){
             window.location.href = $(this).attr("href");
         }else{

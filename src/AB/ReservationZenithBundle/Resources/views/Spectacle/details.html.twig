@@ -34,6 +34,6 @@
 		<a href="{{path('modifier_spectacle',{'id':spectacle.id})}}">{{'actionTrad.modifier'|trans}}</a>
 		<a href="{{path('supprimer_spectacle',{'id':spectacle.id})}}">{{'actionTrad.supprimer'|trans}}</a>
 		{% endif %}
-		<a href="{{path('voir_spectacle')}}">{{'voir.retourspectacles'|trans}}</a>
+		<a class='btn btn-primary' style='color:white' href="{{path('voir_spectacle')}}">{{ 'actionTrad.retour'|trans }}</a>
 </div>
 {% endblock %}

@@ -13,4 +13,11 @@
 		<li><a href="{{path('voir_spectacle')}}">{{ 'voir.spectacle'|trans }}</a>
 	</ul>
 </div>
+{% if is_granted('ROLE_ADMIN') %}
+<a class='btn btn-primary' style='color:white' href="{{path('backoffice_homepage')}}">{{ 'actionTrad.retour'|trans }}</a>
+{%elseif is_granted('ROLE_USER')%}
+<a class='btn btn-primary' style='color:white' href="{{path('espaceclient_homepage')}}">{{ 'actionTrad.retour'|trans }}</a>
+{% else %}
+<a class='btn btn-primary' style='color:white' href="{{path('ab_reservation_zenith_homepage')}}">{{ 'actionTrad.retour'|trans }}</a>
+{% endif %}
 {% endblock %}

@@ -44,7 +44,7 @@ class reservationController extends Controller
         $place = "__place__";
         $id_spectacle = "__spectacle__";
         return $this->render('ABReservationZenithBundle:Reservation:ajouter.html.twig', array(
-        'form'=>$form->createView(),'spectacles'=>$spectacles, 'plc'=>$place, 'id'=>$id_spectacle
+        'form'=>$form->createView(),'spectacles'=>$spectacles, 'plc'=>$place, 'id'=>$id_spectacle, 'user'=>$user
             ));    }
 /**
 * @Secure(roles="ROLE_USER")
@@ -101,6 +101,7 @@ class reservationController extends Controller
     public function modifierAction($id)
     {
         $em = $this->getDoctrine()->getManager();
+        $user = $this->container->get('security.context')->getToken()->getUser();
         $reservation = $em->getRepository('ABReservationZenithBundle:Reservation')->findOneById($id);
         $spectacles = $em->getRepository('ABReservationZenithBundle:Spectacle')->getSpectacleByDates(date('Y-m-d'), date('Y-m-d', strtotime('+1 year')));
 		$plc = "__place__";
@@ -115,7 +116,7 @@ class reservationController extends Controller
 			return $this->redirect($this->get('router')->generate('voir_reservation',array('id'=>$id)));
 		}
         return $this->render('ABReservationZenithBundle:Reservation:modifier.html.twig', array(
-        'form'=>$form->createView(),'spectacles'=>$spectacles,'id'=>$id, 'plc'=>$plc
+        'form'=>$form->createView(),'spectacles'=>$spectacles,'id'=>$id, 'plc'=>$plc, 'user'=>$user
             ));    }
 
 /**
@@ -123,15 +124,14 @@ class reservationController extends Controller
 */
     public function supprimerAction($id)
     {
+        $user = $this->container->get('security.context')->getToken()->getUser();
         $em = $this->getDoctrine()->getManager();
         $reservation = $em->getRepository('ABReservationZenithBundle:Reservation')->findOneById($id);
         $em->remove($reservation);
         $em->flush();
         $reservations = $em->getRepository('ABReservationZenithBundle:Reservation')->findAll();		
 			
-        return $this->render('ABReservationZenithBundle:Reservation:supprimer.html.twig', array(
-        'reservations'=>$reservations
-            ));     
+         return $this->redirect($this->get('router')->generate('voir_reservation', array('idClient' =>$user->getId())));     
             }
 
 }

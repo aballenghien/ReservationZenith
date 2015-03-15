@@ -29,6 +29,7 @@
 	{{form_rest(form)}}
 	</div>
 		<br>
+		<a class='btn btn-primary' style='color:white' href="{{path('voir_reservation',{'idClient':user.id})}}">{{ 'actionTrad.annuler'|trans }}</a>
 		<input type="submit" class='btn btn-primary' />
 	</form>
 	{% else %}

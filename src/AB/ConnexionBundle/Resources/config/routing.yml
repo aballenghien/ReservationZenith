@@ -2,4 +2,8 @@ ab_connexion_homepage:
     path:     /hello/{name}
     defaults: { _controller: ABConnexionBundle:Default:index }
 
+ab_connexion_connexion:
+    path: /login/{page}
+    defaults: { _controller: ABConnexionBundle:Connexion:connexion }
+
 

@@ -3,18 +3,16 @@
 	<channel>
 		<title>Liste des spectacles à venir</title>
 		<link>http://localhost/UNIVERSITE/ReservationZenith/web/app_dev.php/fr/accueil-zenith</link>
-		<description>Affiche le liste des spectacle programmés pour cette année</description>
+		<description>Affiche la liste des spectacles programmés pour cette année</description>
 			<item>
-				<title>Le Roi Lion</title>
-				<description></description>
-				<pubDate>2015-03-05</pubDate>
-				<source>http://localhost/UNIVERSITE/ReservationZenith/web/app_dev.php/spectacle/fr/voir/17</source>
-			</item>
-			<item>
-				<title>Jupiter</title>
-				<description></description>
-				<pubDate>2015-03-05</pubDate>
-				<source>http://localhost/UNIVERSITE/ReservationZenith/web/app_dev.php/spectacle/fr/voir/18</source>
+				<title>Holiday On Ice</title>
+				<description>Au Zenith de Nantes</description>
+				<pubDate>2015-03-15</pubDate>
+				<source>http://localhost/UNIVERSITE/ReservationZenith/web/app_dev.php/spectacle/fr/voir/22</source>
+				<image>
+					<url>http://iqraa.com/mediastorage/images/news632.jpg</url>
+					<link>http://iqraa.com/mediastorage/images/news632.jpg</link>
+				</image>
 			</item>
 	</channel>
 </rss>
