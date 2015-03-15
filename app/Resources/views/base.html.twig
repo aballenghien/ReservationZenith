@@ -35,16 +35,18 @@
                                     </td>
 
                                     <td>
-                                      <button class='btn btn-primary btn-xs'><a style='color:white' href="{{ path('fos_user_security_logout') }}">{{ 'layout.logout'|trans({}, 'FOSUserBundle')   }}</a></button>
+                                      <a class='btn btn-primary btn-xs' style='color:white' href="{{ path('fos_user_security_logout') }}">{{ 'layout.logout'|trans({}, 'FOSUserBundle')   }}</a>
+                                      
                                     </td>
                                     {% else %}
                                       {% block connexion  %}
                                     <td>
-                                        <button class='btn btn-primary btn-xs'><a style='color:white' href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a></button>
+                                        
+                                        <a class='btn btn-primary btn-xs 'style='color:white' href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
                                     </td>
 
                                     <td>
-                                        <button class='btn btn-primary btn-xs'><a style='color:white' href="{{path('fos_user_registration_register') }}">{{ 'layout.register'|trans({}, 'FOSUserBundle') }}</a></button>
+                                        <a class='btn btn-primary btn-xs' style='color:white' href="{{path('fos_user_registration_register') }}">{{ 'layout.register'|trans({}, 'FOSUserBundle') }}</a>
                                     </td>
                                       {% endblock %}
                                     {% endif %}

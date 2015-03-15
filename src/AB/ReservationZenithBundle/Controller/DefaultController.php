@@ -11,6 +11,7 @@ class DefaultController extends Controller
 
     public function indexAction()
     {
+
         $xml = simplexml_load_file('fluxrss.rss');
         $channel = $xml->channel;
         $items = $channel->item;
@@ -21,8 +22,8 @@ class DefaultController extends Controller
     public function gestionLangueAction($locale, $vue){
 
         $this->get('session')->set('_locale', $locale);
-        return $this->redirect($this->get('router')->generate($vue));
-        //return new Response($this->get('session')->get('_locale'));
+        //return $this->redirect($this->get('router')->generate($vue));
+        return new Response($this->get('session')->get('_locale'));
     }
 
     public function gestionTheme($theme, $vue){
