@@ -1,0 +1,10 @@
+erreur:
+    seance:
+        nombrePlacesRestantes: Le nombre de places restantes ne peut pas être supérieure au nombre de place du spectacle
+        occupee: La salle est déja occupée à cette heure
+        date: Vous ne pouvez pas programmer une séance pour une date passée
+    tarifs:
+        place: Erreur lors de la saisie des tarifs pour chaque place
+        nombrePlaces: Toutes les places n'ont pas un tarifs associés
+    seances:
+        erreurGenerale: Erreur de saisie de la séance

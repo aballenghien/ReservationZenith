@@ -12,6 +12,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Doctrine\Common\Collections\ArrayCollection;
 use JMS\SecurityExtraBundle\Annotation\Secure;
 use AB\ReservationZenithBundle\Command\ExecuterLesCommandes;
+use Symfony\Component\Validator\ExecutionContextInterface;
 
 class SpectacleController extends Controller
 {
@@ -33,12 +34,14 @@ class SpectacleController extends Controller
 			$form->handleRequest($this->getRequest());			
 			
 			if($form->isValid()){
-				$spectacle = $form->getData();
-				$em->persist($spectacle);
-				$em->flush();
-				$id = $spectacle->getId();
-				ExecuterLesCommandes::runCommand('reservationzenith:genererRSS',$this);
-				return $this->redirect($this->get('router')->generate('voir_spectacle',array('id'=>$id)));
+					$spectacle = $form->getData();
+					$this->valider($spectacle);
+					$em->persist($spectacle);
+					$em->flush();
+					$id = $spectacle->getId();
+					ExecuterLesCommandes::runCommand('reservationzenith:genererRSS',$this);
+					return $this->redirect($this->get('router')->generate('voir_spectacle',array('id'=>$id)));
+				
 			}
 		}
 		
@@ -151,5 +154,7 @@ class SpectacleController extends Controller
         'spectacles'=>$spectacles
             ));
     }
+
+
 
 }

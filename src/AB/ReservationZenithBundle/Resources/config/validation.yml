@@ -1,4 +1,0 @@
-AB\ReservationZenithBundle\Entity\Spectacle:
-    properties:
-        commentaires:
-            - NotBlank: ~

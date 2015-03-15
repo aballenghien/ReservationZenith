@@ -5,6 +5,7 @@ namespace AB\ReservationZenithBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Mapping\ClassMetadata;
 use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Validator\ExecutionContextInterface;
 
 /**
  * Tarif
@@ -12,6 +13,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  * @ORM\Table()
  * @ORM\Entity
  * @ORM\Entity(repositoryClass="AB\ReservationZenithBundle\Entity\TarifRepository")
+ * @Assert\Callback(methods={"isTarifValid"})
  */
 class Tarif
 {
@@ -151,25 +153,7 @@ class Tarif
     }
     //fonction pour placer le champ minimal à la dernière place non attribué
     //faire validator pour que le numéro de la dernière place ne dépasse pas le nombre de place du spectacle
-    private function retournerIntervallePlaceNonAttribuee()
-    {
-		$maxPlaces = 0;
-		$em = $this->getEntityManager();
-		$queryBuilder = $em->createQueryBuilder()
-				->select('t')
-				->from($this->_entityName,'t')
-				->where('t.spectacle_id = :id')
-				->setParameter('id',$this->getSpectacle()->getId());
-		$result = $queryBuilder->getQuery()->getResult();
-				
-		foreach ($result as $res){
-			if($res->getNumeroPlaceMax > $maxPlaces){
-				$maxPlaces = $res->getNumeroPlaceMax;
-			}
-			
-		}
-		return ($maxPlaces+1);
-	}
+    
 
     /**
      * Get numeroPlaceMax
@@ -179,6 +163,10 @@ class Tarif
     public function getNumeroPlaceMax()
     {
         return $this->numeroPlaceMax;
+    }
+
+    public function isTarifValid(ExecutionContextInterface $context){
+
     }
 
     

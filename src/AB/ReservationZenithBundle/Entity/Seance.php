@@ -10,8 +10,8 @@ use Symfony\Component\Validator\Constraints as Assert;
  * Seance
  *
  * @ORM\Table()
- * @ORM\Entity(repositoryClass="AB\ReservationZenithBundle\Entity\SeanceRepository")
- * @Assert\Callback(methods={"isValid"})
+ * @ORM\Entity(repositoryClass="AB\ReservationZenithBundle\Entity\SeanceRepository") 
+ * @Assert\Callback(methods={"isSeanceValid"})
  */
 class Seance
 {
@@ -173,20 +173,33 @@ class Seance
         return $titre.": ".$this->getHeure()->format('H:i');;
 	}
 
-    public function isValid(ExecutionContextInterface $context)
+    public function isSeanceValid(ExecutionContextInterface $context)
     {
-
+        $ok = true;
         if ($this->getNombrePlacesRestantes()> $this->getSpectacle()->getNombreDePlaces()) {
             $context->addViolationAt(
                 'nombrePlacesRestantes',
                 'erreur.seance.nombrePlacesRestantes');
+            $ok = false;
         }
 
-        if(!$this->isLibre($this->getHeure())){
+        /*if(!$repository->isLibre($this->getHeure())){
             $context->addViolationAt(
                 'heure',
                 'erreur.seance.salleOccupee');
+            $ok = false;
+        }*/
+
+        if($this->getDate()<date('d-m-Y')){
+            $context->addViolationAt(
+                'heure',
+                'erreur.seance.date');
+            $ok = false;
         }
+        return $ok;
+
 
     }
+
+    
 }

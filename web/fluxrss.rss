@@ -54,5 +54,25 @@
 					<link>http://upload.wikimedia.org/wikipedia/en/7/74/MikaCartoonMotion.jpg</link>
 				</image>
 			</item>
+			<item>
+				<title>Le Roi Lion</title>
+				<description>0</description>
+				<pubDate>2015-03-15</pubDate>
+				<source>http://localhost/UNIVERSITE/ReservationZenith/web/app_dev.php/UNIVERSITE/ReservationZenith/web/app_dev.php/spectacle/fr/voir/28</source>
+				<image>
+					<url>http://4everstatic.com/images/674xX/art/film-et-serie/le-roi-lion-214060.jpg</url>
+					<link>http://4everstatic.com/images/674xX/art/film-et-serie/le-roi-lion-214060.jpg</link>
+				</image>
+			</item>
+			<item>
+				<title>Test</title>
+				<description>1</description>
+				<pubDate>2015-03-15</pubDate>
+				<source>http://localhost/UNIVERSITE/ReservationZenith/web/app_dev.php/UNIVERSITE/ReservationZenith/web/app_dev.php/spectacle/fr/voir/29</source>
+				<image>
+					<url>http://wp.patheos.com.s3.amazonaws.com/blogs/faithwalkers/files/2013/03/bigstock-Test-word-on-white-keyboard-27134336.jpg</url>
+					<link>http://wp.patheos.com.s3.amazonaws.com/blogs/faithwalkers/files/2013/03/bigstock-Test-word-on-white-keyboard-27134336.jpg</link>
+				</image>
+			</item>
 	</channel>
 </rss>

@@ -7,6 +7,7 @@ use AB\ReservationZenithBundle\Form\SeanceType;
 use AB\ReservationZenithBundle\Entity\Seance;
 use AB\ReservationZenithBundle\Entity\Spectacle;
 use JMS\SecurityExtraBundle\Annotation\Secure;
+use Symfony\Component\Validator\ExecutionContextInterface;
 
 class SeanceController extends Controller
 {

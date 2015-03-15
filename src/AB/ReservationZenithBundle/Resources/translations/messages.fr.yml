@@ -2,6 +2,8 @@ tarifTrad:
     places: Numéros des places concernés par le tarif 
     prix: prix
     tarif: Tarif
+    numeroPlaceMin: Premier numero de place concerné
+    numeroPlaceMax: Dernier numero de place concerné
 
 spectacleTrad:
     titre: Titre
@@ -90,7 +92,3 @@ choix_theme:
     theme1: Thème n°1
     theme2: Thème n°2
 
-erreur:
-    seance:
-        nombrePlacesRestantes: Le nombre de places restantes ne peut pas être supérieure au nombre de place du spectacle
-        occupee: La salle est déja occupée à cette heure

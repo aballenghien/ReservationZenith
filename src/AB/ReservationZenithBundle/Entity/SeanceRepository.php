@@ -13,8 +13,8 @@ use Doctrine\ORM\EntityRepository;
 class SeanceRepository extends EntityRepository
 {
 	public function isLibre ($heure){
-		$ok = true;
-		$em = $this->getEntityManager();
+        $ok = true;
+        $em = $this->getEntityManager();
         $qb = $em->createQueryBuilder();
         $qb->select('sp.id, sp.duree, se.heure')
            ->from('ABReservationZenithBundle:Spectacle','sp')
@@ -29,16 +29,16 @@ class SeanceRepository extends EntityRepository
             return false;
         }        
         if($result){
-		        foreach ($result as $r) {
-		        	if($heure>=$r[heure] && $heure <= ($r['heure']+strtotime('+'.$r['duree'].' minute'))){
-		        		if($ok){
-		        			$ok = false;
-		        		}
-		        	}
-		        }
+                foreach ($result as $r) {
+                    if($heure>=$r[heure] && $heure <= ($r['heure']+strtotime('+'.$r['duree'].' minute'))){
+                        if($ok){
+                            $ok = false;
+                        }
+                    }
+                }
         }
         return $ok;
         
-	}
+    }
 	
 }

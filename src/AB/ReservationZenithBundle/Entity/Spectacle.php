@@ -4,12 +4,15 @@ namespace AB\ReservationZenithBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Validator\ExecutionContextInterface;
 
 /**
  * Spectacle
  *
  * @ORM\Table()
  * @ORM\Entity(repositoryClass="AB\ReservationZenithBundle\Entity\SpectacleRepository")
+ * @Assert\Callback(methods={"isSpectacleValid"})
  */
 class Spectacle
 {
@@ -54,6 +57,7 @@ class Spectacle
      * @var string
      *
      * @ORM\Column(name="commentaires", type="string",length=500)
+     * @Assert\NotBlank()
      */
     private $commentaires;
 
@@ -333,6 +337,58 @@ class Spectacle
     public function removeTarif(\AB\ReservationZenithBundle\Entity\Tarif $tarifs)
     {
         $this->tarifs->removeElement($tarifs);
+    }
+
+    public function isSpectacleValid(ExecutionContextInterface $context){
+        
+        $return = $this->verifTarifs($context);
+        $return = $this->verifSeances($context);
+        return $return;
+
+    }
+
+    public function verifTarifs(ExecutionContextInterface $context){
+        $nbPlace = 0;
+        foreach($this->getTarifs() as $tarif){
+            if($tarif->getNumeroPlaceMin()> $nbPlace){
+                $nbPlace = $tarif->getNumeroPlaceMin();
+            }else{
+                $context->addViolationAt(
+                'tarifs',
+                'erreur.tarifs.place');
+                return false;
+            }
+            if($tarif->getNumeroPlaceMax()> $nbPlace){
+                $nbPlace = $tarif->getNumeroPlaceMax();
+            }else{
+                $context->addViolationAt(
+                'tarifs',
+                'erreur.tarifs.place');
+                return false;
+            }
+        }
+        if($nbPlace != $this->getNombreDePlaces()){
+            $context->addViolationAt(
+            'tarifs',
+            'erreur.tarifs.nombrePlaces');
+            return false;
+        }
+        return true;
+    }
+
+    public function verifSeances(ExecutionContextInterface $context){
+        $ok = true;
+        foreach($this->getSeances() as $seance){
+            if($ok){
+                $ok = $seance->isSeanceValid($context);
+            }
+        }
+        if(!$ok){
+            $context->addViolationAt(
+            'seances',
+            'erreur.seances.erreurGenerale');
+        }
+        return $ok;
     }
 
     

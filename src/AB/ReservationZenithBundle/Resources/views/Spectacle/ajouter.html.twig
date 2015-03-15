@@ -19,13 +19,14 @@
 							<tr><td>{{ form_label(form.commentaires) }} : </td><td>  {{ form_widget(form.commentaires) }}  {{form_errors(form.commentaires)}}</td></tr>
 							<tr><td>{{ form_label(form.affiche) }} :  </td><td> {{ form_widget(form.affiche) }}  {{form_errors(form.affiche)}}</td></tr>
 					</table>
-
+					{{form_errors(form.seances)}}
 					<div id="seances" data-prototype="
 					{% filter escape %}
 				             {{ include('ABReservationZenithBundle:Seance:ajouter.html.twig', { 'form': form.seances.vars.prototype }) }}
 				    {% endfilter %}">
 							
 					</div>
+					{{form_errors(form.tarifs)}}
 					<div id="tarifs" data-prototype="
 					{% filter escape %}
 				             {{ include('ABReservationZenithBundle:Tarif:ajouter.html.twig', { 'form': form.tarifs.vars.prototype }) }}

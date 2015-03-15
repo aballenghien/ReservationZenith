@@ -9,6 +9,7 @@ use Symfony\Component\HttpFoundation\Response;
 class AjaxController extends Controller
 {
 
+    // charge la page Ajax permettant d'afficher le tarif associé au numéro de place fourni par l'utilisateur
 	public function getTarifWithPlaceAction($place, $id_spectacle){
 		$em = $this->getDoctrine()->getManager();
 		$tarif = $em->getRepository('ABReservationZenithBundle:Tarif')->getTarifByPlace($place, $id_spectacle);
@@ -17,6 +18,7 @@ class AjaxController extends Controller
         return new Response($reports);
     } 
 
+    // charge la page ajax au format json contenant toutes les séances correspondant à un spectacle
     public function getSeancesBySpectacleAction($id_spectacle){
     	$em = $this->getDoctrine()->getManager();
 		$spectacle = $em->getRepository('ABReservationZenithBundle:Spectacle')->find($id_spectacle);
