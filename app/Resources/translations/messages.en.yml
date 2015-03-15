@@ -1,23 +1,24 @@
 base:
-    presentation: Présentation
-    zenith1: Le Zénith de Nantes Métropole est la 13ème salle construite sous l’enseigne «Zénith»
-    zenith2: qui compte aujourd’hui 16 réalisations en France Métropolitaine
-    zenith3: ainsi qu’un projet en cours de réalisation au Port (Ile de la Réunion).
-    zenith4: Ces salles sont conçues et réalisées pour permettre la présentation des spectacles de variétés (
-    chanson: chanson
+    presentation: Presentation
+    zenith1: The "Zénith" of Nantes Métropole is the 13th community center built in France
+    zenith2: which currently owns 16th structures such as this one
+    zenith3: and an in-progress project at the "Port" (Reunion).
+    zenith4: These centers are made in order to enable diversity shows (
+    chanson: song
     rock: rock
     rap: rap
-    musiqueMonde: musiques du monde
-    comedie: comédies musicales
+    musiqueMonde: world's music
+    comedie: musical
     show: one man shows
-    etc: etc..) à un public nombreux
-    conditions: dans des conditions techniques optimales.
-    contact: Nous contacter
-    nous: Qui sommes-nous
-    salle:  est une salle de spectacle.
-    reservez:  Réservez dès maintenant 
-    connecter: Restez connecté
-    lien: Liens
-    accueil: Accueil
-    reservation: Réservations
+    etc: etc..) a mess of spectators
+    conditions: in an optimal technical situation.
+    contact: Contact-us
+    nous: About us
+    salle:  is a community center.
+    reservez:  Order now 
+    connecter: Stay connected
+    lien: Links
+    accueil: Reception
+    reservation: Orders
     spectacle: spectacles
+    
