@@ -4,12 +4,14 @@ namespace AB\ReservationZenithBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\ExecutionContextInterface;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Seance
  *
  * @ORM\Table()
  * @ORM\Entity(repositoryClass="AB\ReservationZenithBundle\Entity\SeanceRepository")
+ * @Assert\Callback(methods={"isValid"})
  */
 class Seance
 {
@@ -171,16 +173,20 @@ class Seance
         return $titre.": ".$this->getHeure()->format('H:i');;
 	}
 
-    public function isNbPlacesRestValid(ExecutionContextInterface $context)
+    public function isValid(ExecutionContextInterface $context)
     {
 
         if ($this->getNombrePlacesRestantes()> $this->getSpectacle()->getNombreDePlaces()) {
             $context->addViolationAt(
                 'nombrePlacesRestantes',
-                'erreur.seance.nombrePlacesRestantes',
-                array(),
-                null
-            );
+                'erreur.seance.nombrePlacesRestantes');
         }
+
+        if(!$this->isLibre($this->getHeure())){
+            $context->addViolationAt(
+                'heure',
+                'erreur.seance.salleOccupee');
+        }
+
     }
 }

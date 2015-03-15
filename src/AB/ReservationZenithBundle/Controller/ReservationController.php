@@ -102,17 +102,20 @@ class reservationController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         $reservation = $em->getRepository('ABReservationZenithBundle:Reservation')->findOneById($id);
-		$form = $this->createForm(new ReservationType(), $reservation);
+        $spectacles = $em->getRepository('ABReservationZenithBundle:Spectacle')->getSpectacleByDates(date('Y-m-d'), date('Y-m-d', strtotime('+1 year')));
+		$plc = "__place__";
+        $id = "__spectacle__";
+        $form = $this->createForm(new ReservationType(), $reservation);
 		$form->handleRequest($this->getRequest());
 		if($form->isValid()){
 			$reservation= $form->getData();
 			$em->persist($reservation);
 			$em->flush();
 			$id = $reservation->getId();
-			return $this->redirect($this->get('router')->generate('voir_reservation',array('id'=>0)));
+			return $this->redirect($this->get('router')->generate('voir_reservation',array('id'=>$id)));
 		}
         return $this->render('ABReservationZenithBundle:Reservation:modifier.html.twig', array(
-        'form'=>$form->createView()
+        'form'=>$form->createView(),'spectacles'=>$spectacles,'id'=>$id, 'plc'=>$plc
             ));    }
 
 /**

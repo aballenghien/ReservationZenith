@@ -7,7 +7,7 @@
 			<item>
 				<title>Holiday On Ice</title>
 				<description>Au Zenith de Nantes</description>
-				<pubDate>2015-03-12</pubDate>
+				<pubDate>2015-03-15</pubDate>
 				<source>http://localhost/UNIVERSITE/ReservationZenith/web/app_dev.php/UNIVERSITE/ReservationZenith/web/app_dev.php/spectacle/fr/voir/22</source>
 				<image>
 					<url>http://iqraa.com/mediastorage/images/news632.jpg</url>
@@ -17,11 +17,41 @@
 			<item>
 				<title>Jupiter</title>
 				<description>Théatre</description>
-				<pubDate>2015-03-12</pubDate>
+				<pubDate>2015-03-15</pubDate>
 				<source>http://localhost/UNIVERSITE/ReservationZenith/web/app_dev.php/UNIVERSITE/ReservationZenith/web/app_dev.php/spectacle/fr/voir/23</source>
 				<image>
 					<url>http://iqraa.com/mediastorage/images/news632.jpg</url>
 					<link>http://iqraa.com/mediastorage/images/news632.jpg</link>
+				</image>
+			</item>
+			<item>
+				<title>Ennio Morricone</title>
+				<description>Concert Symphonique</description>
+				<pubDate>2015-03-15</pubDate>
+				<source>http://localhost/UNIVERSITE/ReservationZenith/web/app_dev.php/UNIVERSITE/ReservationZenith/web/app_dev.php/spectacle/fr/voir/24</source>
+				<image>
+					<url>http://img1.leboncoin.fr/images/11e/11ea210faee5b9559ca7cc348a8bd546f8b605f0.jpg</url>
+					<link>http://img1.leboncoin.fr/images/11e/11ea210faee5b9559ca7cc348a8bd546f8b605f0.jpg</link>
+				</image>
+			</item>
+			<item>
+				<title>Mika</title>
+				<description>.</description>
+				<pubDate>2015-03-15</pubDate>
+				<source>http://localhost/UNIVERSITE/ReservationZenith/web/app_dev.php/UNIVERSITE/ReservationZenith/web/app_dev.php/spectacle/fr/voir/27</source>
+				<image>
+					<url>http://upload.wikimedia.org/wikipedia/en/7/74/MikaCartoonMotion.jpg</url>
+					<link>http://upload.wikimedia.org/wikipedia/en/7/74/MikaCartoonMotion.jpg</link>
+				</image>
+			</item>
+			<item>
+				<title>Mika</title>
+				<description>.</description>
+				<pubDate>2015-03-15</pubDate>
+				<source>http://localhost/UNIVERSITE/ReservationZenith/web/app_dev.php/UNIVERSITE/ReservationZenith/web/app_dev.php/spectacle/fr/voir/27</source>
+				<image>
+					<url>http://upload.wikimedia.org/wikipedia/en/7/74/MikaCartoonMotion.jpg</url>
+					<link>http://upload.wikimedia.org/wikipedia/en/7/74/MikaCartoonMotion.jpg</link>
 				</image>
 			</item>
 	</channel>

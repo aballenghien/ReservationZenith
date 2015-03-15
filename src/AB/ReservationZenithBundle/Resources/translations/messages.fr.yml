@@ -89,3 +89,8 @@ choix_theme:
     theme: Thème
     theme1: Thème n°1
     theme2: Thème n°2
+
+erreur:
+    seance:
+        nombrePlacesRestantes: Le nombre de places restantes ne peut pas être supérieure au nombre de place du spectacle
+        occupee: La salle est déja occupée à cette heure

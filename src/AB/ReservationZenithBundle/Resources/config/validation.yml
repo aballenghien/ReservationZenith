@@ -1,4 +1,4 @@
-AB\ReservationZenithBundle\Entity\Seance:
-    constraints:
-        - Callback:
-            methods:   [isNbPlacesRestValid]
+AB\ReservationZenithBundle\Entity\Spectacle:
+    properties:
+        commentaires:
+            - NotBlank: ~

@@ -6,18 +6,33 @@
 {{ parent () }}
 <h3>{{'modifier.reservation'|trans}}</h3>
 <div class='well'>
+	<br>
+	{% if is_granted('ROLE_USER') %}
 	<form action='' method="post" {{form_enctype(form)}}>
 		<table>
-		<tr><td>{{form_label(form.nom)}}</td><td>{{form_widget(form.nom)}}</td></tr>
-		<tr><td>{{form_label(form.prenom)}}</td><td>{{form_widget(form.prenom)}}</td></tr>
-		<tr><td>{{form_label(form.place)}}</td><td>{{form_widget(form.place)}}</td></tr>
-		<tr><td>{{form_label(form.seance)}}</td><td>{{form_widget(form.seance)}}</td></tr>
-		<tr><td>{{form_label(form.tarif)}}</td><td>{{form_widget(form.tarif)}}</td></tr>
-		</table>
-		<div hidden="true">
-		{{form_rest(form)}}
-		</div>
-		<input type="submit" />
+	<tr><td>{{form_label(form.nom)}}</td><td>{{form_widget(form.nom)}}</td></tr>
+	<tr><td>{{form_label(form.prenom)}}</td><td>{{form_widget(form.prenom)}}</td></tr>
+	<tr><td>{{form_label(form.place)}}</td><td>{{form_widget(form.place)}}</td></tr>
+	<tr><td>{{'reservationTrad.spectacle'|trans}} : </td><td>
+	<select id='reservation_spectacles'>
+		{% for sp in spectacles %}
+		<option value="{{sp.id}}">{{sp.titre}}</option>
+		{% endfor %}
+	</select>
+	<input type="hidden" value="http://localhost{{path('ajax_prix', { place: plc, id_spectacle: id  })}}" id="href" />
+	<input type="hidden" value="http://localhost{{path('ajax_seances', {id_spectacle: id  })}}" id="hrefSeances" />
+	</td>
+	<tr><td>{{form_label(form.seance)}}</td><td>{{form_widget(form.seance)}}</td></tr>
+	<tr><td>{{form_label(form.tarif)}}</td><td>{{form_widget(form.tarif)}}</td></tr>
+	</table>
+	<div hidden="true">
+	{{form_rest(form)}}
+	</div>
+		<br>
+		<input type="submit" class='btn btn-primary' />
 	</form>
+	{% else %}
+		<h1>{{'privilege.reservation'|trans}}</h1>
+	{% endif %}
 </div>
 {% endblock %}

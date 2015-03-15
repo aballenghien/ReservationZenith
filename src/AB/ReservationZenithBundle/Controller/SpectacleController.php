@@ -97,6 +97,8 @@ class SpectacleController extends Controller
 						$em->remove($seance);
 						$em->flush();
 
+					}else{
+						$em->persist($seance);
 					}
 				}
 				foreach ($originalsTarifs as $tarif) {
@@ -104,10 +106,12 @@ class SpectacleController extends Controller
 					{
 						$em->remove($tarif);
 						$em->flush();
+					}else{
+						$em->persist($tarif);
 					}
 				}
 				$em->persist($spectacle);
-				$em->flush($spectacle);
+				$em->flush();
 				ExecuterLesCommandes::runCommand('reservationzenith:genererRSS',$this);
 				$id = $spectacle->getId();
 				return $this->redirect($this->get('router')->generate('voir_spectacle',array('id'=>$id)));

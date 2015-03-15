@@ -48,9 +48,9 @@ class SeanceController extends Controller
 		if($form->isValid()){
 			$seance = $form->getData();
 			$em->persist($seance);
-			$em->flush($seance);
+			$em->flush();
 			$id = $seance->getId();
-			return $this->redirect($this->get('router')->generate('voir_seance',array('id'=>0)));
+			return $this->redirect($this->get('router')->generate('voir_seance',array('id'=>$id)));
 		}
         return $this->render('ABReservationZenithBundle:Seance:modifier.html.twig', array(
         'form'=>$form->createView()
