@@ -8,3 +8,8 @@ services:
     redirect.after.logout:
         class: AB\ConnexionBundle\Redirection\AfterLogoutRedirection
         arguments: [@router, @security.context]
+    ab_connexion.registration.form.type:
+        class: AB\ConnexionBundle\Form\Type\RegistrationFormType
+        arguments: [%fos_user.model.user.class%]
+        tags:
+            - { name: form.type, alias: ab_connexion_registration } 

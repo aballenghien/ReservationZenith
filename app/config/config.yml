@@ -72,9 +72,6 @@ fos_user:
     db_driver: orm 
     firewall_name: main
     user_class: AB\ConnexionBundle\Entity\User
-    registration:
-        form: 
-            type: ab_connexion_registration
 
 fos_js_routing:
     routes_to_expose: [ajax_prix]

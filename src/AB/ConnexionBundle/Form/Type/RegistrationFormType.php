@@ -1,19 +1,24 @@
 <?php
 
-namespace AB\ConnexionBundleBundle\Form;
+namespace AB\ConnexionBundle\Form\Type;
 
-use Symfony\Component\Form\FormBuilder;
+use Symfony\Component\Form\FormBuilderInterface;
 use FOS\UserBundle\Form\Type\RegistrationFormType as BaseType;
 
 class RegistrationFormType extends BaseType
 {
-    public function buildForm(FormBuilder $builder, array $options)
+    public function buildForm(FormBuilderInterface $builder, array $options)
     {
         parent::buildForm($builder, $options);
+        $builder->add('nom');
+        $builder->add('prenom');
+        $builder->add('adresse');
     }
 
     public function getName()
     {
-        return 'myapp_user_registration';
+        return 'ab_connexion_registration';
     }
 }
+
+?>

@@ -15,6 +15,7 @@
 	<tr><td>{{form_label(form.place)}}</td><td>{{form_widget(form.place)}}</td></tr>
 	<tr><td>{{'reservationTrad.spectacle'|trans}} : </td><td>
 	<select id='reservation_spectacles'>
+		<option value=0 selected=true>    </option>
 		{% for sp in spectacles %}
 		<option value="{{sp.id}}">{{sp.titre}}</option>
 		{% endfor %}
