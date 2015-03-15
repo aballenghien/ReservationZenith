@@ -83,7 +83,7 @@ langue:
 privilege:
     espaceclient: Veuillez vous connecter pour accéder à votre espace client
     addsppectacle: L'accès à cette page ne vous est pas autorisé
-    reservation: Vous pouver réserver une fois connecté
+    reservation: Vous pouvez réserver une fois connecté
 
 choix_theme:
     theme: Thème

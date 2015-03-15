@@ -28,17 +28,26 @@
                             </td>
 
                             <div id="connexion">
-                              <td>  {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                              {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
 
-                                    {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }} <i class='glyphicon glyphicon-user'></i> |
-                                      <a href="{{ path('fos_user_security_logout') }}">{{ 'layout.logout'|trans({}, 'FOSUserBundle')   }}</a>
+                                    <td>
+                                      {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }} <i class='glyphicon glyphicon-user'></i> |
+                                    </td>
+
+                                    <td>
+                                      <button class='btn btn-primary btn-xs'><a style='color:white' href="{{ path('fos_user_security_logout') }}">{{ 'layout.logout'|trans({}, 'FOSUserBundle')   }}</a></button>
+                                    </td>
                                     {% else %}
                                       {% block connexion  %}
-                                       {#  <a href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a> #}
-                                        
+                                    <td>
+                                        <button class='btn btn-primary btn-xs'><a style='color:white' href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a></button>
+                                    </td>
+
+                                    <td>
+                                        <button class='btn btn-primary btn-xs'><a style='color:white' href="{{path('fos_user_registration_register') }}">{{ 'layout.register'|trans({}, 'FOSUserBundle') }}</a></button>
+                                    </td>
                                       {% endblock %}
                                     {% endif %}
-                              </td>
                             </div>
 
                           </tr>
@@ -46,8 +55,8 @@
                           <tr>
 
                               <td align='right'>
-                                <div class="btn-group" role="group">
-                                  <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                <div class="btn-group btn-xs" role="group">
+                                  <button type="button" class="btn btn-default dropdown-toggle btn-xs" data-toggle="dropdown" aria-expanded="false">
                                     {{'choix_theme.theme'|trans}}
                                     <span class="caret"></span>
                                     </button>
@@ -59,10 +68,10 @@
                               </td>
 
                               <td align='right'>
-                                <div class="btn-group" role="group">
+                                <div class="btn-group btn-xs" role="group">
                                   <div id="choixLangue">
                                     {% set currentPath = app.request.attributes.get('_route') %}
-                                      <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                      <button type="button" class="btn btn-default dropdown-toggle btn-xs" data-toggle="dropdown" aria-expanded="false">
                                         {{'langue.langue'|trans}}
                                         <span class="caret"></span>
                                       </button>
