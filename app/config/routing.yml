@@ -1,7 +1,6 @@
 ab_connexion:
     resource: "@ABConnexionBundle/Resources/config/routing.yml"
     prefix:   /
-
 ab_reservation_zenith:
     resource: "@ABReservationZenithBundle/Resources/config/routing.yml"
     prefix:   /

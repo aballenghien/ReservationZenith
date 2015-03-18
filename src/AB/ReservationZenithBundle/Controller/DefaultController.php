@@ -6,6 +6,7 @@ use JMS\SecurityExtraBundle\Annotation\Secure;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Session\Session;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Request;
 class DefaultController extends Controller
 {
 
@@ -19,9 +20,11 @@ class DefaultController extends Controller
         return $this->render('ABReservationZenithBundle:Default:index.html.twig',array('items'=>$items,'channel'=>$channel));
     }
 
-    public function gestionLangueAction($locale, $vue){
+    public function gestionLangueAction($langue, $vue, Request $request){
 
-        $this->get('session')->set('_locale', $locale);
+        $this->get('session')->set('_locale', $langue);
+        //$request->attributes->set('_locale',$locale);
+        $request->setLocale($this->get('session')->get('_locale'));
         return $this->redirect($this->get('router')->generate($vue));
         //return new Response($this->get('session')->get('_locale'));
     }
