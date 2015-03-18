@@ -22,16 +22,17 @@ class DefaultController extends Controller
     public function gestionLangueAction($locale, $vue){
 
         $this->get('session')->set('_locale', $locale);
-        //return $this->redirect($this->get('router')->generate($vue));
-        return new Response($this->get('session')->get('_locale'));
+        return $this->redirect($this->get('router')->generate($vue));
+        //return new Response($this->get('session')->get('_locale'));
     }
 
-    public function gestionTheme($theme, $vue){
+    public function gestionThemeAction($theme, $vue){
 
         $this->get('session')->set('theme', $theme);
         
-        $referer = $this->getRequest()->headers->get('referer');
-        return $this->redirect($referer);
+        //$referer = $this->getRequest()->headers->get('referer');
+        //return new Response($this->get('session')->get('theme'));
+        return $this->redirect($this->get('router')->generate($vue));
     }
 
 /**

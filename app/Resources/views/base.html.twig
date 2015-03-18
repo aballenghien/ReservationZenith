@@ -8,9 +8,9 @@
 
 
             {% if app.session.get('theme') == 'theme2' %}
-                <link href="{{ asset('bootstrap/css/bootstrap.theme2.css') }}" type="text/css" rel="stylesheet" />
+                <link href="{{ asset('bootstrap/css/bootstrap-theme1.css') }}" type="text/css" rel="stylesheet" />
             {% else %}
-                <link href="{{ asset('bootstrap/css/bootstrap.theme1.css') }}" type="text/css" rel="stylesheet" />
+                <link href="{{ asset('bootstrap/css/bootstrap-theme2.css') }}" type="text/css" rel="stylesheet" />
             {% endif %}
 
         {% endblock %}
@@ -32,7 +32,7 @@
                           <tr>
                             
                             <td rowspan='2'>
-                                <img src="{{asset ('http://www.infoconcert.com/media/details/zenith_nantes_120x150.jpg')}}" width=40/>
+                                <img src="http://www.infoconcert.com/media/details/zenith_nantes_120x150.jpg" width=40/>
                             </td>
                              {% set currentPath = app.request.attributes.get('_route') %}
                             <div id="connexion">
@@ -62,8 +62,7 @@
 
                           </tr>
 
-                          <tr>
-
+                          <tr> 
                               <td align='right'>
                                 <div id="choixTheme" class="btn-group btn-xs" role="group"> 
                                     <button type="button" class="btn btn-default dropdown-toggle btn-xs" data-toggle="dropdown" aria-expanded="false">
@@ -79,8 +78,7 @@
 
                               <td align='right'>
                                 <div class="btn-group btn-xs" role="group">
-                                  <div id="choixLangue">
-                                    {% set currentPath = app.request.attributes.get('_route') %}                                
+                                  <div id="choixLangue">                              
                                       <button type="button" class="btn btn-default dropdown-toggle btn-xs" data-toggle="dropdown" aria-expanded="false">
                                         {{'langue.langue'|trans}}
                                         <span class="caret"></span>
@@ -159,7 +157,6 @@
                       </div>
                   </div>
 
-      <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
       <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
 
       {% endblock %}
