@@ -5,9 +5,9 @@
         <title>{% block title %}Welcome!{% endblock %}</title>
         {% block stylesheets %}
 
-          {% set currentTheme = app.session.get('_theme') %}
 
-            {% if currentTheme == 'theme2' %}
+
+            {% if app.session.get('theme') == 'theme2' %}
                 <link href="{{ asset('bootstrap/css/bootstrap.theme2.css') }}" type="text/css" rel="stylesheet" />
             {% else %}
                 <link href="{{ asset('bootstrap/css/bootstrap.theme1.css') }}" type="text/css" rel="stylesheet" />
@@ -65,21 +65,22 @@
                           <tr>
 
                               <td align='right'>
-                                <div class="btn-group btn-xs" role="group">
-                                  <button type="button" class="btn btn-default dropdown-toggle btn-xs" data-toggle="dropdown" aria-expanded="false">
-                                    {{'choix_theme.theme'|trans}}
-                                    <span class="caret"></span>
-                                    </button>
-                                    <ul class="dropdown-menu" role="menu">
-                                      <li><a href="#">{{'choix_theme.theme1'|trans}}</a></li>
-                                      <li><a href="#">{{'choix_theme.theme2'|trans}}</a></li>
-                                    </ul>
+                                <div id="choixTheme" class="btn-group btn-xs" role="group"> 
+                                    <button type="button" class="btn btn-default dropdown-toggle btn-xs" data-toggle="dropdown" aria-expanded="false">
+                                      {{'choix_theme.theme'|trans}}
+                                      <span class="caret"></span>
+                                      </button>
+                                      <ul class="dropdown-menu" role="menu">
+                                        <li><a href="{{path('gestion_theme',{'theme':'theme1', 'vue':currentPath})}}">{{'choix_theme.theme1'|trans}}</a></li>
+                                        <li><a href="{{path('gestion_theme',{'theme':'theme2', 'vue':currentPath})}}">{{'choix_theme.theme2'|trans}}</a></li>
+                                      </ul>
                                 </div>
                               </td>
 
                               <td align='right'>
                                 <div class="btn-group btn-xs" role="group">
-                                  <div id="choixLangue">                                   
+                                  <div id="choixLangue">
+                                    {% set currentPath = app.request.attributes.get('_route') %}                                
                                       <button type="button" class="btn btn-default dropdown-toggle btn-xs" data-toggle="dropdown" aria-expanded="false">
                                         {{'langue.langue'|trans}}
                                         <span class="caret"></span>

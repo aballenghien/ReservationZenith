@@ -10,7 +10,7 @@ gestion_langue:
     defaults: { _controller: ABReservationZenithBundle:Default:gestionLangue} 
 
 gestion_theme:
-    path:     /locale/{locale}/{vue}
+    path:     /locale/{theme}/{vue}
     defaults: { _controller: ABReservationZenithBundle:Default:gestionTheme} 
 
 about:
