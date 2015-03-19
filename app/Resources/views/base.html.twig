@@ -8,9 +8,9 @@
 
 
             {% if app.session.get('theme') == 'theme2' %}
-                <link href="{{ asset('bootstrap/css/bootstrap-theme1.css') }}" type="text/css" rel="stylesheet" />
-            {% else %}
                 <link href="{{ asset('bootstrap/css/bootstrap-theme2.css') }}" type="text/css" rel="stylesheet" />
+            {% else %}
+                <link href="{{ asset('bootstrap/css/bootstrap-theme1.css') }}" type="text/css" rel="stylesheet" />
             {% endif %}
 
         {% endblock %}
