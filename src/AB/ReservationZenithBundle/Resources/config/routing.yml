@@ -12,7 +12,7 @@ gestion_theme:
     defaults: { _controller: ABReservationZenithBundle:Default:gestionTheme} 
 
 about:
-    path:   /Default/about
+    path:   /default/about
     defaults: { _controller: ABReservationZenithBundle:Default:about}  
  
 ##admin

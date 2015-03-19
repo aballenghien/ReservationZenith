@@ -7,20 +7,18 @@
     <img src="{{asset('image/img.jpg')}}" width="500" alt="zenith"/>
 </div>
 <h3>{{'pages.accueilzenith'|trans}}</h3>
-{{channel.title}}
-{{channel.description}}
+
+<p>{{channel.title}} <a href="{{asset('fluxrss.rss')}}">{{'fluxrss'|trans}}</a></p>
+<p>{{channel.description}}</p>
 
     {% for item in items %}
     <div class='well'>
-    	
+    	   
             <table>
                 <div>
                     <tr>
             			<td width='50%'><div><font size=5><a href="{{item.source}}">{{item.title}}</div></a></font></td>
                         <td align='center' rowspan='3'><div><img src="{{item.image.url}}" width="50%" height="50%" style="border: 4px solid black;-webkit-border-radius: 30px;"/></div> </td>
-                    </tr>
-                    <tr>
-            			<td><div>{{item.pubDate}}</div></td>
                     </tr>
                     <tr>
             			<td><div>{{item.description}}</div></td>

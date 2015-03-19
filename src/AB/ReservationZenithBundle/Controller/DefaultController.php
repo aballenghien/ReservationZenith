@@ -52,6 +52,9 @@ class DefaultController extends Controller
     	return $this->render('ABReservationZenithBundle:Default:espaceclient.html.twig');
     }
 
+    public function aboutAction(){
+        return $this->render('ABReservationZenithBundle:Default:about.html.twig');
+    }
 
 
 }

@@ -21,3 +21,6 @@ base:
     accueil: Accueil
     reservation: Réservations
     spectacle: Spectacles
+
+espace_client: Accéder à mon espace
+back_office: Gestion du site

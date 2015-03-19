@@ -64,9 +64,9 @@
 
                           <tr> 
                               {%if is_granted('ROLE_ADMIN')  %}
-                                      <td><a  style='color:white' href="{{ path('backoffice_homepage') }}">{{ 'back_office'|trans({}, 'ABReservationZenithBundle')   }}</a></td>
+                                      <td><a  style='color:white' href="{{ path('backoffice_homepage') }}">{{ 'back_office'|trans}}</a></td>
                                       {%elseif is_granted('ROLE_USER') %}
-                                      <td><a  style='color:white' href="{{ path('espaceclient_homepage') }}">{{ 'espace_client'|trans({}, 'ABReservationZenithBundle')   }}</a></td>td>
+                                      <td><a  style='color:white' href="{{ path('espaceclient_homepage') }}">{{ 'espace_client'|trans}}</a></td>
                                       {% endif %}
                               <td align='right'>
                                 <div id="choixTheme" class="btn-group btn-xs" role="group"> 

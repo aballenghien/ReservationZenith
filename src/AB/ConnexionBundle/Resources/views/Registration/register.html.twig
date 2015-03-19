@@ -1,11 +1,11 @@
 {% extends "::base.html.twig" %}
-
+{% block title %}{{'inscription.titre'|trans}}{% endblock %}
 {% block body %}
 
     <center>
         <div class='well well-lg' style='width:50%'>
 
-            <h3 style='text-align:center'>Inscription</h3>
+            <h3 style='text-align:center'>{{'inscription.titre'|trans}}</h3>
 
             <form action="{{ path('fos_user_registration_register') }}" {{ form_enctype(form) }} method="POST" class="fos_user_registration_register">
             	<table cellspacing='4'>

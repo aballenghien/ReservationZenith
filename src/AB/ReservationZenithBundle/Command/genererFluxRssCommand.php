@@ -37,9 +37,9 @@ class genererFluxRssCommand extends ContainerAwareCommand
         fputs($file,'<rss version="2.0">'."\n");
         //racine
         fputs($file,"\t".'<channel>'."\n");
-        fputs($file,"\t"."\t".'<title>Liste des spectacles à venir</title>'."\n");
+        fputs($file,"\t"."\t".'<title>Liste des spectacles a venir</title>'."\n");
         fputs($file,"\t"."\t".'<link>'.$urlSource.$this->getContainer()->get('router')->generate('ab_reservation_zenith_homepage').'</link>'."\n");
-        fputs($file,"\t"."\t".'<description>Affiche la liste des spectacles programmés pour cette année</description>'."\n");
+        fputs($file,"\t"."\t".'<description>Affiche la liste des spectacles programmes pour cette annee</description>'."\n");
         $output->writeln($nomFile);
         $listeSpectacles = $em->getRepository('ABReservationZenithBundle:Spectacle')->getSpectacleByDates(date('Y-m-d'), date('Y-m-d', strtotime('+1 year')));
         if(count($listeSpectacles) >0){
@@ -47,7 +47,6 @@ class genererFluxRssCommand extends ContainerAwareCommand
                 fputs($file,"\t"."\t"."\t".'<item>'."\n");
                 fputs($file,"\t"."\t"."\t"."\t".'<title>'.$un_spectacle['titre'].'</title>'."\n");
                 fputs($file,"\t"."\t"."\t"."\t".'<description>'.$un_spectacle['commentaires'].'</description>'."\n");
-                fputs($file,"\t"."\t"."\t"."\t".'<pubDate>'.date('Y-m-d').'</pubDate>'."\n");
                 fputs($file,"\t"."\t"."\t"."\t".'<source>'.$urlSource.$this->getContainer()->get('router')->generate('voir_spectacle',array('id'=>$un_spectacle['id'])).'</source>'."\n");
                 fputs($file,"\t"."\t"."\t"."\t".'<image>'."\n");
                 fputs($file,"\t"."\t"."\t"."\t"."\t".'<url>'.$un_spectacle['affiche'].'</url>'."\n");

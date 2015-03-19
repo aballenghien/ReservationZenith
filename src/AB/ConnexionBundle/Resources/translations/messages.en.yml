@@ -1,2 +1,5 @@
 authentification:
     auth:Certification
+
+inscription:
+    titre: Registration

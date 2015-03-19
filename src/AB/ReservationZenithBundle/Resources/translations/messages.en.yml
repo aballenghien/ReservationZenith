@@ -1,6 +1,8 @@
 tarifTrad:
     places: Number of seats concerned by the price
     prix: price
+    numeroPlaceMin: First number of seat
+    numeroPlaceMax: Last number of seat
     tarif: Entrance fee
 
 spectacleTrad:
@@ -12,6 +14,9 @@ spectacleTrad:
     affiche: Poster
     seances: Meeting scheduled
     tarifs: Fee proposed 
+    tarifsassocies: See the list of fee
+    seanceprogramme: See the programmation
+    spectacle: Show
 
 seanceTrad:
     date: Date
@@ -31,6 +36,8 @@ actionTrad:
     voir: See
     ajouter: Add
     details: Description
+    annuler: Cancel
+    retour: Back
 
 gestionTrad:
     spectacle: Access management shows
@@ -42,6 +49,7 @@ pages:
     backoffice: Site management
     accueil: Welcome to your client area
     accueilzenith: Home Page
+    apropos : About 
 
 voir:
     listespectacles: See scheduled shows
@@ -86,3 +94,9 @@ choix_theme:
     theme: Theme
     theme1: Theme n°1
     theme2: Theme n°2
+
+aucun_resultat:
+    reservation: You don't have reservations
+    spectacle: No programmed show
+
+fluxrss: Get the RSS Feed
