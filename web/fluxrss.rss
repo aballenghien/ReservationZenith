@@ -2,7 +2,27 @@
 <rss version="2.0">
 	<channel>
 		<title>Liste des spectacles à venir</title>
-		<link>http://localhost/UNIVERSITE/ReservationZenith/web/app_dev.php/UNIVERSITE/ReservationZenith/web/app_dev.php/fr/accueil-zenith</link>
-		<description>Affiche le liste des spectacle programmés pour cette année</description>
+		<link>http://localhost/UNIVERSITE/ReservationZenith/web/app_dev.php/UNIVERSITE/ReservationZenith/web/app_dev.php/accueil-zenith</link>
+		<description>Affiche la liste des spectacles programmés pour cette année</description>
+			<item>
+				<title>Ennio Morricone</title>
+				<description>.</description>
+				<pubDate>2015-03-19</pubDate>
+				<source>http://localhost/UNIVERSITE/ReservationZenith/web/app_dev.php/UNIVERSITE/ReservationZenith/web/app_dev.php/spectacle/voir/23</source>
+				<image>
+					<url>test</url>
+					<link>test</link>
+				</image>
+			</item>
+			<item>
+				<title>Un Spectacle</title>
+				<description>test</description>
+				<pubDate>2015-03-19</pubDate>
+				<source>http://localhost/UNIVERSITE/ReservationZenith/web/app_dev.php/UNIVERSITE/ReservationZenith/web/app_dev.php/spectacle/voir/24</source>
+				<image>
+					<url>test</url>
+					<link>test</link>
+				</image>
+			</item>
 	</channel>
 </rss>

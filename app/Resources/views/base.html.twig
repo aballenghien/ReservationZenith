@@ -36,19 +36,19 @@
                             </td>
                              {% set currentPath = app.request.attributes.get('_route') %}
                             <div id="connexion">
+
                               {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
 
-                                    <td>
+                                    <td colspan="2">
                                       {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }} <i class='glyphicon glyphicon-user'></i> |
                                     </td>
 
                                     <td>
-                                      <a class='btn btn-primary btn-xs' style='color:white' href="{{ path('fos_user_security_logout') }}">{{ 'layout.logout'|trans({}, 'FOSUserBundle')   }}</a>
-                                      
+                                      <a class='btn btn-primary btn-xs' style='color:white' href="{{ path('fos_user_security_logout') }}">{{ 'layout.logout'|trans({}, 'FOSUserBundle')   }}</a>                                      
                                     </td>
                                     {% else %}
                                       {% block connexion  %}
-                                    <td>
+                                    <td colspan="2">
                                         
                                         <a class='btn btn-primary btn-xs 'style='color:white' href="{{ path('ab_connexion_connexion',{'page':currentPath}) }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
                                     </td>
@@ -63,6 +63,11 @@
                           </tr>
 
                           <tr> 
+                              {%if is_granted('ROLE_ADMIN')  %}
+                                      <td><a  style='color:white' href="{{ path('backoffice_homepage') }}">{{ 'back_office'|trans({}, 'ABReservationZenithBundle')   }}</a></td>
+                                      {%elseif is_granted('ROLE_USER') %}
+                                      <td><a  style='color:white' href="{{ path('espaceclient_homepage') }}">{{ 'espace_client'|trans({}, 'ABReservationZenithBundle')   }}</a></td>td>
+                                      {% endif %}
                               <td align='right'>
                                 <div id="choixTheme" class="btn-group btn-xs" role="group"> 
                                     <button type="button" class="btn btn-default dropdown-toggle btn-xs" data-toggle="dropdown" aria-expanded="false">
