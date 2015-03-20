@@ -8,6 +8,7 @@ use AB\ReservationZenithBundle\Entity\Reservation;
 use AB\ConnexionBundle\Entity\User;
 use JMS\SecurityExtraBundle\Annotation\Secure;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Validator\ExecutionContextInterface;
 
 class reservationController extends Controller
 {
@@ -23,7 +24,7 @@ class reservationController extends Controller
 /**
 * @Secure(roles="ROLE_USER")
 */
-    public function ajouterAction(Request $request)
+    public function ajouterAction(Request $request, ExecutionContextInterface $context = null)
     {
         $user = $this->container->get('security.context')->getToken()->getUser();
         $em = $this->getDoctrine()->getManager();
@@ -35,10 +36,17 @@ class reservationController extends Controller
     		$form->handleRequest($this->getRequest());
     		if($form->isValid()){
     			$reservation = $form->getData();
-    			$em->persist($reservation);
-    			$em->flush($reservation);
-    			$id = $reservation->getId();
-    			return $this->redirect($this->get('router')->generate('voir_reservation',array('id'=>$id)));
+                $ok = $em->getRepository('ABReservationZenithBundle:Seance')->updateNbPlace($reservation->getSeance(), 'add');
+                if($ok){
+        			$em->persist($reservation);
+        			$em->flush($reservation);
+        			$id = $reservation->getId();
+        			return $this->redirect($this->get('router')->generate('voir_reservation',array('id'=>$id)));
+                }else{
+                    $context->addViolationAt(
+                    'form',
+                    'reservation.plusplace');
+                }
     		}
         }
         $place = "__place__";
@@ -127,8 +135,11 @@ class reservationController extends Controller
         $user = $this->container->get('security.context')->getToken()->getUser();
         $em = $this->getDoctrine()->getManager();
         $reservation = $em->getRepository('ABReservationZenithBundle:Reservation')->findOneById($id);
-        $em->remove($reservation);
-        $em->flush();
+        $ok = $em->getRepository('ABReservationZenithBundle:Seance')->updateNbPlace($reservation->getSeance(), 'add');
+        if($ok){
+            $em->remove($reservation);
+            $em->flush();
+        }
         $reservations = $em->getRepository('ABReservationZenithBundle:Reservation')->findAll();		
 			
          return $this->redirect($this->get('router')->generate('voir_reservation', array('idClient' =>$user->getId())));     

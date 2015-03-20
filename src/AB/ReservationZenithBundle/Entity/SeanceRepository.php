@@ -12,16 +12,15 @@ use Doctrine\ORM\EntityRepository;
  */
 class SeanceRepository extends EntityRepository
 {
-	public function isLibre ($heure){
+	public function isLibre ($seance){
         $ok = true;
         $em = $this->getEntityManager();
         $qb = $em->createQueryBuilder();
         $qb->select('sp.id, sp.duree, se.heure')
            ->from('ABReservationZenithBundle:Spectacle','sp')
            ->leftJoin('ABReservationZenithBundle:Seance','se','WITH','se.spectacle=sp.id')
-           ->where('t.spectacle= ?1 and se.date = ?2')
-           ->setParameter(1,$id_spectacle)
-           ->setParameter(2,$date);
+           ->where('se.date = ?1')
+           ->setParameter(1,$seance->getDate());
         $query = $qb->getQuery();
         try {
             $result = $query->getResult();
@@ -30,7 +29,7 @@ class SeanceRepository extends EntityRepository
         }        
         if($result){
                 foreach ($result as $r) {
-                    if($heure>=$r[heure] && $heure <= ($r['heure']+strtotime('+'.$r['duree'].' minute'))){
+                    if($seance->getHeure()>=$r['heure'] && $seance->getHeure() <= ($r['heure']+strtotime('+'.$r['duree'].'minute'))){
                         if($ok){
                             $ok = false;
                         }
@@ -39,6 +38,31 @@ class SeanceRepository extends EntityRepository
         }
         return $ok;
         
+    }
+
+    public function updateNbPlace($seance, $action){
+        $ok = true;
+        $nbPlace = $seance->getNombrePlacesRestantes();
+        if($action == 'add'){
+            if(($nbPlace-1)>=0){
+                $seance->setNombrePlacesRestantes($nbPlace-1);
+                $em = $this->getEntityManager();
+                $em->persist($seance);
+                $em->flush();
+            }else{
+                $ok = false;
+            }
+        }else if($action == 'suppr'){
+            if(($nbPlace+1)<=$seance->getSpectacle()->getNombrePlaces()){
+                $seance->setNombrePlacesRestantes($nbPlace+1);
+                $em = $this->getEntityManager();
+                $em->persist($seance);
+                $em->flush();
+            }else{
+                $ok = false;
+            }
+        }
+        return $ok;
     }
 	
 }

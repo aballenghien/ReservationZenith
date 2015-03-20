@@ -20,19 +20,12 @@ class TarifController extends Controller
 */
     public function ajouterAction()
     {
-        $em = $this->getDoctrine()->getManager();
-		$form = $this->createForm(new TarifType(), new Tarif());
-		$form->handleRequest($this->getRequest());
-		if($form->isValid()){
-			$tarif = $form->getData();
-			$em->persist($tarif);
-			$em->flush($tarif);
-			$id = $tarif->getId();
-			return $this->redirect($this->get('router')->generate('voir_tarif',array('id'=>$id)));
-		}
+        
+		$form = $this->createForm(new TarifType(), new Tarif());		
         return $this->render('ABReservationZenithBundle:Tarif:ajouter.html.twig', array(
         'form'=>$form->createView()
-            ));   }
+            ));   
+    }
 
 
     public function voirAction($id,$id_spectacle)

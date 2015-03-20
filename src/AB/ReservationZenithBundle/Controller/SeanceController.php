@@ -24,15 +24,7 @@ class SeanceController extends Controller
     public function ajouterAction()
     {
 		$em = $this->getDoctrine()->getManager();
-		$form = $this->createForm(new SeanceType(), new Seance());
-		$form->handleRequest($this->getRequest());
-		if($form->isValid()){
-			$seance = $form->getData();
-			$em->persist($seance);
-			$em->flush();
-			$id = $seance->getId();
-			return $this->redirect($this->get('router')->generate('voir_seance',array('id'=>$id)));
-		}
+		$form = $this->createForm(new SeanceType(), new Seance());		
         return $this->render('ABReservationZenithBundle:Seance:ajouter.html.twig', array(
                 'form'=>$form->createView()
             ));    }

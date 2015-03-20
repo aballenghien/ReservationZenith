@@ -19,9 +19,6 @@ champSeance.html(null);
        success: function(retour){
         var tarif = JSON.parse(retour);
         champPrix.val(tarif.id);
-       },
-       error: function(XMLHttpRequest, textStatus, errorThrown) { 
-          alert("Status: " + textStatus+ "\n"+"error:"+errorThrown); 
        }  
     });
   });

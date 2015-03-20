@@ -14,6 +14,7 @@ use JMS\SecurityExtraBundle\Annotation\Secure;
 use AB\ReservationZenithBundle\Command\ExecuterLesCommandes;
 use Symfony\Component\Validator\ExecutionContextInterface;
 
+
 class SpectacleController extends Controller
 {
     public function indexAction()
@@ -25,22 +26,32 @@ class SpectacleController extends Controller
 /**
 * @Secure(roles="ROLE_ADMIN")
 */
-    public function ajouterAction(Request $request)
+    public function ajouterAction(Request $request, ExecutionContextInterface $context = null)
     {
 		$em = $this->getDoctrine()->getManager();
 		$form = $this->createForm(new SpectacleType(),new Spectacle());
 		
 		if($request->isMethod('POST')){
 			$form->handleRequest($this->getRequest());			
-			
 			if($form->isValid()){
-					$spectacle = $form->getData();
+				$spectacle = $form->getData();
+				$ok = true;
+				foreach($spectacle->getSeances() as $se){
+					if($ok){
+						$ok = $em->getRepository('ABReservationZenithBundle:Seance')->isLibre($se);
+					}
+				}
+				if($ok){
 					$em->persist($spectacle);
 					$em->flush();
 					$id = $spectacle->getId();
 					ExecuterLesCommandes::runCommand('reservationzenith:genererRSS',$this);
 					return $this->redirect($this->get('router')->generate('voir_spectacle',array('id'=>$id)));
-				
+				}else{
+					$context->addViolationAt(
+            		'seances',
+            		'erreur.seances.erreurGenerale');
+				}
 			}
 		}
 		
@@ -92,15 +103,18 @@ class SpectacleController extends Controller
 		if($request->isMethod('POST')){
 			$form->handleRequest($this->getRequest());
 			if($form->isValid()){
+				$ok = true;
 				foreach ($originalsSeances as $seance ) {
 					if(($spectacle->getSeances()->contains($seance)) == false)
-					{	
-																		
+					{																			
 						$em->remove($seance);
 						$em->flush();
 
 					}else{
-						$em->persist($seance);
+						if($ok){
+							$ok = $em->getRepository('ABReservationZenithBundle:Seance')->isLibre($seance);
+						}
+						if($ok) $em->persist($seance);
 					}
 				}
 				foreach ($originalsTarifs as $tarif) {
@@ -112,13 +126,16 @@ class SpectacleController extends Controller
 						$em->persist($tarif);
 					}
 				}
-				$em->persist($spectacle);
-				$em->flush();
-				ExecuterLesCommandes::runCommand('reservationzenith:genererRSS',$this);
-				$id = $spectacle->getId();
-				return $this->redirect($this->get('router')->generate('voir_spectacle',array('id'=>$id)));
+				if($ok){
+					$em->persist($spectacle);
+					$em->flush();
+					ExecuterLesCommandes::runCommand('reservationzenith:genererRSS',$this);
+					$id = $spectacle->getId();
+					return $this->redirect($this->get('router')->generate('voir_spectacle',array('id'=>$id)));
+				}
 			}
 		}
+		
         return $this->render('ABReservationZenithBundle:Spectacle:modifier.html.twig', array(
         'form'=>$form->createView()
             ));
