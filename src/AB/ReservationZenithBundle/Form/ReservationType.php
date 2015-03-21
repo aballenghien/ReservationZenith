@@ -20,8 +20,6 @@ class ReservationType extends AbstractType
             ->add('prenom',null, array('label'=>'reservationTrad.prenom'))
             ->add('place',null, array('label'=>'reservationTrad.place'))
             ->add('seance',null, array('label'=>'seanceTrad.seance'))
-            ->add('tarif',null, array('label'=>'tarifTrad.tarif',
-                                     'disabled'=>'disabled'))
         ;
     }
     

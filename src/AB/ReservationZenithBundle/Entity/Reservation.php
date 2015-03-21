@@ -47,12 +47,6 @@ class Reservation
      * @ORM\JoinColumn(name="seance_id", referencedColumnName="id")
      **/
      private $seance;
-     
-     /**
-     * @ORM\ManyToOne(targetEntity="Tarif")
-     * @ORM\JoinColumn(name="tarif_id", referencedColumnName="id")
-     **/
-     private $tarif;
     /**
      * @ORM\ManyToOne(targetEntity="AB\ConnexionBundle\Entity\User")
      * @ORM\JoinColumn(name="client_id", referencedColumnName="id")
@@ -161,28 +155,7 @@ class Reservation
         return $this->seance;
     }
 
-    /**
-     * Set tarif
-     *
-     * @param \AB\ReservationZenithBundle\Entity\Tarif $tarif
-     * @return Reservation
-     */
-    public function setTarif(\AB\ReservationZenithBundle\Entity\Tarif $tarif = null)
-    {
-        $this->tarif = $tarif;
 
-        return $this;
-    }
-
-    /**
-     * Get tarif
-     *
-     * @return \AB\ReservationZenithBundle\Entity\Tarif 
-     */
-    public function getTarif()
-    {
-        return $this->tarif;
-    }
 
     /**
      * Set idClientConcerne

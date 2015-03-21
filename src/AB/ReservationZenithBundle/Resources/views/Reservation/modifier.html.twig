@@ -23,7 +23,7 @@
 	<input type="hidden" value="http://localhost{{path('ajax_seances', {id_spectacle: id  })}}" id="hrefSeances" />
 	</td>
 	<tr><td>{{form_label(form.seance)}}</td><td>{{form_widget(form.seance)}}</td></tr>
-	<tr><td>{{form_label(form.tarif)}}</td><td>{{form_widget(form.tarif)}}</td></tr>
+	<tr><td>{{'tarifTrad.tarif'|trans}}</td><td><input type="text" id="reservation_tarif" value="" readOnly="true" /></td></tr>
 	</table>
 	<div hidden="true">
 	{{form_rest(form)}}

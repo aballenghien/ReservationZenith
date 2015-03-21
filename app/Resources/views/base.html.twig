@@ -109,8 +109,6 @@
         <div class='container'>
             {% block body %}{% endblock %}
             {% block javascripts %}
-            <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
-            <script src="{{ path('fos_js_routing_js', {"callback": "fos.Router.setData"}) }}"></script>
             {% endblock %}
         </div>
 
@@ -153,7 +151,7 @@
                               <h4>{{'base.contact'|trans}}</h4>
                               <ul class='list-unstyled'>
                                 <li><i class='glyphicon glyphicon-globe'></i> Saint-Herblain</li>
-                                <li><i class='glyphicon glyphicon-phone'></i> 02 40 66 66 66</li>
+                                <li><i class='glyphicon glyphicon-phone'></i> 00 00 00 00 00 </li>
                                 <li><i class='glyphicon glyphicon-envelope'></i> <a href='mailto:Bien@Essaye.Sauron'> Bien@Essaye.Sauron</a></li>
                               </ul>
                               <p style='text-color:white'>Ce site est fictif.</p>
@@ -163,7 +161,12 @@
                   </div>
 
       <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
-
+      <!--<script src="{{ asset('js/bootstrap.js') }}"></script>
+      <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+      <script src="{{ asset('js/jquery-1.11.2.js') }}"></script>
+      <script src="{{ asset('js/npm.js') }}"></script>
+      <script src="{{ asset('js/requeteAjax.js') }}"></script>
+      <script src="{{ asset('js/script1.js') }}"></script>-->
       {% endblock %}
       
     </body>

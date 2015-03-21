@@ -151,9 +151,6 @@ class Tarif
 
         return $this;
     }
-    //fonction pour placer le champ minimal à la dernière place non attribué
-    //faire validator pour que le numéro de la dernière place ne dépasse pas le nombre de place du spectacle
-    
 
     /**
      * Get numeroPlaceMax

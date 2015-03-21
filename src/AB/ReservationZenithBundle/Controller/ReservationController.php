@@ -83,16 +83,19 @@ class reservationController extends Controller
                 }
                 if($reservation)
                 {
+                    $tarif="";
+                    $tarif = $em->getRepository('ABReservationZenithBundle:Tarif')->getTarifByPlace($reservation->getPlace(), $reservation->getSeance()->getSpectacle()->getId());
                         return $this->render('ABReservationZenithBundle:Reservation:details.html.twig', array(
-                    'reservation'=>$reservation, 'user'=>$user
+                    'reservation'=>$reservation, 'user'=>$user, 'tarif'=>$tarif
                     ));
                 }
             }
         }else{
             if($id != 0){
                 $reservation = $em->getRepository('ABReservationZenithBundle:Reservation')->findOneById($id);
+                $tarif = $em->getRepository('ABReservationZenithBundle:Tarif')->getTarifByPlace($reservation->getPlace(), $reservation->getSeance()->getSpectacle()->getId());
                 return $this->render('ABReservationZenithBundle:Reservation:details.html.twig', array(
-                'reservation'=>$reservation, 'user'=>$user));
+                'reservation'=>$reservation, 'user'=>$user, 'tarif'=>$tarif));
             }else{
                 $reservations = $em->getRepository('ABReservationZenithBundle:Reservation')->findAll();
             }
