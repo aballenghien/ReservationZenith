@@ -13,9 +13,9 @@
 {{parent()}}
 {% endblock %}
 {% block javascripts %} 
+{{parent()}}
     {% javascripts
         '@ABReservationZenithBundle/Resources/public/js/*'
-        '@FOSJsRoutingBundle/Resources/public/js/router.js'
     %}
         <script type="text/javascript" src="{{ asset_url }}"></script>
     {% endjavascripts %}

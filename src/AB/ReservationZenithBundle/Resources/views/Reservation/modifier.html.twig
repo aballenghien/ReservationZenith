@@ -13,7 +13,7 @@
 	<tr><td>{{form_label(form.nom)}}</td><td>{{form_widget(form.nom)}}</td></tr>
 	<tr><td>{{form_label(form.prenom)}}</td><td>{{form_widget(form.prenom)}}</td></tr>
 	<tr><td>{{form_label(form.place)}}</td><td>{{form_widget(form.place)}}</td></tr>
-	<tr><td>{{'reservationTrad.spectacle'|trans}} : </td><td>
+	<tr><td><label class="required" for="reservation_spectacles">{{'reservationTrad.spectacle'|trans}}</label> </td><td>
 	<select id='reservation_spectacles'>
 		{% for sp in spectacles %}
 		<option value="{{sp.id}}">{{sp.titre}}</option>
@@ -23,7 +23,7 @@
 	<input type="hidden" value="http://localhost{{path('ajax_seances', {id_spectacle: id  })}}" id="hrefSeances" />
 	</td>
 	<tr><td>{{form_label(form.seance)}}</td><td>{{form_widget(form.seance)}}</td></tr>
-	<tr><td>{{'tarifTrad.tarif'|trans}}</td><td><input type="text" id="reservation_tarif" value="" readOnly="true" /></td></tr>
+	<tr><td><label class="required" for="reservation_tarif">{{'tarifTrad.tarif'|trans}}</label></td><td><input type="text" id="reservation_tarif" value="" readOnly="true" disabled="true"/>€</td></tr>
 	</table>
 	<div hidden="true">
 	{{form_rest(form)}}
